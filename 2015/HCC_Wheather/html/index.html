@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>현대카드 웨더</title>
+<meta name="keywords" content="현대카드 웨더" />
+<meta name="description" content="현대카드 웨더 weather.hyundaicard.com" />
+<meta name="format-detection" content="telephone=no" />
+<meta property="og:url" content="http://weather.hyundaicard.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="현대카드 웨더" />
+<meta property="og:description" content="새로운 방법으로 날씨를 표현하는 현대카드의 날씨 정보서비스. 위트 있는 날씨 멘트와 감각적인 표현으로 현대카드만의 차별화된 날씨 정보를 제공합니다." />
+<meta property="og:image" content="http://mud-kage.kakao.co.kr/14/dn/btqb3Lxep9j/YEuqn1bxfGpBfxTjSM93K1/o.jpg" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="image_src" href="http://mud-kage.kakao.co.kr/14/dn/btqb3Lxep9j/YEuqn1bxfGpBfxTjSM93K1/o.jpg" />
+<link rel="shortcut icon" type="image/x-icon" href="images/img_favicon_v1.ico" />
+<link rel="apple-touch-icon" href="images/img_favicon_v1.ico" />
+
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/hcc_web.css" />
+<link rel="stylesheet" type="text/css" media="all" href="js/libs/video/video-js.min.css">
+<style type="text/css">
+    
+</style>
+    
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="js/com/html5shiv.js"></script>
+    <script type="text/javascript" src="js/libs/respond.js"></script>
+<![endif]-->
+<!--[if lt IE 8]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="js/libs/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/libs/modernizr.js"></script>
+<script type="text/javascript" src="js/libs/verge.js"></script>
+<script type="text/javascript" src="js/libs/adobe/flash/swfobject.js"></script>
+<script type="text/javascript" src="js/libs/video/video.js"></script>
+<script type="text/javascript" src="js/com/NetUtil.js"></script>
+<script type="text/javascript" src="js/com/Social.js"></script>
+<script type="text/javascript" src="js/com/RandomText.js"></script>
+<script type="text/javascript" src="js/Hcc_web.js"></script>
+
+
+<script type="text/javascript">
+    
+
+    $(function(){
+        /** 디바이스 검사 후 리다이렉트 */
+        if(NetUtil.isMobile()){
+            if (verge.viewportW() > 760) {
+                location.href="index_tablet.html";
+            } else {
+                location.href="index_mobile.html";
+            }
+        }
+    });
+    
+</script>
+</head>
+    
+<body>
+    
+    <div id="wrap">
+        
+        <div id="header">
+            <div class="navigation">
+                <h1>
+                    <a href="http://www.hyundaicard.com/" target="_blank"><span class="title_eng ir">Hyundai Card</span></a>
+                    <span class="title_kor"><a href="javascript:gnbActivation(0);">현대카드 웨더</a></span>
+                </h1>
+                <div class="menu_wrap">
+                    <div class="gnb">
+                        <ul>
+                            <li class="gnb_btn2">
+                                <a title="주요 서비스 소개" href="javascript:gnbActivation(1);">
+                                    <p>주요 서비스 소개</p>
+                                </a>
+                            </li>
+                            <li class="gnb_btn3">
+                                <a title="앱 설치" href="javascript:gnbActivation(5);">
+                                    <p>앱 설치</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+
+             <div class="util_menu">
+                <ul>
+                    <li>
+                        <a class="ir fb" title="페이스북 공유" href="javascript:utilMenuActivation(0);">페이스북 공유</a>
+                        <span class="tooltip1">페이스북</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir tw" title="트위터 공유" href="javascript:utilMenuActivation(1);">트위터 공유</a>
+                        <span class="tooltip2">트위터</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir cas" title="카카오스토리 공유" href="javascript:utilMenuActivation(2);">카카오스토리 공유</a>
+                        <span class="tooltip3">카카오스토리</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir band" title="Band 공유" href="javascript:utilMenuActivation(3);">Band 공유</a>
+                        <span class="tooltip4">밴드</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir mail" title="Mail 공유" href="javascript:utilMenuActivation(6);">Mail 공유</a>
+                        <span class="tooltip5">메일</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir sms" title="sms 공유" href="javascript:utilMenuActivation(7);">sms 공유</a>
+                        <span class="tooltip6">SMS</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                    <li>
+                        <a class="ir url" title="url 공유" href="javascript:utilMenuActivation(8);">url 공유</a>
+                        <span class="tooltip7">URL복사</span>
+                        <img class="tooltip_under" src="images/web/img_tooltip_under.png" alt="" />
+                    </li>
+                </ul>
+                <div class="toggle"><a class="ir" title="SNS공유 버튼 열기" href="javascript:utilMenuShowHide();">SNS공유 버튼 열기</a></div>
+             </div>
+        </div><!--  /header -->
+        
+        <div id="container">
+            <div class="section1">
+                <div class="contents">
+                    <div class="title">
+                        <h2>
+                            매일 똑같은 날씨는 없다<br />
+                            <span>현대카드 웨더</span>
+                        </h2>
+                        <p>
+                            새로운 방법으로 날씨를 표현하는 현대카드의 날씨정보<br />
+                            서비스입니다. 위트 있는 날씨 멘트와 감각적인 표현으로<br />
+                            현대카드만의 차별화된 날씨 정보를 제공합니다.
+                        </p>
+                    </div>
+                    <div class="btn_store_wrap">
+                        <ul>
+                            <li>
+                                <a class="btn_down1 ir" title="앱스토어" href="https://itunes.apple.com/kr/app/id961537908?mt=8" target="_blank">앱스토어</a>
+                                <p>iOS 6.0 버전 이상 지원</p>
+                            </li>
+                            <li>
+                                <a class="btn_down2 ir" title="구글플레이" href="javascript:alert('준비중입니다.');">구글플레이</a>
+                                <p>Android 버전 출시예정</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="list_img">
+                    <video id="video0" class="video-js" width="1100" height="900">
+                        <source src="video/video0.mp4" type="video/mp4">
+                        <source src="video/video0.ogv" type="video/ogg">
+                        <source src="video/video0.webm" type="video/webm">
+                    </video>
+                    <div class="none_flash">
+                        <a title="install flash" href="https://get.adobe.com/kr/flashplayer/" target="_blank">
+                            <img src="js/libs/adobe/flash/flash_128.jpg" alt="install flash" /></a>
+                        <p>
+                            영상을 보기 위해서는 Adobe Flash Player가 필요합니다.<br />
+                            위 버튼을 클릭하시면 설치 페이지로 이동합니다.
+                        </p>
+                    </div>
+                </div>
+                <img class="visual" src="images/web/img_visual1.png" alt="" />
+            </div><!--  /section1 -->
+            
+            <div class="contents_main">
+                
+                <div class="section2">
+                    <div class="contents">
+                        <div class="title">
+                            <h3>
+                                같은 맑음이라도<br />
+                                해석은 다르다. 날씨 멘트
+                            </h3>
+                        </div>
+                        <div class="list_description">
+                            <ul>
+                                <li class="list1">
+                                    <p>
+                                        어제와 오늘이 다르듯, 어제의 맑음과<br />
+                                        오늘의 맑음은 다릅니다. 많은 정보를 해석할 필요 없이<br />
+                                        날씨 멘트만으로도 오늘의 날씨를 알아보세요.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="list_img">
+                        <img class="device" src="images/web/img_section2_device.png" alt="" />
+                        <ul>
+                            <li class="balloon1">
+                                <img src="images/web/img_section2_balloon1.png" alt="" />
+                                <p class="txt1">오늘의 헤어 스타일은</p>
+                                <p class="txt2">바람 따라 갑니다</p>
+                                <p class="txt3">바람 강함</p>
+                            </li>
+                            <li class="balloon2">
+                                <img src="images/web/img_section2_balloon2.png" alt="" />
+                                <p class="txt1">공기 반 먼지 반이네요</p>
+                                <p class="txt2">미세먼지 나쁨</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <img class="visual" src="images/web/img_visual2.png" alt="" />
+                </div><!--  /section2 -->
+                
+                <div class="section3">
+                    <div class="contents">
+                        <div class="title">
+                            <h3>
+                                같은 하루라도<br />
+                                특별함이 다르다.<br />
+                                전세계 기념일, 축제 정보
+                            </h3>
+                        </div>
+                        <div class="list_description">
+                            <ul>
+                                <li class="list1">
+                                    <p>
+                                        서울과 파리의 ‘맑음’은 같은 ‘맑음’ 일까요?<br />
+                                        같은 맑은 날, 파리에서 축제가 열린다면 어떨까요?
+                                    </p>
+                                </li>
+                                <li class="list2">
+                                    <p>
+                                        기념일, 축제 등 특별한 날에 실시간 날씨를 확인하고<br />
+                                        즐거운 야외활동을 시작해보세요.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="list_img">
+                        <img class="device" src="images/web/img_section3_device.png" alt="" />
+                        <ul>
+                            <li class="indicator1">
+                                <p>기념일 정보</p>
+                                <div>
+                                    <img src="images/web/img_section3_line1.png" alt="" />
+                                </div>
+                            </li>
+                            <li class="indicator2">
+                                <p>축제 정보</p>
+                                <div>
+                                    <img src="images/web/img_section3_line2.png" alt="" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <img class="visual" src="images/web/img_visual3.png" alt="" />
+                </div><!--  /section3 -->
+                
+                <div class="section4">
+                    <div class="contents">
+                        <div class="title">
+                            <h3>
+                                같은 온도라도<br />
+                                매일 느낌이 다르다.<br />
+                                어제와 오늘 날씨 비교
+                            </h3>
+                        </div>
+                        <div class="list_description">
+                            <ul>
+                                <li class="list1">
+                                    <p>
+                                        밖에 나가지 않아도 어제보다 오늘이 따뜻한지 추운지<br />
+                                        알 수 있다면 외출 준비가 좀 더 편해지겠죠?
+                                    </p>
+                                </li>
+                                <li class="list2">
+                                    <p>
+                                        어제와 오늘 날씨 비교로 내가 느낀 어제의 날씨와<br />
+                                        오늘이 어떻게 다른지 직접 확인해보세요.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="list_img">
+                        <video id="video1" class="video-js" width="1100" height="900">
+                            <source src="video/video1.mp4" type="video/mp4">
+                            <source src="video/video1.ogv" type="video/ogg">
+                            <source src="video/video1.webm" type="video/webm">
+                        </video>
+                        <div class="none_flash">
+                            <a title="install flash" href="https://get.adobe.com/kr/flashplayer/" target="_blank">
+                                <img src="js/libs/adobe/flash/flash_128.jpg" alt="install flash" /></a>
+                            <p>
+                                영상을 보기 위해서는 Adobe Flash Player가 필요합니다.<br />
+                                위 버튼을 클릭하시면 설치 페이지로 이동합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <img class="visual" src="images/web/img_visual4.png" alt="" />
+                </div><!--  /section4 -->
+                
+                <div class="section5">
+                    <div class="contents">
+                        <div class="title">
+                            <h3>
+                                같은 날씨라도 표현방식은<br />
+                                다르다. 감성 테마
+                            </h3>
+                        </div>
+                        <div class="list_description">
+                            <ul>
+                                <li class="list1">
+                                    <p>
+                                        맑음, 흐림, 비, 눈 등 날씨를 다양한 테마로<br />
+                                        확인하고 공유할 수 있습니다.
+                                    </p>
+                                </li>
+                                <li class="list2">
+                                    <p>
+                                        지금까지와는 다른 방식으로 표현된 날씨 테마는<br />
+                                        앞으로 계속 업데이트될 예정입니다.
+                                    </p>
+                                </li>
+                                <li class="list3">
+                                    <img src="images/web/img_section5_list.png" alt="" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="list_img">
+                        <img class="device3" src="images/web/img_section5_device_3.png" alt="" />
+                        <img class="device2" src="images/web/img_section5_device_2.png" alt="" />
+                        <img class="device" src="images/web/img_section5_device.png" alt="" />
+                    </div>
+                </div><!--  /section5 -->
+                
+                <div class="section6">
+                    <div class="contents">
+                        <div class="title">
+                            <h3>앱 설치</h3>
+                            <p class="txt1">
+                                이제 더욱 아름답고 유용한<br />
+                                날씨 정보를 만나보세요.
+                            </p>
+                            <p class="txt2">
+                                App Store에서 현대카드 웨더를 다운 받으세요.<br />
+                                안드로이드 버전은 곧 만나보실 수 있습니다.
+                            </p>
+                        </div>
+                        <div class="btn_store_wrap">
+                            <ul>
+                                <li>
+                                    <a class="btn_down1 ir" title="앱스토어" href="https://itunes.apple.com/kr/app/id961537908?mt=8" target="_blank">앱스토어</a>
+                                    <p>iOS 6.0 버전 이상 지원</p>
+                                </li>
+                                <li>
+                                    <a class="btn_down2 ir" title="구글플레이" href="javascript:alert('준비중입니다.');">구글플레이</a>
+                                    <p>Android 버전 출시예정</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--  /section6 -->
+                
+            </div><!--  /contents -->
+            <div id="footer">
+                <div class="footer_wrap">
+                    <h3 class="logo ir">현대카드</h3>
+                    <p class="address">서울시 영등포구 의사당대로3 현대캐피탈빌딩 &nbsp;|&nbsp; 대표이사 정태영 &nbsp;|&nbsp; 사업자 등록번호 213-86-15419</p>
+                    <p class="copy">ⓒ HYUNDAI CARD Corp.</p>
+                </div>
+            </div><!--  /footer -->
+            
+            <a class="btn_section_up ir" title="이전 페이지" href="javascript:moveSectionCheck('up');">이전 페이지</a>
+            <a class="btn_section_down ir" title="다음 페이지" href="javascript:moveSectionCheck('down');">다음 페이지</a>
+        </div><!--  /container -->
+        
+    
+    </div>
+</body>
+    
+</html>

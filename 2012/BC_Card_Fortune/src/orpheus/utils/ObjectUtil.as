@@ -1,0 +1,1 @@
+﻿package orpheus.utils {	/**	 * @author philip	 */	public class ObjectUtil 	{		public static function join(...reg):Object		{			var obj:Object = new Object();			var num:uint = reg.length;			while (num--)				{				for(var i:String in reg[num])				{					obj[i] = reg[num][i];				}			}			return obj;		}	}}

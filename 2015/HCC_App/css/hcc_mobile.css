@@ -1,0 +1,199 @@
+@charset 'utf-8';
+
+@font-face{
+	font-family:"HyundaiExtraBold";
+	src:url('../font/YouandiModernHEB.eot');
+	src:url('../font/YouandiModernHEB.eot?#iefix') format('embedded-opentype'),
+        url('../font/YouandiModernHEB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+	font-family:"HyundaiRegular";
+	src:url('../font/YouandiModernTR.eot');
+	src:url('../font/YouandiModernTR.eot?#iefix') format('embedded-opentype'),
+        url('../font/YouandiModernTR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+
+
+/** 공통  */
+html,body{height:100%; font-family:"YouandiModernHEB", "HyundaiRegular","HyundaiExtraBold",dotum,gulim; background-color:#fff;}
+.ir{overflow:hidden; text-indent:100%; white-space:nowrap;}
+
+#wrap{position:relative; height:100%; min-width:640px; margin:0 auto; background-color:#fff;}
+#header{position:absolute; width:100%; z-index:2;}
+#container{position:relative; width:100%; height:100%;}
+#footer{position:relative; width:100%; margin:0 auto;}
+
+
+
+
+
+/***************************************************************************************************
+*
+* 모바일
+*
+****************************************************************************************************/
+.title h2, .title h3, .title p{width:100%; text-align:left; letter-spacing:0.5pt;}
+.title h3{width:100%; top:0; font:33pt/44pt "HyundaiExtraBold"; color:#333; text-align:left;}
+.title h3 span{width:100%; top:53px; font:49pt/58pt "HyundaiExtraBold"; color:#398ff0; text-align:left; letter-spacing:-0.5pt;}
+.list_wrap{position:relative; top:0; padding-top:5px; z-index:1;}
+.list_img{overflow:hidden;}
+.list_img img{position:absolute;}
+.list1 p{font:21pt/33pt "HyundaiRegular"; color:#444;}
+.section1, .section2, .section3, .section4, .section5, .section6{overflow:hidden;}
+.section1 .contents, .section2 .contents, .section3 .contents, .section4 .contents, .section5 .contents{top:0; margin:0; z-index:1;}
+.dimmed{display:none; position:absolute; width:100%; height:100%; top:0; left:0; background:url(../images/web/common/img_dimmed.png) 0 0 repeat;}
+.btn_top{display:inline-block; position:fixed; width:108px; height:53px; bottom:100px; right:0; background:url(../images/mobile/btn_top.png) 0 0 repeat; z-index: 2}
+.seq_m{/*display:none;*/ position:absolute; width:640px; height:800px; left:50%; bottom:0; margin-left:-320px;}
+.seq_m img{display:none; position:absolute; width:100%;}
+.seq_m img.viewer{display:block;}
+
+
+#header{height:112px;}
+#header .navigation{position:relative; width:540px; margin:0 auto;}
+#header .navigation .btn_mGnb{display:block; position:absolute; overflow:hidden; width:35px; height:35px; top:38px; right:0;
+    background:url(../images/mobile/btn_menu.png) 0 0 no-repeat;}
+#header .navigation h1{display:inline-block; position:relative; width:170px; height:37px; left:0; margin:35px 0 0; background:url(../images/mobile/img_logo.png) 0 0 no-repeat;}
+#header .navigation .menu_wrap{display:none; position:absolute; width:540px; height:109px; top:112px; margin-left:-90px; padding:0 90px 0; 
+    background-color:#fff; border-top:1px solid #d3d3d3;}
+#header .navigation .gnb{position:relative; top:42px; left:0; margin:0; background:url(../images/mobile/img_gnbbg.png) 0 0 no-repeat;}
+#header .navigation .gnb li{position:relative; float:left; height:16px;}
+#header .navigation .gnb li.gnb_btn1{width:26px;}
+#header .navigation .gnb li.gnb_btn2{width:145px; margin-left:51px;}
+#header .navigation .gnb li.gnb_btn3{width:91px; margin-left:51px;}
+#header .navigation .gnb li:first-child{margin:0;}
+#header .navigation .gnb li p{font:22.5pt/22.5pt "HyundaiExtraBold"; color:#333;}
+#header .navigation .gnb li p.on{color:#398ff0;}
+#header .navigation .gnb:after{clear:both;}
+
+#container .section1{position:relative; width:640px; height:1136px; margin:0 auto; background-color:#fff;}
+#container .section1 .section1_bg_1{display:none; position:absolute;}
+#container .section1 .section1_bg_2{display:none; position:absolute;}
+#container .section1 .section1_bg_3{display:block; position:absolute;}
+#container .section1 .contents{position:absolute; width:100%; top:50%; left:0; left:auto; margin:-210px 0 0;}
+#container .section1 .contents .title{position:relative; width:540px; height:272px; margin:0 auto;}
+#container .section1 .contents .title h2{top:0; font:22pt/28pt "HyundaiExtraBold"; color:#fff; letter-spacing:0;}
+#container .section1 .contents .title h2 span{font:63pt/88pt "HyundaiExtraBold"; color:#fff; letter-spacing:0.7pt;}
+#container .section1 .contents .title p{margin:3px 0 0; font:19pt/27pt "HyundaiRegular"; color:#fff;}
+#container .section1 .contents .btn_store_wrap{position:relative; width:540px; margin:38px auto 0;}
+#container .section1 .contents .btn_store_wrap li{float:left; width:296px; height:95px;/* margin-left:8px;*/}
+#container .section1 .contents .btn_store_wrap li a{display:inline-block;}
+#container .section1 .btn_store_wrap .btn_down1{width:296px; height:95px; background:url(../images/mobile/btn_down1.png) 0 0 no-repeat;}
+#container .section1 .btn_store_wrap .btn_down2{width:296px; height:95px; background:url(../images/mobile/btn_down2.png) 0 0 no-repeat;}
+#container .section1 .contents .btn_store_wrap li:first-child{display:none; margin:0;}
+#container .section1 .contents .btn_store_wrap:after{clear:both;}
+#container .section1 .btn_arrow{position:absolute; width:51px; height:49px; left:50%; bottom:40px; margin-left:-25px;
+    background:url(../images/mobile/btn_arrow.png) 0 0 no-repeat;}
+#container .section1 .btn_popup{position:absolute; top:32px; right:58px; z-index:2;}
+
+
+#container .contents_main{position:relative; width:640px; padding:0; margin:0 auto; overflow-x:hidden}
+
+#container .section2{position:relative; width:100%; height:1326px; margin:0 auto; background-color:#fff;}
+#container .section2 .title{position:relative; width:auto; height:122px; left:50%; margin:92px 0 0 -270px; z-index:1;}
+#container .section2 .list_wrap{left:50%; margin-left:-270px;} 
+#container .section2 .list_description{position:relative;}
+#container .section2 .list_description li.list1{position:relative; width:auto; height:auto;}
+#container .section2 .list_description li.list2{display:block; position:relative; height:23px; margin-top:49px;
+    background:url(../images/mobile/img_list_itembg1.png) 0 0 no-repeat;}
+#container .section2 .list_description li.list2 li{float:left; margin:0 0 0 50px; font:18pt/18pt "HyundaiRegular"; color:#444;}
+#container .section2 .list_description li.list2 li:first-child{margin:0;}
+#container .section2 .list_description li.list2:after{clear:both;}
+#container .section2 .list_img{position:absolute; width:640px; height:1326px; top:0; left:50%; margin-left:-320px;
+    /*background:url(../images/mobile/img_section_bg2.png) 0 0 no-repeat;*/}
+
+#container .section3{position:relative; width:100%; height:1345px; margin:0 auto; background-color:#f3f3f3;}
+#container .section3 .title{position:relative; height:110px; left:50%; margin:92px 0 0 -270px; z-index:1;}
+#container .section3 .title h3{letter-spacing:-1.5pt;}
+#container .section3 .title h3 span{letter-spacing:-1.5pt;}
+#container .section3 .list_wrap{padding-top:18px; left:50%; margin-left:-270px;}
+#container .section3 .list_description{position:relative;}
+#container .section3 .list_description li.list1{position:relative; width:auto; height:auto;}
+#container .section3 .list_description li.list2{display:block; position:relative; height:23px; margin-top:49px;
+    background:url(../images/mobile/img_list_itembg2.png) 0 0 no-repeat;}
+#container .section3 .list_description li.list2 li{float:left; margin:0 0 0 44px; font:18pt/18pt "HyundaiRegular"; color:#444;}
+#container .section3 .list_description li.list2 li:first-child{margin:0;}
+#container .section3 .list_description li.list2:after{clear:both;}
+#container .section3 .list_img{position:absolute; width:640px; height:1345px; bottom:0; left:50%; margin-left:-320px;
+    /*background:url(../images/mobile/img_section_bg3.png) 0 0 no-repeat;*/}
+
+#container .section4{position:relative; width:100%; height:1290px; margin:0 auto; background-color:#fff;}
+#container .section4 .title{position:relative; height:100px; left:50%; margin:92px 0 0 -270px; z-index:1;}
+/*#container .section4 .title h3{letter-spacing:-1.5pt;}*/
+#container .section4 .title p span{color:#333;}
+#container .section4 .list_wrap{padding-top:28px; left:50%; margin-left:-270px;}
+#container .section4 .list_description{position:relative;}
+#container .section4 .list_description li.list1{position:relative; width:auto; height:auto;}
+#container .section4 .list_description li.list2{display:block; position:relative; height:23px; margin-top:49px;
+    background:url(../images/mobile/img_list_itembg3.png) 0 0 no-repeat;}
+#container .section4 .list_description li.list2 li{float:left; margin:0 0 0 42px; font:18pt/18pt "HyundaiRegular"; color:#444;}
+#container .section4 .list_description li.list2 li:first-child{margin:0;}
+#container .section4 .list_description li.list2:after{clear:both;}
+#container .section4 .list_img{position:absolute; width:640px; height:1290px; top:0; left:50%; margin-left:-320px;
+    /*background:url(../images/mobile/img_section_bg4.png) 0 0 no-repeat;*/}
+
+#container .section5{position:relative; width:100%; height:1304px; margin:0 auto; background-color:#f7f7f7;}
+#container .section5 .title{position:relative; height:108px; left:50%; margin:92px 0 0 -270px; z-index:1;}
+#container .section5 .title h3{letter-spacing:-0.1pt;}
+#container .section5 .title span{font:48pt/68pt "HyundaiExtraBold"; color:#333;}
+#container .section5 .list_wrap{left:0; margin:0; padding-top:31px;}
+#container .section5 .list_description{position:relative;}
+#container .section5 .list_description li.list1{position:relative; width:auto; height:auto; left:50%; margin-left:-270px;}
+#container .section5 .list_img{position:absolute; width:640px; height:1304px; top:0; left:50%; margin-left:-320px;
+    background:url(../images/mobile/img_section_bg5.png) 0 0 no-repeat;}
+#container .section5 .list_img .seq_m{width:278px; top:584px; bottom:auto; margin-left:-138px;}
+#container .section5 .list_img .seq_m img.viewer{width:100%;}
+
+#container .section6{position:relative; width:100%; height:410px; background-color:#3a3d41;}
+#container .section6 .section6_bg{position:absolute;}
+#container .section6 .contents{position:relative; width:540px; margin:69px auto 0;}
+#container .section6 .contents .title{position:relative;}
+#container .section6 .contents .title h3{width:100%; font:32pt/32pt "HyundaiExtraBold"; color:#fff; text-align:left;}
+#container .section6 .contents .title p.txt1{width:100%; margin-top:8px; font:20pt/34pt "HyundaiRegular"; color:#fff; text-align:left;}
+#container .section6 .contents .title p.txt2{display:none;}
+#container .section6 .contents .btn_store_wrap{position:relative; width:540px; margin:24px auto 0;}
+#container .section6 .contents .btn_store_wrap li{float:left; width:540px; height:85px;}
+#container .section6 .contents .btn_store_wrap li a{display:inline-block;}
+#container .section6 .btn_store_wrap .btn_down1{width:540px; height:85px; background:url(../images/mobile/btn_bottomDown1.png) 0 0 no-repeat;}
+#container .section6 .btn_store_wrap .btn_down2{width:540px; height:85px; background:url(../images/mobile/btn_bottomDown2.png) 0 0 no-repeat;}
+#container .section6 .contents .btn_store_wrap li:first-child{display:none;margin:0;}
+#container .section6 .contents .btn_store_wrap p{position:absolute; top:105px; font:18pt/18pt "HyundaiRegular"; color:#aeaeae;}
+#container .section6 .contents .btn_store_wrap:after{clear:both;}
+
+#footer{width:640px; height:279px; padding:0; background-color:#3a3d41;}
+#footer .footer_wrap{position:relative; width:540px; padding-top:42px; margin:-1px auto 0; border-top:1px solid #46484c;}
+#footer .footer_wrap .logo{position:absolute; width:143px; height:30px; top:175px; background:url(../images/mobile/img_footer_logo.png) 0 0 no-repeat;}
+#footer .footer_wrap p{display:block; font:18pt/28pt "HyundaiRegular"; color:#fff; opacity:0.2;}
+/*#footer .footer_wrap p.address{letter-spacing:-1px;}*/
+#footer .footer_wrap p.copy{position:absolute; height:26px; top:122px; font:18pt/18pt "HyundaiRegular";}
+
+.popup_sns{display:none; position:fixed; width:100%; height:100%; top:0; left:0; background-color:rgba(0,0,0,0.6); z-index:3;}
+.popup_wrap{position:relative; width:540px; height:625px; top:50%; left:50%; padding-top:65px; margin:-345px 0 0 -270px; background-color:#fff;}
+.popup_wrap .btn_popup_close{position:absolute; top:30px; right:30px;}
+.popup_wrap dt{font:38pt/37pt "HyundaiExtraBold"; color:#333; text-align:center;}
+.popup_wrap dd{margin-top:20px; font:21pt/21pt "HyundaiRegular"; color:#333; text-align:center;}
+.popup_wrap .btn_wrap{width:354px; padding:30px 25px 0; margin:40px auto 0; border-top:1px solid #e9e9e9;}
+.popup_wrap .btn_wrap li{float:left; margin:12px 0 0 12px;}
+.popup_wrap .btn_wrap li.nm{margin:12px 0 0;}
+
+.popup_copyurl{display:none; position:fixed; width:100%; height:100%; top:0; left:0; background-color:rgba(0,0,0,0.6); z-index:3;}
+.popup_copyurl .wrap{position:relative; width:540px; height:285px; top:50%; left:50%; padding-top:65px; margin:-117px 0 0 -270px; background-color:#fff;}
+.popup_copyurl .btn_popup_close{position:absolute; top:30px; right:30px;}
+.popup_copyurl .wrap p.title{font:22pt/33pt "dotum"; color:#333; text-align:center; letter-spacing:-2pt;}
+.popup_copyurl .wrap p.field{width:438px; height:58px; margin:18px auto 0; font:19pt/44pt "dotum"; color:#999; text-align:center; vertical-align:middle;
+    border:1px solid #e9e9e9; background-color:#f4f4f4;}
+
+
+
+
+
+
+
+
+
+
+

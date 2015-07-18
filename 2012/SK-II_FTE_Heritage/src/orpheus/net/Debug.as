@@ -1,0 +1,1 @@
+﻿package orpheus.net{	import flash.external.*;	/**	 * MZ Package 1.0	 * @author INEX	 */		public class Debug 	{		//actionscript trace(msg) + javascript Aaert(msg)		public static function alert(msg:String):void		{			trace(msg);			ExternalInterface.call("alert", msg);		}	}}

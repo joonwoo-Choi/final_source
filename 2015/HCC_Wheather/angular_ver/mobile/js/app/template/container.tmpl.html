@@ -1,0 +1,230 @@
+<div ng-controller='containerCtrl'>
+    <a class="btn_top ir" title="맨위로" ng-click="changeSection(0)">맨위로</a>
+    <div class="section1">
+        <img class="visual1" src="images/mobile/img_visual1.png" alt="" />
+        <a class="btn_popup" title="공유 팝업" ng-click="showHideSnsPopup()"><img src="images/mobile/btn_popup.png" alt="공유 팝업" /></a>
+        <div class="contents">
+            <div class="title">
+                <h2>
+                    매일 똑같은 날씨는 없다<br />
+                    <span>현대카드 웨더</span>
+                </h2>
+                <p>
+                    새로운 방법으로 날씨를 표현하는<br />
+                    현대카드의 날씨정보 서비스입니다.<br />
+                    위트 있는 날씨 멘트와 감각적인<br />
+                    표현으로 현대카드만의 차별화된<br />
+                    날씨 정보를 제공합니다.
+                </p>
+            </div>
+            <div class="btn_store_wrap">
+                <ul>
+                    <li>
+                        <a class="btn_down1 ir" title="앱스토어" href="https://itunes.apple.com/kr/app/id961537908?mt=8" target="_blank">앱스토어</a>
+                    </li>
+                    <li>
+                        <a class="btn_down2 ir" title="구글플레이" href="javascript:alert('준비중입니다.')">구글플레이</a>
+                        <p>Android 버전 출시예정</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="list_img">
+
+        </div>
+        <a class="btn_arrow ir" title="다음 페이지" ng-click="changeSection(1)">다음 페이지</a>
+    </div><!--  /section1 -->
+
+    <div class="contents_main">
+
+        <div class="visual_wrap">
+            <img class="visual2" src="images/mobile/img_visual2.png" alt="" />
+            <img class="visual3" src="images/mobile/img_visual3.png" alt="" />
+            <img class="visual4" src="images/mobile/img_visual4.png" alt="" />
+        </div>
+
+        <div class="section2">
+            <div class="contents">
+                <div class="title">
+                    <h3>
+                        같은 맑음이라도<br />
+                        해석은 다르다. 날씨 멘트
+                    </h3>
+                </div>
+                <div class="list_wrap">
+                    <div class="list_description">
+                        <ol>
+                            <li class="list1">
+                                <p>
+                                    어제와 오늘이 다르듯, 어제의 맑음과 오늘의<br />
+                                    맑음은 다릅니다. 많은 정보를 해석할 필요 없이<br />
+                                    날씨 멘트만으로도 오늘의 날씨를 알아보세요.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="list_img">
+                <img class="device" src="images/mobile/img_section2_device.png" alt="" />
+                <ul>
+                    <li class="balloon1">
+                        <img src="images/mobile/img_balloon1.png" alt="" />
+                        <p class="txt1">오늘의 헤어 스타일은</p>
+                        <p class="txt2">바람 따라 갑니다</p>
+                        <p class="txt3">바람 강함</p>
+                    </li>
+                    <li class="balloon2">
+                        <img src="images/mobile/img_balloon2.png" alt="" />
+                        <p class="txt1">공기 반 먼지 반이네요</p>
+                        <p class="txt2">미세먼지 나쁨</p>
+                    </li>
+                </ul>
+            </div>
+        </div><!--  /section2 -->
+
+        <div class="section3">
+            <div class="contents">
+                <div class="title">
+                    <h3>
+                        같은 하루라도<br />
+                        특별함이 다르다.<br />
+                        전세계 기념일, 축제 정보
+                    </h3>
+                </div>
+                <div class="list_wrap">
+                    <div class="list_description">
+                        <ol>
+                            <li class="list1">
+                            <p>
+                                서울과 파리의 ‘맑음’은 같은 ‘맑음’ 일까요?<br />
+                                같은 맑은 날, 파리에서 축제가 열린다면 어떨까요?
+                            </p>
+                        </li>
+                        <li class="list2">
+                            <p>
+                                기념일, 축제 등 특별한 날에 실시간 날씨를<br />
+                                확인하고 즐거운 야외활동을 시작해보세요.
+                            </p>
+                        </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="list_img">
+                <img class="device" src="images/mobile/img_section3_device.png" alt="" />
+                <ul>
+                    <li class="indicator1">
+                        <p>기념일 정보</p>
+                        <div>
+                            <img src="images/mobile/img_section3_line1.png" alt="" />
+                        </div>
+                    </li>
+                    <li class="indicator2">
+                        <p>축제 정보</p>
+                        <div>
+                            <img src="images/mobile/img_section3_line2.png" alt="" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div><!--  /section3 -->
+
+        <div class="section4">
+            <div class="contents">
+                <div class="title">
+                    <h3>
+                        같은 온도라도<br />
+                        매일 느낌이 다르다.<br />
+                        어제와 오늘 날씨 비교
+                    </h3>
+                </div>
+                <div class="list_wrap">
+                    <div class="list_description">
+                        <ol>
+                            <li class="list1">
+                                <p>
+                                    밖에 나가지 않아도 어제보다 오늘이 따뜻한지<br />
+                                    추운지 알 수 있다면 외출 준비가 좀 더 편해지겠죠?<br />
+                                    어제와 오늘 날씨 비교로 내가 느낀 어제의 날씨와<br />
+                                    오늘이 어떻게 다른지 직접 확인해보세요.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="list_img">
+                <div class="seq_m">
+                    <img class="viewer" src="images/mobile/sequence_android/video0/img_seq_1.jpg" alt="" />
+                </div>
+            </div>
+        </div><!--  /section4 -->
+
+        <div class="section5">
+            <div class="contents">
+                <div class="title">
+                    <h3>
+                        같은 날씨라도 표현방식은<br />
+                        다르다. 감성 테마
+                    </h3>
+                </div>
+                <div class="list_wrap">
+                    <div class="list_description">
+                        <ol>
+                            <li class="list1">
+                                <p>
+                                    맑음, 흐림, 비, 눈 등 날씨를 다양한 테마로<br />
+                                    확인하고 공유할 수 있습니다.
+                                </p>
+                            </li>
+                            <li class="list2">
+                                <p>
+                                    지금까지와는 다른 방식으로 표현된 날씨 테마는<br />
+                                    앞으로 계속 업데이트될 예정입니다.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="list_img">
+                <img class="device3" src="images/mobile/img_section5_device3.png" alt="" />
+                <img class="device2" src="images/mobile/img_section5_device2.png" alt="" />
+                <img class="device1" src="images/mobile/img_section5_device1.png" alt="" />
+                <img class="theme" src="images/mobile/img_section5_list.png" alt="" />
+            </div>
+        </div><!--  /section5 -->
+
+        <div class="section6">
+            <div class="contents">
+                <div class="title">
+                    <h3>앱 설치</h3>
+                    <p class="txt1">
+                        이제 더욱 아름답고 유용한<br />
+                        날씨 정보를 만나보세요.
+                    </p>
+                    <p class="txt2">
+                        사용 중인 OS를 선택하여 회원님의 스마트폰에 적합한 앱을<br />
+                        다운로드해 주세요.
+                    </p>
+                </div>
+                <div class="btn_store_wrap">
+                    <ul>
+                        <li><a class="btn_down1 ir" title="앱스토어" href="https://itunes.apple.com/kr/app/id961537908?mt=8" target="_blank">앱스토어</a></li>
+                        <li><a class="btn_down2 ir" title="구글플레이" href="javascript:alert('준비중입니다.')">구글플레이</a></li>
+                    </ul>
+                    <p>Android 버전 출시예정</p>
+                </div>
+            </div>
+        </div><!--  /section6 -->
+
+    </div><!--  /contents -->
+    <div id="footer">
+        <div class="footer_wrap">
+            <h3 class="logo ir">현대카드</h3>
+            <p class="address">서울특별시 영등포구 의사당대로3 현대캐피탈빌딩<br />대표이사 정태영&nbsp;|&nbsp;사업자등록번호 213-86-15419</p>
+            <p class="copy">ⓒ HYUNDAI CARD Corp.</p>
+        </div>
+    </div><!--  /footer -->
+</div>

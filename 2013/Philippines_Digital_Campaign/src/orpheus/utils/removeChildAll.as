@@ -1,0 +1,1 @@
+﻿package orpheus.utils {	import flash.display.DisplayObjectContainer;			public function removeChildAll(displayObjectContainer:DisplayObjectContainer):void	{		while(displayObjectContainer.numChildren)		{			displayObjectContainer.removeChildAt(0);		}	}}

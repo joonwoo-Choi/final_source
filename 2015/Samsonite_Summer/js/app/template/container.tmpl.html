@@ -1,0 +1,699 @@
+<div data-ng-controller="containerCtrl">
+    <audio preload="auto" id="bgm"></audio>
+    <div class="contents-wrap">
+        <ul class="contents">
+            <li class="main-cont" data-ng-controller="mainCtrl">
+                <div class="main-visual">
+                    <ul>
+                        <li><img data-ng-src="images/main/img_visual0.jpg" alt="True Colors"></li>
+                        <li><img data-ng-src="images/main/img_visual1.jpg" alt="True Colors"></li>
+                        <li><img data-ng-src="images/main/img_visual2.jpg" alt="True Colors"></li>
+                        <li><img data-ng-src="images/main/img_visual3.jpg" alt="True Colors"></li>
+                    </ul>
+                </div>
+                <div class="title-wrap">
+                    <ul>
+                        <li class="txt-title0"><h2><img data-ng-src="images/main/txt_title0.png" alt="True Colors"></h2></li>
+                        <li class="txt-title1"><h2><img data-ng-src="images/main/txt_title1.png" alt="True Journeys"></h2></li>
+                        <li class="txt-title2"><h2><img data-ng-src="images/main/txt_title2.png" alt="Tru-Frame"></h2></li>
+                    </ul>
+                    <div class="title-line"></div>
+                    <p class="txt-title3 ir">
+                        What’s the Color of your Journey? 진짜 나를 찾아가는 여정.. 그 미지의 여정과 함께하는 Samsonite Tru-Frame의 4가지 Story
+                    </p>
+                    <div class="btn-play">
+                        <a title="메인 티저 영상 재생" href="" data-ng-click="playMainMovie()">
+                            <img data-ng-src="images/main/btn_play.png" alt="메인 티저 영상 재생">
+                        </a>
+                    </div>
+                </div>
+                <div class="player-wrap">
+                    <video id="mainVideo" width="640" height="574">
+                        <source src="http://cdn.samsonitered.co.kr/truframe/video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="main-btn-wrap">
+                    <ul class="movie-btns">
+                        <li data-ng-repeat="btnMovie in btnMovieList">
+                            <a title="{{btnMovie.title}}" href="" data-ng-click="mainBtnHandler(btnMovie.idx)">
+                                <img data-ng-src="{{'images/main/btn_movie'+$index+'.png'}}" alt="{{btnMovie.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li data-ng-repeat="btnQuick in btnQuickList">
+                            <a title="{{btnQuick.title}}" href="" data-ng-click="mainBtnHandler(btnQuick.idx)">
+                                <img data-ng-src="{{'images/main/btn_quick'+$index+'.png'}}" alt="{{btnQuick.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="colors-cont" data-ng-controller="colorsCtrl">
+                <div class="cont-wrap">
+                    <h2 class="colors-title cont-item item1">
+                        <img data-ng-src="images/colors/txt_title0.png" alt="True Colors Samsonite TVCF">
+                    </h2>
+                    <ul class="colors-pages">
+                        <li class="cont-tvcf page-item0 on">
+                            <div class="player-bg cont-item item2">
+                                <div class="player-wrap">
+                                    <ul class="tvcf-cover">
+                                        <li data-ng-repeat="colorCover in colorCoverList">
+                                            <a title="영상 재생" href="" data-ng-click="tvcfPlayStart($index)">
+                                                <img data-ng-src="{{'images/colors/img_cover'+$index+'.jpg'}}" alt="영상 재생">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="tvcfPlayer"></div>
+                                </div>
+                            </div>
+                            <div class="thumbnail-wrap cont-item item3">
+                                <ul>
+                                    <li class="{{'page-item'+($index+1)}}" data-ng-repeat="tvcfBtn in tvcfBtnList">
+                                        <a title="무비 섬네일" href="" data-ng-click="tvcfPlay($index)">
+                                            <img data-ng-src="images/colors/img_thumb{{$index}}.jpg" alt="무비 섬네일">
+                                            <img class="over" data-ng-src="images/colors/img_thumb_on.png" alt="무비 섬네일">
+                                            <img class="thumb-frame" data-ng-src="images/colors/img_thumb_frame.png" alt="섬네일 프레임">
+                                            <div class="btn-thumb">
+                                                <img class="thumb-btn-bg" data-ng-src="images/colors/img_btn_thumbbg.png" alt="버튼">
+                                                <img class="btn-thumb-play" data-ng-src="images/colors/btn_thumb_play.png" alt="버튼">
+                                            </div>
+                                        </a>
+                                        <p>
+                                            <img data-ng-src="{{'images/colors/txt_tvcf'+$index+'.png'}}" alt="{{tvcfBtn.title}}">
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="cont-film page-item0">
+                            <div class="player-bg cont-item item2">
+                                <div class="player-wrap">
+                                    <ul class="film-cover">
+                                        <li data-ng-repeat="filmCover in filmCoverList">
+                                            <a title="영상 재생" href="" data-ng-click="filmPlayStart($index)">
+                                                <img data-ng-src="{{'images/colors/img_cover'+($index+3)+'.jpg'}}" alt="영상 재생">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="filmPlayer"></div>
+                                </div>
+                            </div>
+                            <div class="thumbnail-wrap cont-item item3">
+                                <ul>
+                                    <li class="{{'page-item'+($index+1)}}" data-ng-repeat="filmBtn in filmBtnList">
+                                        <a title="무비 섬네일" href="" data-ng-click="filmPlay($index)">
+                                            <img data-ng-src="images/colors/img_thumb{{$index+3}}.jpg" alt="무비 섬네일">
+                                            <img class="over" data-ng-src="images/colors/img_thumb{{$index+3}}_on.jpg" alt="무비 섬네일">
+                                            <img class="thumb-frame" data-ng-src="images/colors/img_thumb_frame.png" alt="섬네일 프레임">
+                                            <div class="btn-thumb">
+                                                <img class="thumb-btn-bg" data-ng-src="images/colors/img_btn_thumbbg.png" alt="버튼">
+                                                <img class="btn-thumb-play" data-ng-src="{{'images/colors/btn_thumb_play'+$index+'.png'}}" alt="버튼">
+                                            </div>
+                                        </a>
+                                        <p>
+                                            <img data-ng-src="{{'images/colors/txt_film'+$index+'.png'}}" alt="{{filmBtn.title}}">
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="btn-swipe0"><img data-ng-src="images/colors/btn_swipe0.png" alt="이전"></li>
+                        <li class="btn-swipe1"><img data-ng-src="images/colors/btn_swipe1.png" alt="다음"></li>
+                    </ul>
+                    <div class="btn-wrap cont-item item4">
+                        <a title="페이스북 공유" href="" data-ng-click="shareFb()">
+                            <img data-ng-src="images/colors/btn_share.png" alt="페이스북 공유">
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="story-cont" data-ng-controller="storyCtrl">
+                <ul>
+                    <li class="story-main on">
+                        <h2 class="story-title cont-item item1"><img data-ng-src="images/story/txt_story_title.png" alt="True Story"></h2>
+                        <p class="txt1 cont-item item2">
+                            <img data-ng-src="images/story/txt_story_p0.png" alt="나만의 True Color를 찾아 Tru-Frame과 함께 떠나는 4명의 True Story">
+                        </p>
+                        <p class="txt2 cont-item item3">
+                            <img data-ng-src="images/story/txt_story_p1.png" alt="쌤소나이트는  세 가지 색 - 블루, 레드, 화이트  (1994) 영화를 오마쥬하여 자신의 진짜 컬러를 찾는 여정을 그린 옴니버스 필름을 제작하였다.">
+                        </p>
+                        <p class="txt3 cont-item item4">
+                            <img data-ng-src="images/story/txt_story_p2.png" alt="세 가지 색  영화에 자유, 평등, 박애의 의미가 담겨있듯 Tru-Frame 컬러에 4명의 개성이 녹아 든 꿈, 자유, 도전, 영감의 의미를 담아내었다.">
+                        </p>
+                        <div class="story-btn-wrap">
+                            <ul>
+                                <li class="{{'cont-item item'+(5+Math.floor($index/2))}}" data-ng-repeat="storyBtn in storyBtnList">
+                                    <a title="{{storyBtn.title}}" href="" data-ng-click="storyBtnHandler($index+1)">
+                                        <img data-ng-src="{{'images/story/img_story_thumb'+$index+'.jpg'}}" alt="{{storyBtn.title}}">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="story-sub silver">
+                        <p class=""><img data-ng-src="images/story/txt_story_title1.png" alt="작사가 김이나의 새로운 설레임, 매트 실버"></p>
+                        <div class="story-sub-cont1">
+                            <a title="페이스북 공유하기" href="" data-ng-click="shareFb(0)">
+                                <img data-ng-src="images/story/btn_fb.png" alt="페이스북 공유하기">
+                            </a>
+                        </div>
+                        <div class="story-sub-cont2">
+                            <img data-ng-src="images/story/img_silver0.jpg" alt="옴니버스 이미지1">
+                        </div>
+                        <div class="story-sub-cont3">
+                            <img data-ng-src="images/story/img_silver1.jpg" alt="옴니버스 이미지2">
+                        </div>
+                        <div class="story-sub-cont4">
+                            <img data-ng-src="images/story/img_silver2.jpg" alt="옴니버스 이미지3">
+                        </div>
+                    </li>
+                    <li class="story-sub blue">
+                        <p class=""><img data-ng-src="images/story/txt_story_title2.png" alt="뮤지션 마이큐가 들려주는 미완성곡, 아쿠아 블루"></p>
+                        <div class="story-sub-cont1">
+                            <a title="페이스북 공유하기" href="" data-ng-click="shareFb(1)">
+                                <img data-ng-src="images/story/btn_fb.png" alt="페이스북 공유하기">
+                            </a>
+                        </div>
+                        <div class="story-sub-cont2">
+                            <img data-ng-src="images/story/img_blue0.jpg" alt="옴니버스 이미지1">
+                        </div>
+                        <div class="story-sub-cont3">
+                            <img data-ng-src="images/story/img_blue1.jpg" alt="옴니버스 이미지2">
+                        </div>
+                        <div class="story-sub-cont4">
+                            <img data-ng-src="images/story/img_blue2.jpg" alt="옴니버스 이미지3">
+                        </div>
+                    </li>
+                    <li class="story-sub purple">
+                        <p class=""><img data-ng-src="images/story/txt_story_title3.png" alt="셰프 맹기용에게 영감이 필요할 땐, 팬시 퍼플"></p>
+                        <div class="story-sub-cont1">
+                            <a title="페이스북 공유하기" href="" data-ng-click="shareFb(2)">
+                                <img data-ng-src="images/story/btn_fb.png" alt="페이스북 공유하기">
+                            </a>
+                        </div>
+                        <div class="story-sub-cont2">
+                            <img data-ng-src="images/story/img_purple0.jpg" alt="옴니버스 이미지1">
+                        </div>
+                        <div class="story-sub-cont3">
+                            <img data-ng-src="images/story/img_purple1.jpg" alt="옴니버스 이미지2">
+                        </div>
+                        <div class="story-sub-cont4">
+                            <img data-ng-src="images/story/img_purple2.jpg" alt="옴니버스 이미지3">
+                        </div>
+                    </li>
+                    <li class="story-sub orange">
+                        <p class=""><img data-ng-src="images/story/txt_story_title4.png" alt="모델 박슬기의 꿈 같은 이야기, 플레임 오렌지"></p>
+                        <div class="story-sub-cont1">
+                            <a title="페이스북 공유하기" href="" data-ng-click="shareFb(3)">
+                                <img data-ng-src="images/story/btn_fb.png" alt="페이스북 공유하기">
+                            </a>
+                        </div>
+                        <div class="story-sub-cont2">
+                            <img data-ng-src="images/story/img_orange0.jpg" alt="옴니버스 이미지1">
+                        </div>
+                        <div class="story-sub-cont3">
+                            <img data-ng-src="images/story/img_orange1.jpg" alt="옴니버스 이미지2">
+                        </div>
+                        <div class="story-sub-cont4">
+                            <img data-ng-src="images/story/img_orange2.jpg" alt="옴니버스 이미지3">
+                        </div>
+                    </li>
+                </ul>
+                <div class="player-bg">
+                    <div class="player-wrap">
+                        <div id="storyPlayer"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="frame-cont" data-ng-controller="frameCtrl">
+                <h2 class="ir">Tru-Frame</h2>
+                <div class="product-cont">
+                    <ul>
+                        <li class="set right" data-ng-repeat="product in productList">
+                            <img data-ng-src="{{'images/frame/img_product'+$index+'.jpg'}}" alt="{{product.title}}">
+                        </li>
+                    </ul>
+                </div>
+                <ul class="btn-swipe-wrap">
+                    <li class="btn-swipe0">
+                        <a title="이전" href="" data-ng-click="swipeHandler(0)">
+                            <img data-ng-src="images/colors/btn_swipe0.png" alt="이전">
+                        </a>
+                    </li>
+                    <li class="btn-swipe1">
+                        <a title="다음" href="" data-ng-click="swipeHandler(1)">
+                            <img data-ng-src="images/colors/btn_swipe1.png" alt="다음">
+                        </a>
+                    </li>
+                </ul>
+                <div class="btn-bullet-wrap cont-item item1">
+                    <ul>
+                        <li class="{{btnProduct.color}}" data-ng-repeat="btnProduct in btnProductList">
+                            <a title="{{btnProduct.title}}" href="" data-ng-click="bulletHandler($index)">
+                                <img data-ng-src="{{'images/frame/btn_bullet'+$index+'.png'}}" alt="{{btnProduct.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="btn-wrap cont-item item2">
+                    <li>
+                        <a title="온라인몰 가기" href="" data-ng-click="frameBtnHandler(0)">
+                            <img data-ng-src="images/frame/btn_frame0.png" alt="온라인몰 가기">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="여행스토리 영상보기" href="" data-ng-click="frameBtnHandler(1)">
+                            <img data-ng-src="images/frame/btn_frame1.png" alt="여행스토리 영상보기">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="journeys-cont" data-ng-controller="journeysCtrl">
+                <ul>
+                    <li class="event-cont on">
+                        <h2 class="event-title cont-item item1"><img data-ng-src="images/journeys/event/txt_event_title.png" alt="True Journeys Movie Award 4인 4색의 옴니버스 필름을 확인하고 당신의 컬러와 개성을 담은 무비를 완성하세요."></h2>
+                        <ul class="event-btn-wrap cont-item item2">
+                            <li>
+                                <a class="btn-preview" title="무비 미리보기" href="" data-ng-click="eventHandler(0)">
+                                    <img data-ng-src="images/journeys/event/btn_event0.png" alt="무비 미리보기">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-make" title="무비 만들기" href="" data-ng-click="eventHandler(1)">
+                                    <img data-ng-src="images/journeys/event/btn_event1.png" alt="무비 만들기">
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="txt-event-subtitle cont-item item3">
+                            <img data-ng-src="images/journeys/event/txt_event_subtitle.png" alt="쌤소나이트 저널리스트 혜택 Movie Award의 참여작 중 우수작을 선정하여 아래의 여행지로 떠날 기회 제공!">
+                        </p>
+                        <div class="btn-detail cont-item item4">
+                            <a title="자세히 확인하기" href="" data-ng-click="eventHandler(2)">
+                                <img data-ng-src="images/journeys/event/btn_event2.png" alt="자세히 확인하기">
+                            </a>
+                        </div>
+                        <div class="film-picture cont-item item5">
+                            <img data-ng-src="images/journeys/event/img_event_guide.jpg" alt="필름 이미지">
+                        </div>
+                        <div class="event-guide cont-item item6 ir">
+                            <dl>
+                                <dt>영화제 기간</dt>
+                                <dd>2015년 7월 6일 ~ 7월 31일</dd>
+                                <dt>저널리스트 발표</dt>
+                                <dd>2015년 8월 11일</dd>
+                                <dt>저널리스트 발표</dt>
+                                <dd>
+                                    <ol>
+                                        <li>4가지 컬러의 옴니버스 필름 감상</li>
+                                        <li>자신의 개성에 맞는 컬러 선택</li>
+                                        <li>자신의 여행 컬러를 표현해 줄 수 있는 사진 5장 업로드</li>
+                                        <li>이미지와 BGM이 합성되어 나만의 무비 생성</li>
+                                    </ol>
+                                </dd>
+                            </dl>
+                        </div>
+                        
+                        <div class="popup-cont">
+                            <div class="popup-topline"></div>
+                            
+                            <div class="popup-title-wrap">
+<!--                                <h2><img data-ng-src="images/journeys/event/txt_process_title.png" alt="True Journeys Movie Award"></h2>-->
+                                <ul class="step-navi">
+                                    <li>
+                                        <img class="step-off" data-ng-src="images/journeys/event/img_step1_off.png" alt="off">
+                                        <img class="step-on" data-ng-src="images/journeys/event/img_step1_on.png" alt="on">
+                                    </li>
+                                    <li>
+                                        <img class="step-off" data-ng-src="images/journeys/event/img_step2_off.png" alt="off">
+                                        <img class="step-on" data-ng-src="images/journeys/event/img_step2_on.png" alt="on">
+                                    </li>
+                                    <li>
+                                        <img class="step-off" data-ng-src="images/journeys/event/img_step3_off.png" alt="off">
+                                        <img class="step-on" data-ng-src="images/journeys/event/img_step3_on.png" alt="on">
+                                    </li>
+                                    <li>
+                                        <img class="step-off" data-ng-src="images/journeys/event/img_step4_off.png" alt="off">
+                                        <img class="step-on" data-ng-src="images/journeys/event/img_step4_on.png" alt="on">
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <ul class="event-process">
+                                <li class="popup-detail">
+                                    <div class="ir">
+                                        
+                                    </div>
+                                    <ul class="btn-wrap">
+                                        <li>
+                                            <a title="닫기" href="" data-ng-click="popupClose()">
+                                                <img data-ng-src="images/journeys/event/btn_popup0.png" alt="닫기">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="무비 만들기" href="" data-ng-click="eventHandler(1)">
+                                                <img data-ng-src="images/journeys/event/btn_popup1.png" alt="무비 만들기">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="step1">
+                                    <p><img data-ng-src="images/journeys/event/txt_step1_title.png" alt="4인 4색의 옴니버스 필름을 확인하고 당신의 컬러와 개성에 가장 잘 어울리는 스토리를 선택해주세요."></p>
+                                    <div class="select-wrap">
+                                        <ul class="film-list">
+                                            <li data-ng-repeat="film in filmList">
+                                                <div class="film-perspective up">
+                                                    <a title="{{film.title}}" href="" data-ng-click="filmListHandler($index)">
+                                                        <img class="view-off" data-ng-src="{{'images/journeys/event/img_film_list'+$index+'_off0.jpg'}}" 
+                                                             alt="{{film.title}}">
+                                                        <img class="view-on" data-ng-src="{{'images/journeys/event/img_film_list'+$index+'_on0.jpg'}}" 
+                                                             alt="{{film.title}}">
+                                                    </a>
+                                                </div>
+                                                <div class="film-perspective under">
+                                                    <a title="{{film.title}}" href="" data-ng-click="filmListHandler($index)">
+                                                        <img class="view-off" data-ng-src="{{'images/journeys/event/img_film_list'+$index+'_off1.jpg'}}" 
+                                                             alt="{{film.title}}">
+                                                        <img class="view-on" data-ng-src="{{'images/journeys/event/img_film_list'+$index+'_on1.jpg'}}" 
+                                                             alt="{{film.title}}">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="film-preview">
+                                        <div class="player-wrap">
+                                            <div class="jouneys-cover">
+                                                <a title="영상 재생" href="" data-ng-click="jouneysPlayStart()">
+                                                    <img data-ng-src="images/journeys/event/img_player_cover.jpg" alt="영상 재생">
+                                                </a>
+                                            </div>
+                                            <div id="jouneysPlayer"></div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <a title="이전" href="" data-ng-click="videoSelectedCheck(0)">
+                                                <img data-ng-src="images/journeys/event/btn_popup4.png" alt="이전">
+                                            </a>
+                                            <a title="영상선택" href="" data-ng-click="videoSelectedCheck(1)">
+                                                <img data-ng-src="images/journeys/event/btn_popup3.png" alt="영상선택">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="step2">
+                                    <p><img data-ng-src="{{'images/journeys/event/txt_step2_title'+(Math.floor(myimgList.length/5))+'.png'}}" alt="당신의 컬러와 개성을 표현할 여행 사진 5장을 업로드 하세요. (직접 촬영한 본인의 여행 사진을 업로드하셔야 선정 확률이 높아집니다. 본인의 사진이 아닐 경우 당첨이 취소될 수 있습니다.)"></p>
+                                    <div class="preview-myimg-wrap">
+                                        <div class="input-maker">
+                                            <label for="input-maker"><img data-ng-src="images/journeys/event/txt_director.png" alt="감독명 입력"></label> 
+                                            <input id="input-maker" type="text" data-ng-model="makerName" maxlength="10">
+                                            <img data-ng-src="images/journeys/event/txt_director_2.png" alt="}">
+                                        </div>
+                                        <ul class="btn-get-img">
+                                            <li class="{{btnGetImg.class}}" data-ng-repeat="btnGetImg in btnGetImgList">
+                                                <a title="{{btnGetImg.title}}" href="" data-ng-click="getMakeMovieImg(btnGetImg.idx)">
+                                                    <img data-ng-src="{{btnGetImg.src}}" alt="{{btnGetImg.title}}">
+                                                </a>
+                                                <input class="btn-mygallery" type="file">
+                                            </li>
+                                        </ul>
+                                        <ul class="selected-wrap">
+                                            <li class="{{myimg.checked}}" data-ng-repeat="myimg in myimgList">
+                                                <a title="{{myimg.title}}" href="">
+                                                    <img data-ng-src="{{myimg.src}}" alt="{{myimg.title}}">
+                                                </a>
+                                                <a class="btn-calcel-selected" title="이미지 선택 취소" href="" data-ng-click="cancelSelectedImg($index)">
+                                                    <img data-ng-src="images/journeys/event/btn_select_cancel.png" alt="이미지 선택 취소">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p><img data-ng-src="images/journeys/event/txt_upload.png" alt="응모 영상 및 이미지는 쌤소나이트 캠페인 활동 (SNS, 사이트 업로드 등) 에 이용될 수 있습니다. 스틸무비로 제작되므로 가로사이즈의 높은 해상도(1280이상)의 이미지를 권장합니다. 저작권 혹은 캠페인에 위배되는 이미지는 자동 삭제될 예정이며, 업로드한 이미지의 저작권에 대한 책임은 참여자 본인에게 있습니다."></p>
+                                    <ul class="btn-wrap">
+                                        <li>
+                                            <a title="이전" href="" data-ng-click="prevStep()">
+                                                <img data-ng-src="images/journeys/event/btn_popup4.png" alt="이전">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="무비 만들기" href="" data-ng-click="makeMovieCheck(makerName)">
+                                                <img data-ng-src="images/journeys/event/btn_popup1.png" alt="무비 만들기">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="popup-loadedimg-list">
+                                        <div class="cont-wrap">
+                                            <div class="popup-topline"></div>
+                                            <a class="btn-popup-close" title="닫기" href="" data-ng-click="popupClose()">
+                                                <img data-ng-src="images/journeys/event/btn_popup_close.png" alt="닫기">
+                                            </a>
+                                            <div class="title-wrap">
+                                                <ul>
+                                                    <li><img data-ng-src="images/journeys/event/txt_fb_title.png" alt="페이스북 사진 불러오기"></li>
+                                                    <li><img data-ng-src="images/journeys/event/txt_insta_title.png" alt="인스타그램 사진 불러오기"></li>
+                                                </ul>
+                                            </div>
+                                            <div class="myimg-list-wrap">
+                                                <ul>
+                                                    <li data-ng-repeat="loadedImg in loadedImgList track by $index">
+                                                        <a title="유저 이미지" href="" data-ng-click="selectloadedImg($index)">
+                                                            <img class="add" data-ng-src="{{loadedImg.src}}" alt="유저 이미지">
+                                                            <div class="check-wrap">
+                                                                <div>
+                                                                    <img class="check-false" data-ng-src="images/journeys/event/img_check_off.png" alt="false">
+                                                                    <img class="check-true" data-ng-src="images/journeys/event/img_check_on.png" alt="true">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="btn-list-load">
+                                                <a title="더보기" href="" data-ng-click="getMakeMovieImg()">
+                                                    <img data-ng-src="images/journeys/event/btn_more.png" alt="더보기">
+                                                </a>
+                                            </div>
+                                            <ul class="btn-wrap">
+                                                <li>
+                                                    <a title="이전" href="" data-ng-click="popupClose()">
+                                                        <img data-ng-src="images/journeys/event/btn_popup4.png" alt="이전">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a title="사진선택" href="" data-ng-click="selectComplete()">
+                                                        <img data-ng-src="images/journeys/event/btn_popup5.png" alt="사진선택">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="popup-footer"><img data-ng-src="images/journeys/event/img_footer.png" alt="COPYRIGHT © 2015 SAMSONITE. ALL RIGHTS RESERVED"></div>
+                                        </div>
+                                    </div><!--  페북, 인스타그램 이미지 리스트 팝업    -->
+                                </li>
+                                <li class="step3">
+                                    <p><img data-ng-src="images/journeys/event/txt_step3_title.png" alt="당신의 스틸무비를 감상하세요."></p>
+                                    <div class="movie-player">
+                                        <ul class="omnibus-film">
+                                            <li data-ng-repeat="makeScene in makeSceneList track by $index">
+                                                <img data-ng-src="{{makeScene}}" alt="유저 제작 영상">
+                                                <p></p>
+                                            </li>
+                                        </ul>
+                                        <div class="btn-play-wrap">
+                                            <a title="무비 플레이" href="" data-ng-click="moviePlay()">
+                                                <img data-ng-src="images/journeys/event/btn_play_step3.png" alt="무비 플레이">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <ul class="btn-wrap">
+                                        <li>
+                                            <a title="이전" href="" data-ng-click="prevStep()">
+                                                <img data-ng-src="images/journeys/event/btn_popup4.png" alt="이전">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="영상 응모하기" href="" data-ng-click="eventStepProcess(4)">
+                                                <img data-ng-src="images/journeys/event/btn_popup6.png" alt="영상 응모하기">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="step4">
+                                    <p><img data-ng-src="images/journeys/event/txt_step4_title.png" alt="당첨 고지를 받을 개인 정보를 입력해 주세요"></p>
+                                    <form name="userForm" data-ng-init="firstNumbers=['010', '011', '016', '017', '018', '019']; user.tel1=firstNumbers[0];" novalidate>
+                                        <div class="input-user-info">
+                                            <ul>
+                                                <li>
+                                                    <label for="input-name">
+                                                        <img data-ng-src="images/journeys/event/txt_input_label0.png" alt="이름">
+                                                    </label>
+                                                    <input id="input-name" class="input-name" type="text" data-ng-model="user.name" name="uName" maxlength="10">
+                                                </li>
+                                                <li>
+                                                    <label for="input-tel1">
+                                                        <img data-ng-src="images/journeys/event/txt_input_label1.png" alt="휴대폰 번호">
+                                                    </label>
+                                                    <select id="input-tel1" class="input-tel1" data-ng-model="user.tel1" name="uTel1" ng-options="number as number for (index, number) in firstNumbers"></select>
+                                                    <img src="images/journeys/event/img_dash.png" alt="">
+                                                    <input id="input-tel2" class="input-tel2" type="text" data-ng-model="user.tel2" name="uTel2" maxlength="4">
+                                                    <img src="images/journeys/event/img_dash.png" alt="">
+                                                    <input id="input-tel3" class="input-tel3" type="text" data-ng-model="user.tel3" name="uTel3" maxlength="4">
+<!--
+                                                    <a title="인증 번호 요청" href="" data-ng-click="requestCertification(user)">
+                                                        <img data-ng-src="images/journeys/event/btn_input0.png" alt="인증 번호 요청">
+                                                    </a>
+-->
+                                                </li>
+<!--
+                                                <li>
+                                                    <label for="input-confirm">
+                                                        <img data-ng-src="images/journeys/event/txt_input_label2.png" alt="인증 번호">
+                                                    </label>
+                                                    <input id="input-confirm" class="input-confirm" type="text" data-ng-model="user.confirm" name="uConfirm" maxlength="6">
+                                                    <a title="인증 번호 입력" href="" data-ng-click="inputCertification(user)">
+                                                        <img data-ng-src="images/journeys/event/btn_input1.png" alt="인증 번호 입력">
+                                                    </a>
+                                                </li>
+-->
+                                                <li>
+                                                    <label for="input-sns">
+                                                        <img data-ng-src="images/journeys/event/txt_input_label3.png" alt="SNS주소 공유">
+                                                    </label>
+                                                    <input id="input-sns" class="input-sns" type="text" data-ng-model="user.sns" name="uSns" maxlength="30" placeholder="추가 SNS 주소를 공유해주시면 선정 확률이 높아집니다">
+                                                </li>
+                                                <li>
+                                            </ul>
+                                        </div>
+                                        <div class="input-guide ir">
+                                            <p>
+                                                <strong>경품 이벤트를 위한 개인정보 수집안내</strong>
+                                                입력하신 개인정보는 이벤트 및 경품 추첨 정보로만 사용되며 본 이벤트 외 다른 용도로 사용되지 않습니다.
+                                            </p>
+                                            <ul>
+                                                <li>개인정보 활용 동의 시 체크 박스를 체크 해 주세요.</li>
+                                                <li>미동의 시, 이벤트에 참여하실 수 없습니다.</li>
+                                            </ul>
+                                            <p>
+                                                <strong>경품 이벤트를 위한 개인정보 수집 이용안내</strong>
+                                                Samsonite는 아래와 같이 개인정보 취급 업무를 외부업체에 위탁 운영하고 있습니다.
+                                            </p>
+                                            <ul>
+                                                <li>위탁업체명 : 애드쿠아 인터렉티브 (이벤트 운영, 경품발송)</li>
+                                                <li>이벤트 종료 후 개인정보 삭제</li>
+                                                <li>이벤트 관련 문의 : 02-514-3930</li>
+                                            </ul>
+                                        </div>
+                                        <div class="check-agree">
+                                            <input type="checkbox" id="input-check" name="input-check" data-ng-model="user.agree" name="uAgree">
+                                            <label for="input-check">
+                                                <img data-ng-src="images/journeys/event/txt_input_agree.png" alt="개인정보 활용에 동의 합니다.">
+                                                <div class="input-check-wrap">
+                                                    <div>
+                                                        <img class="check-false" data-ng-src="images/journeys/event/img_input_checkoff.png" alt="false">
+                                                        <img class="check-true" data-ng-src="images/journeys/event/img_input_checkon.png" alt="true">
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <a title="페이스북 공유하기" href="" data-ng-click="validateForm(user)">
+                                                <img data-ng-src="images/journeys/event/btn_popup7.png" alt="페이스북 공유하기">
+                                            </a>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+<!--                            <a class="btn-popup-close" title="팝업닫기" href="" data-ng-click="popupClose()">닫기</a>-->
+                        </div>
+                    </li>
+                    <li class="gallery-cont">
+                        <div class="cont-wrap">
+                            <div class="gallery-topline"></div>
+                            <h2 class="gallery-title cont-item item1"><img data-ng-src="images/journeys/gallery/txt_gallery_title.png" alt="True Journeys Movie Gallery"></h2>
+                            <p><img data-ng-src="images/journeys/gallery/txt_gallery_subtitle.png" alt="여러분의 여행은 한 편의 영화와도 같습니다. 4가지 컬러의 개성이 담긴 다양한 여행스토리를 True Journey Movie로 확인하세요."></p>
+                            <div class="list-wrap">
+                                <ul>
+                                    <li data-ng-repeat="galleryItem in galleryList track by $index">
+                                        <a title="갤러리 이미지" href="" data-ng-click="galleryListHandler($index)">
+                                            <img data-ng-src="{{galleryItem['imageName1']}}" alt="갤러리 이미지">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-totop">
+                                <a title="상단으로" href="" data-ng-click="scrollToTop()">
+                                    <img data-ng-src="images/journeys/gallery/btn_top.png" alt="상단으로">
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="popup-player" data-ng-controller="popupPlayerCtrl">
+        <div class="player-wrap">
+            <a class="movie-close" title="플레이어 닫기" href="" data-ng-click="moviePopupClose()">
+                <img data-ng-src="images/journeys/gallery/btn_popup_close.png" alt="플레이어 닫기">
+            </a>
+            <div class="player">
+                <div class="view">
+                    <div class="btn-wrap">
+                        <a class="btn-play" title="무비 플레이" href="" data-ng-click="moviePlay()">
+                            <img data-ng-src="images/journeys/gallery/btn_play0.png" alt="무비 플레이">
+                        </a>
+                    </div>
+                    <ul class="omnibus-film">
+                        <li data-ng-repeat="scene in sceneList">
+                            <a href="" data-ng-click="goEvent($index)">
+                                <img data-ng-src="{{scene}}" alt="무비 이미지">
+                                <p></p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-event-complete" data-ng-controller="popupEvtCompleteCtrl">
+        <div class="popup-wrap">
+            <ul>
+                <li>
+                    <a title="확인" href="" data-ng-click="goEventMain()">
+                        <img data-ng-src="images/journeys/event/btn_popup8.png" alt="확인">
+                    </a>
+                </li>
+                <li>
+                    <a title="갤러리 바로가기" href="" data-ng-click="goGalleryMain()">
+                        <img data-ng-src="images/journeys/event/btn_popup9.png" alt="갤러리 바로가기">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="popup-browser">
+        <a title="닫기" href="" data-ng-click="popupBrowserClose()">
+            <img data-ng-src="images/main/btn_close.png" alt="닫기">
+        </a>
+        <div><img data-ng-src="images/main/img_topline.png" alt="라인"></div>
+        <div class="txt-cont ir">
+            다른 브라우저에서 참여해주세요! 본 이벤트는 네이버앱 또는 다음앱에서 참여가 원할하지 않을 수 있습니다. 일반 브라우저 (인터넷, 사파리, 크롬)에서 참여 부탁드립니다.
+        </div>
+        <div class="txt-url ir">이벤트 url</div>
+        <p>http://www.samsonite.co.kr/truframe/m/index?p=4</p>
+    </div>
+    <div class="popup-tvcf">
+        <a title="닫기" href="" data-ng-click="popupTvcfClose()">
+            <img data-ng-src="images/main/btn_close.png" alt="닫기">
+        </a>
+        <ul>
+            <li>
+                <a title="이벤트 바로가기" href="" data-ng-click="goEventMain()">
+                    <img data-ng-src="images/main/btn_evt.png" alt="이벤트 바로가기">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="loader"></div><!--  로딩바 -->
+</div>

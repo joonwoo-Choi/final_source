@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>세노비스 :: 50년 전통의 호주1위 건강기능식품</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+<script language="javascript" type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/greensock/TweenLite.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/greensock/TimelineLite.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/greensock/EasePack.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/greensock/ScrollToPlugin.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/greensock/CSSPlugin.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+	$(function(){
+        $(".btn_sex").click(function(){
+            $(".btn_sex").removeClass("checked");
+            $(this).addClass("checked");
+        });
+        $(".btn_receive").click(function(){
+            $(".btn_receive").removeClass("checked");
+            $(this).addClass("checked");
+        });
+        $(".btn_email").click(function(){
+            $(".btn_email").removeClass("checked");
+            $(this).addClass("checked");
+        });
+        $(".btn_life").click(function(){
+            $(".btn_life").removeClass("checked");
+            $(this).addClass("checked");
+        });
+	});
+    
+    function hideMakeIdPopup(){$(".popup_makeid").css({"display":"none"});}
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="allMenuWrap">
+			<div class="mainMenu">
+				<div class="utilMenu">
+					<ul class="clearfix">
+						<li><a href=""><img src="images/common/tx_login.png" alt="LOGIN" /></a></li>
+						<li><a href=""><img src="images/common/tx_join.png" alt="JOIN" /></a></li>
+					</ul>
+				</div>
+				<h1><a href="/cenovis"><img src="images/common/h1_logo.png" alt="Simply Trust CENOVIS" /></a></h1>
+				<div class="gnb">
+					<ul>
+						<li><a href="javascript:mainNav(1);">BRAND</a></li>
+						<li><a href="javascript:mainNav(2);">PRODUCTS</a></li>
+						<li><a href="javascript:mainNav(3);">EVENT</a></li>
+						<li><a href="javascript:mainNav(4);">STORY</a></li>
+						<li><a href="javascript:mainNav(5);">STORE</a></li>
+					</ul>
+				</div>
+				<div class="banner">
+					<ul>
+						<li><a href=""><img src="images/common/img_banner1.png" alt="SEARCH 나에게 맞는 제품찾기" /></a></li>
+						<li><a href=""><img src="images/common/img_banner2.png" alt="CENOVIS KIDS" /></a></li>
+						<li><a href=""><img src="images/common/img_banner3.png" alt="CENOVIS +PRO" /></a></li>
+					</ul>
+					<p class="shopLink"><a href=""><img src="images/common/img_sBanner1.png" alt="Mobile Shop" /></a><a href=""><img src="images/common/img_sBanner2.png" alt="Online Shop" /></a></p>
+				</div>
+			</div>
+			<div class="subMenu">
+				<div class="subNav" id="subNav1">
+					<ul>
+						<li><a href="javascript:subNav(1, 1);">브랜드소개</a></li>
+						<li><a href="javascript:subNav(1, 2);">CENOVIS KIDS</a></li>
+						<li><a href="javascript:subNav(1, 3);">CENOVIS +pro</a></li>
+						<li><a href="javascript:subNav(1, 4);">미디어센터</a></li>
+						<li><a href="javascript:subNav(1, 5);">회사소개</a></li>
+					</ul>
+				</div>
+				<div class="subNav" id="subNav2">
+					<ul>
+						<li><a href="javascript:subNav(2, 1);">제품전체보기</a></li>
+						<li><a href="javascript:subNav(2, 2);">CENOVIS KIDS</a></li>
+						<li><a href="javascript:subNav(2, 3);">CENOVIS +pro</a></li>
+					</ul>
+				</div>
+				<div class="subNav" id="subNav3">
+					<ul>
+						<li><a href="javascript:subNav(3, 1);">이벤트</a></li>
+						<li><a href="javascript:subNav(3, 2);">당첨자 발표</a></li>
+						<li><a href="javascript:subNav(3, 3);">공지사항</a></li>
+					</ul>
+				</div>
+				<div class="subNav" id="subNav4">
+					<ul>
+						<li><a href="javascript:subNav(4, 1);">셀프진단</a></li>
+						<li><a href="javascript:subNav(4, 2);">건강 이야기</a></li>
+						<li><a href="javascript:subNav(4, 3);">라이프 스토리</a></li>
+						<li><a href="javascript:subNav(4, 4);">성분사전</a></li>
+					</ul>
+				</div>
+				<div class="subNav" id="subNav5">
+					<ul>
+						<li><a href="javascript:subNav(5, 1);">오프라인 매장</a></li>
+						<li><a href="javascript:subNav(5, 2);">온라인 매장</a></li>
+						<li><a href="javascript:subNav(5, 3);">+pro 판매약국</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="contents">
+				<div class="lnb">
+					<ul class="clearfix">
+						<li><a href="">HOME</a></li>
+						<li><a href="">DEPTH 01</a></li>
+						<li><a href="">DEPTH 02</a></li>
+						<li class="on"><a href="">DEPTH 03</a></li>
+					</ul>
+				</div>
+				<div class="fb"><a href=""><img src="images/common/btn_facebook.png" alt="Facebook" /></a></div>
+				<h2>회원가입</h2>
+				<p class="subTitle"><span>Simply Trust </span>건강, 세노비스를 믿으세요!</p>
+				<div class="contWrap">
+                    <div id="member_modify_tabMenu">
+						<ul id="tabBoard">
+							<li class="on"><a href="#">회원정보</a></li>
+							<li><a href="#">멤버쉽 정보</a></li>
+						</ul>
+						<div id="tabBoard_sub1" class="tabBoard_sub">
+							<p><span>회원정보수정</span>회원님의 정보를 수정합니다.</p>
+						</div>
+					</div>
+					<div id="member_modify">
+						<ul id="tabBoard">
+							<li class="on"><a>회원정보수정</a></li>
+							<li><a>회원탈퇴</a></li>
+						</ul>
+						<div id="member_memberModify" class="tabBoard_sub">
+                            <div class="memberModify_content1">
+                                <p>개인정보 수정</p>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyId"><p>아이디</p></label>
+                                    <p class="user_id">cenovis</p>
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyPw"><p>비밀번호</p></label>
+                                    <input name="input_memberModifyPw" id="input_memberModifyPw" class="input_name" type="password" placeholder="" maxlength="20" value="" />
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyRePw"><p>비밀번호 확인</p></label>
+                                    <input name="input_memberModifyRePw" id="input_memberModifyRePw" class="input_name" type="password" maxlength="20" value="" />
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyName"><p>성명</p></label>
+                                    <p class="user_name">하연수</p>
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyBirth1"><p>생년월일</p></label>
+                                    <input name="input_memberModifyBirth1" id="input_memberModifyBirth1" class="input_phnum" type="text" placeholder="생년월일" maxlength="4" value="" />
+                                    <select name="input_memberModifyBirth2" id="input_memberModifyBirth2">
+                                        <option value="">월</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <input name="input_memberModifyBirth3" id="input_memberModifyBirth3" class="input_phnum" type="text" placeholder="일" maxlength="4" value="" />
+                                </div>
+                                <div>
+                                    <label class="input_title" for="sex_m"><p>성별</p></label>
+                                    <input name="sex" id="sex_m" class="radio_button" type="radio" checked="checked" value="M" />
+                                    <label class="btn_sex checked" for="sex_m">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">남자</p>
+                                    </label>
+                                    <input name="sex" id="sex_f" class="radio_button" type="radio" value="F" />
+                                    <label class="btn_sex" for="sex_f">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">여자</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyPhnum1"><p>휴대폰 번호</p></label>
+                                    <select name="input_memberModifyPhnum1" id="input_memberModifyPhnum1">
+                                        <option value="1">010</option>
+                                        <option value="2">011</option>
+                                        <option value="3">016</option>
+                                        <option value="4">017</option>
+                                        <option value="5">018</option>
+                                        <option value="6">019</option>
+                                    </select>
+                                    <input name="input_memberModifyPhnum2" id="input_memberModifyPhnum2" class="input_phnum" type="text" maxlength="4" value="" />
+                                    <input name="input_memberModifyPhnum3" id="input_memberModifyPhnum3" class="input_phnum" type="text" maxlength="4" value="" />
+                                    <input name="receive" id="receive_yes" class="radio_button" type="radio" checked="checked" value="yes" />
+                                    <a class="btn_address" href="#"><p>본인인증</p></a>
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyAdress"><p>인증번호</p></label>
+                                    <input name="input_memberModifyAdress" id="input_memberModifyAdress" class="input_email" type="text" maxlength="20" value="" />
+                                    <a class="btn_address" href="#"><p>확인</p></a>
+                                    <label class="btn_receive checked" for="receive_yes">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">SMS/MMS/TM 수신</p>
+                                    </label>
+                                    <input name="receive" id="receive_no" class="radio_button" type="radio" value="no" />
+                                    <label class="btn_receive" for="receive_no">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">SMS/MMS/TM 미수신</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="input_title" for="input_memberModifyEmail"><p>이메일</p></label>
+                                    <input name="input_memberModifyEmail" id="input_memberModifyEmail" class="input_email" type="email" maxlength="20" value="" />
+                                    <p class="txt_at">@</p>
+                                    <input name="input_memberModifyEmail" id="input_memberModifyEmail" class="input_email" type="email" maxlength="20" value="" />
+                                    <select name="input_memberModifyEmail" id="input_memberModifyEmail" class="select_email">
+                                        <option value="">직접입력</option>
+                                        <option value="1">naver.com</option>
+                                        <option value="2">daum.net</option>
+                                        <option value="3">nate.com</option>
+                                        <option value="4">gmail.com</option>
+                                    </select>
+                                    <input name="email" id="email_yes" class="radio_button" type="radio" checked="checked" value="yes" />
+                                    <label class="btn_email checked" for="email_yes">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">수신</p>
+                                    </label>
+                                    <input name="email" id="email_no" class="radio_button" type="radio" value="no" />
+                                    <label class="btn_email" for="email_no">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">미수신</p>
+                                    </label>
+                                </div>
+                                <div class="member_modifyAddress">
+                                    <label class="input_title" for="input_memberModifyAdress"><p>주소</p></label>
+                                    <input name="input_memberModifyAdress" id="input_memberModifyAdress" class="input_email" type="text" maxlength="20" value="" />
+                                    <a class="btn_address" href="#"><p>우편번호 찾기</p></a>
+                                </div>
+                                <div>
+                                    <label class="input_title" for=""><p>&nbsp;</p></label>
+                                    <input name="input_memberModifyAdress" id="input_memberModifyAdress" class="input_address" type="text" maxlength="20" value="" />
+                                    <input name="input_memberModifyAdress" id="input_memberModifyAdress" class="input_address" type="text" maxlength="20" value="" />
+                                </div>
+                                <div>
+                                    <label class="input_title" for=""><p>라이프스테이지</p></label>
+                                    <input name="life" id="input_life1" class="radio_button" type="radio" checked="checked" value="1" />
+                                    <label class="btn_life checked" for="input_life1">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">싱글</p>
+                                    </label>
+                                    <input name="life" id="input_life2" class="radio_button" type="radio" value="2" />
+                                    <label class="btn_life" for="input_life2">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">미자녀(신혼)부부</p>
+                                    </label>
+                                    <input name="life" id="input_life3" class="radio_button" type="radio" value="3" />
+                                    <label class="btn_life" for="input_life3">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">유, 초등 자녀 부부</p>
+                                    </label>
+                                    <input name="life" id="input_life4" class="radio_button" type="radio" value="4" />
+                                    <label class="btn_life" for="input_life4">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">중, 고등 자녀 부부 (~49세)</p>
+                                    </label>
+                                    <input name="life" id="input_life5" class="radio_button" type="radio" value="5" />
+                                    <label class="btn_life" for="input_life5">
+                                        <span class="btn_radio"></span>
+                                        <p class="radio_txt">50세 이상</p>
+                                    </label>
+                                </div>
+                            </div>
+						</div>
+                        <div class="member_btnWrap">
+                            <a class="btn_confirm" href="#"><p>확인</p></a>
+                            <a class="btn_cancel" href="#"><p>취소</p></a>
+                        </div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="foot">
+						<ul class="clearfix">
+							<li><a href="">이용약관</a></li>
+							<li><a href="">이메일무단수집거부</a></li>
+							<li><a href="">개인정보취급방침</a></li>
+							<li><a href="">고객지원</a></li>
+							<li><a href="">사이트맵</a></li>
+							<li><a href=""><img src="images/common/tx_facebook.png" alt="Facebook" /></a></li>
+						</ul>
+					</div>
+					<div class="center">Customer Center 09:00~18:00 080.050.3535</div>
+					<div class="copy">COPYRIGHTS(C)sanofi aventis KOREA. ALL RIGHTS RESERVED.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

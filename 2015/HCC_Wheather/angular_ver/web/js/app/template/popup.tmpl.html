@@ -1,0 +1,29 @@
+<div ng-controller='popupCtrl'>
+    <div class='popup_sns'>
+        <div class='popup_wrap'>
+            <a class='btn_popup_close' title='공유 팝업 닫기' ng-click='showHideSnsPopup()' >
+                <img src='images/mobile/btn_popup_close.png' alt='공유 팝업 닫기' /></a>
+            <dl>
+                <dt>공유하기</dt>
+                <dd>현대카드 웨더를 공유해 주세요</dd>
+            </dl>
+            <div class='btn_wrap'>
+                <ul>
+                    <li class='{{menu.class}}' ng-repeat='menu in menuList'>
+                        <a title='{{menu.title}}' ng-click='utilMenuActivation(menu.idx)'><img src='{{menu.src}}' alt='{{menu.title}}' /></a>
+                        <p>{{menu.title}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class='popup_copyurl'>
+        <div class='wrap'>
+            <a class='btn_popup_close' title='공유 팝업 닫기' ng-click='showHideCopyPopup();' >
+                <img src='images/mobile/btn_popup_close.png' alt='공유 팝업 닫기' /></a>
+            <p class='title'>현대카드 웨더 소개 URL입니다.<br />URL로 공유 시 전체 선택하여<br />복사해주세요.</p>
+            <p class='field'>weather.hyundaicard.com</p>
+        </div>
+    </div>
+</div>

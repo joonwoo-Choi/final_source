@@ -1,0 +1,30 @@
+<div data-ng-controller='headerCtrl'>
+    <div class='navigation'>
+        <h1>
+            <a href='http://www.hyundaicard.com/' target='_blank'><span class='title_eng ir'>Hyundai Card</span></a>
+            <span class='title_kor'><a data-ng-click='gnbActivation(0);'>현대카드 웨더</a></span>
+        </h1>
+        <div class='menu_wrap'>
+            <div class='gnb'>
+                <ul>
+                    <li class='gnb_btn{{menu.idx}}' data-ng-repeat='menu in menuList'>
+                        <a title='{{menu.title}}' data-ng-click='gnbActivation(menu.param)'>
+                            <p class='{{menu.class}}'>{{menu.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class='util_menu'>
+        <ul>
+            <li data-ng-repeat='utilMenu in utilMenuList'>
+                <a class='ir {{utilMenu.class}}' title='{{utilMenu.title}} 공유' data-ng-click='utilMenuActivation(utilMenu.idx);'>{{utilMenu.title}} 공유</a>
+                <span class='{{utilMenu.tooltip}}'>{{utilMenu.title}}</span>
+                <img class='tooltip_under' src='images/web/img_tooltip_under.png' alt=''>
+            </li>
+        </ul>
+        <div class='toggle'><a class='ir' title='SNS공유 버튼 열기' data-ng-click='utilMenuShowHide();'>SNS공유 버튼 열기</a></div>
+    </div>
+</div>

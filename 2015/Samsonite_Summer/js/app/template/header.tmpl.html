@@ -1,0 +1,58 @@
+<div data-ng-controller="headerCtrl">
+    <div class="header-wrap">
+        <h1 class="logo">
+            <a title="샘소나이트" href="" data-ng-click="gnbHandler(0)">
+                <img data-ng-src="images/common/img_logo.png" alt="샘소나이트">
+            </a>
+        </h1>
+        <ul class="util-menu">
+            <li class="btn-util{{$index}}" data-ng-repeat="utilBtn in utilMenuList">
+                <a title="{{utilBtn.title}}" data-ng-href="{{utilBtn.url}}" target="_blank">
+                    <img data-ng-src="{{'images/common/btn_utilmenu'+$index+'.png'}}" alt="{{utilBtn.title}}">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="gnb-wrap">
+        <div class="gnb">
+            <ul>
+                <li class="btn-gnb{{$index}}" data-ng-repeat="gnbBtn in gnbList">
+                    <a title="{{gnbBtn.title}}" href="" data-ng-click="gnbHandler(gnbBtn.idx)">
+                        <img data-ng-src="{{'images/common/btn_gnb'+$index+'.png'}}" alt="{{gnbBtn.title}}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="gnb-2depth">
+            <div class="gnb-2depth-wrap">
+                <div class="colors">
+                    <ul>
+                        <li data-ng-repeat="colors in colorsBtnList">
+                            <a title="{{colors.title}}" href="" data-ng-click="subHandler($index)">
+                                <img data-ng-src="{{'images/common/btn_sub_colors'+$index+'.png'}}" alt="{{colors.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="story">
+                    <ul>
+                        <li data-ng-repeat="storyBtn in storyBtnList">
+                            <a title="{{storyBtn.title}}" href="" data-ng-click="subHandler($index+1)">
+                                <img data-ng-src="{{'images/common/btn_sub_story'+$index+'.png'}}" alt="{{storyBtn.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="journeys">
+                    <ul>
+                        <li data-ng-repeat="journeysBtn in journeysBtnList">
+                            <a title="{{journeysBtn.title}}" href="" data-ng-click="subHandler($index)">
+                                <img data-ng-src="{{'images/common/btn_sub_journeys'+$index+'.png'}}" alt="{{journeysBtn.title}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
