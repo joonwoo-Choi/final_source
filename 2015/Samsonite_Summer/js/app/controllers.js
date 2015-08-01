@@ -3,7 +3,7 @@
 var samsoniteAppControllers = angular.module("samsoniteApp.controllers", []);
 
 samsoniteAppControllers.
-controller("bodyCtrl", ["$scope", "config", "commonSvc", function ($scope, config, commonSvc) {
+controller("bodyCtrl", ["$scope", "$timeout", "config", "commonSvc", function ($scope, $timeout, config, commonSvc) {
     $scope.appName = config.appName;
     $scope.isAppBrowser = config.isAppBrowser();
     $scope.lowDevice = navigator.userAgent.match(/(shv)|(samsung)/gi) ? true : false;
@@ -24,12 +24,12 @@ controller("bodyCtrl", ["$scope", "config", "commonSvc", function ($scope, confi
     $scope.$on("tmpl:loaded", function(args){
         $scope.tmplLoadedCnt++;
         if($scope.tmplLoadedCnt >= 3){
-            initSamsoniteApp($scope, commonSvc);
+            initSamsoniteApp($scope, $timeout, commonSvc);
             $scope.$broadcast("globalEvt:resize");
         }
     });
 }]).
-controller("headerCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootScope, $scope, commonSvc) {
+controller("headerCtrl", ["$rootScope", "$scope", "$timeout", "commonSvc", function ($rootScope, $scope, $timeout, commonSvc) {
     $scope.utilMenuList = [ {title:"온라인 몰", url:"http://www.samsonite.co.kr/SA/store/"}, 
                            {title:"매장안내", url:"http://m.samsonitemall.co.kr/"}, 
                            {title:"페이스북", url:"https://www.facebook.com/KoreaSamsonite"}, 
@@ -91,7 +91,7 @@ controller("headerCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootSc
             $scope.subHandler(subIdx, quick);
         }else{
             $scope.$parent.pageChanging = true;
-            setTimeout(function(){
+            $timeout(function(){
                 $scope.$parent.pageChanging = false;
             },2000);
         }
@@ -105,7 +105,7 @@ controller("headerCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootSc
         window.scrollTo(0,0);
         $scope.$parent.subNum = idx;
         $scope.$parent.pageChanging = true;
-        setTimeout(function(){
+        $timeout(function(){
             $scope.$parent.pageChanging = false;
         },2000);
         
@@ -220,7 +220,7 @@ controller("mainCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootScop
         }
     }
 }]).
-controller("colorsCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", function ($rootScope, $scope, ytplayerSvc, devSvc) {
+controller("colorsCtrl", ["$rootScope", "$scope", "$timeout", "ytplayerSvc", "devSvc", function ($rootScope, $scope, $timeout, ytplayerSvc, devSvc) {
     $scope.colorCoverList = $scope.tvcfBtnList = [ 
         {title:"4 Color Full ver."}, {title:"Matt Silver Aqua Blue"}, {title:"Fancy Purple Flame Orange"} 
     ];
@@ -258,7 +258,7 @@ controller("colorsCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", funct
             $(".tvcf-cover li").eq(0).css({"display":"block"});
             $(".film-cover li").eq(0).css({"display":"block"});
             $("#footer img").attr({"src":"images/common/img_footer_tvcf.jpg"});
-            setTimeout(function(){
+            $timeout(function(){
                 $(".colors-cont .btn-swipe0, .colors-cont .btn-swipe1").fadeOut(500);
             },2000);
         }else{
@@ -298,7 +298,7 @@ controller("colorsCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", funct
         /** 메뉴 변경 - 트랜지션 후 재생   */
         if($scope.autoPlay){
             $scope.autoPlay = false;
-            setTimeout(function(){
+            $timeout(function(){
                 $scope.videoPlayCheck();
             },750);
         }
@@ -412,7 +412,7 @@ controller("colorsCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", funct
     }
     
 }]).
-controller("storyCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", function ($rootScope, $scope, ytplayerSvc, devSvc) {
+controller("storyCtrl", ["$rootScope", "$scope", "$timeout", "ytplayerSvc", "devSvc", function ($rootScope, $scope, $timeout, ytplayerSvc, devSvc) {
     $scope.storyBtnList = [{title:"Matt Silver"}, {title:"Aqua Blue"}, {title:"Fancy Purple"}, {title:"Flame Orange"}];
     
     $scope.$on("btnEvt:gnbActive", function(e, args){
@@ -449,7 +449,7 @@ controller("storyCtrl", ["$rootScope", "$scope", "ytplayerSvc", "devSvc", functi
             }
         });
         if(quick){
-            setTimeout(function(){
+            $timeout(function(){
                 $rootScope.$broadcast("globalEvt:resize");
             }, 1500);
         }else{
@@ -618,7 +618,7 @@ controller("frameCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootSco
     }
     
 }]).
-controller("popupPlayerCtrl", ["$rootScope", "$scope", "commonSvc", function ($rootScope, $scope, commonSvc) {
+controller("popupPlayerCtrl", ["$rootScope", "$scope", "$timeout", "commonSvc", function ($rootScope, $scope, $timeout, commonSvc) {
     $scope.sceneList = [];
     $scope.director = "";
     $scope.movieType = "";
@@ -696,7 +696,7 @@ controller("popupPlayerCtrl", ["$rootScope", "$scope", "commonSvc", function ($r
         var imgW = 0;
         var imgH = 0;
         
-        setTimeout(function(){
+        $timeout(function(){
             for(var i=0; i<newVal; i++){
                 if(i==6||i==7||i==9||i==10||i==12){
                     $(".popup-player .omnibus-film li").eq(i).css({
@@ -795,7 +795,7 @@ controller("popupEvtCompleteCtrl", ["$rootScope", "$scope", "commonSvc", functio
 
 
 /** init-app    */
-function initSamsoniteApp($scope, commonSvc){
+function initSamsoniteApp($scope, $timeout, commonSvc){
     $scope.pageArr = $(".contents>li");
     $scope.pageLength = $scope.pageArr.length;
     $scope.pageW = $(".contents").width();
@@ -831,7 +831,7 @@ function initSamsoniteApp($scope, commonSvc){
         e.preventDefault();
     });
     
-    setTimeout(function(){
+    $timeout(function(){
         $scope.$broadcast("btnEvt:quickLink", param);
     },1000);
 }

@@ -18,19 +18,5 @@ $(window).load(function(){
 });
 
 
-//aqApp.config(['$routeProvider', function ($routeProvider) {
-//    $routeProvider.when('/sub', {
-//        templateUrl: 'js/app/template/sub1.tmpl.html',
-//        controller: 'sub1Ctrl',
-//        resolve: {
-//            bookmarks : function (Bookmark) {
-//                return Bookmark.query().$promise;
-//            }
-//        } 
-//    })
-//    .otherwise({ redirectTo: '/home' });
-//}]);
-
-
 
 

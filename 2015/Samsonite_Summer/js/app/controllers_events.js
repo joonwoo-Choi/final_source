@@ -27,7 +27,7 @@ controller("journeysCtrl", ["$rootScope","$scope","devSvc","ytplayerSvc", "$time
         $rootScope.$broadcast("globalEvt:resize");
     });
     
-    eventCtrl($rootScope, $scope, devSvc, ytplayerSvc);
+    eventCtrl($rootScope, $scope, $timeout, devSvc, ytplayerSvc);
     galleryCtrl($rootScope, $scope, devSvc, $timeout);
 }]);
 
@@ -71,7 +71,7 @@ function initEventsCtrl($scope){
 }
 
 /** 이벤트 페이지 컨트롤러    */
-function eventCtrl($rootScope, $scope, devSvc, ytplayerSvc){
+function eventCtrl($rootScope, $scope, $timeout, devSvc, ytplayerSvc){
     $scope.$on("btnEvt:gnbActive", function(e, args){
         if($scope.pageNum == 4) $scope.eventOn = true;
         else if($scope.pageNum != 4 && $scope.eventOn) $scope.eventReset();
@@ -182,13 +182,13 @@ function eventCtrl($rootScope, $scope, devSvc, ytplayerSvc){
         if($(".popup-cont").css("display") == "block") $scope.popupClose();
     }
     
-    eventCtrlStep1($scope, ytplayerSvc);
+    eventCtrlStep1($scope, $timeout, ytplayerSvc);
     eventCtrlStep2($scope, devSvc);
-    eventCtrlStep3($scope, devSvc);
+    eventCtrlStep3($scope, $timeout, devSvc);
     eventCtrlStep4($scope, devSvc);
 }
 /** 이벤트 프로세스    */
-function eventCtrlStep1($scope, ytplayerSvc){
+function eventCtrlStep1($scope, $timeout, ytplayerSvc){
 //    $scope.$on("ytEvt:play", function(e, args){
 //        if(args.status == 5){
 //            $("#jouneysPlayer").css({"opacity":0});
@@ -206,7 +206,7 @@ function eventCtrlStep1($scope, ytplayerSvc){
         ytplayerSvc.journeysPlayer.play(idx);
         $(".step1 .film-list li").removeClass("on");
         $(".step1 .film-list li").eq($scope.selectedFilmIdx).addClass("on");
-        setTimeout(function(){
+        $timeout(function(){
             $(".select-wrap").css({"display":"none"});
 //            $("#jouneysPlayer").css({"opacity":0});
             $(".jouneys-cover").css({"display":"block"});
@@ -382,7 +382,7 @@ function eventCtrlStep2($scope, devSvc){
             var list = arr[targetIdx];
             arr.splice(targetIdx, 1);
             arr.splice(listIdx, 0, list);
-            setTimeout(function(){
+            $timeout(function(){
                 $scope.$apply(function(){
                     var list = $scope.myimgList[targetIdx];
                     $scope.myimgList.splice(targetIdx, 1);
@@ -450,7 +450,7 @@ function eventCtrlStep2($scope, devSvc){
     }
 }
 /** step3 - 제작 영상 플레이   */
-function eventCtrlStep3($scope, devSvc){
+function eventCtrlStep3($scope, $timeout, devSvc){
     $scope.makeSceneList = [];
     $scope.director = "";
     $scope.movieType = "";
@@ -517,7 +517,7 @@ function eventCtrlStep3($scope, devSvc){
         var imgW = 0;
         var imgH = 0;
         
-        setTimeout(function(){
+        $timeout(function(){
             for(var i=0; i<newVal; i++){
                 if(i==6||i==7||i==9||i==10||i==12){
                     $(".step3 .omnibus-film li").eq(i).css({"background-image":"url(images/journeys/gallery/"+$scope.movieType+"/img_bg.jpg)"});
@@ -732,6 +732,9 @@ function galleryCtrl($rootScope, $scope, devSvc, $timeout){
 
 
 
+/**
+*   테스트용 유저 데이터
+*/
 function getMovieInfo(idx, callback) {
     var obj = {
 			"idx":14346903764904127,
