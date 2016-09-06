@@ -1,0 +1,92 @@
+.md-dialog-container {
+    height: 100% !important;
+/*    height: 100vh !important;*/
+}
+md-backdrop.md-opaque{
+    background-color: rgba(202, 202, 202, 0.5);
+}
+.popup-dialog{
+    overflow-x: hidden;
+    -webkit-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: none;
+    border-radius: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+.popup-dialog.popup-people-lists-dialog,
+.popup-dialog.popup-searched-lists-dialog{
+    height: 80%;
+/*    max-height: 546px;*/
+}
+.popup-dialog.md-transition-out{
+    -webkit-transform: translate3d(0, 0, 0) scale(0.2);
+    transform: translate3d(0, 0, 0) scale(0.2);
+}
+.popup-dialog .popup-close{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+/** select box  */
+md-input-container{
+    padding-bottom: 0;
+}
+md-select-menu-container{
+    min-width: 400px;
+}
+md-option{
+    padding: 0 14px;
+    color: #525252;
+}
+md-option:last-child:after{
+    content: none;
+}
+md-option:after{
+    content:"";
+    position: absolute; 
+    width: 90%;
+    height: 1px; 
+    bottom: 0;
+    left: 0;
+    margin: 0 5%;
+    background: #d0d0d0;
+}
+md-select:not([disabled]).ng-invalid.ng-dirty .md-select-value,
+md-select:not([disabled]):focus .md-select-value,
+md-select.md-default-theme, md-select .md-select-value{
+    border-color: transparent;
+}
+.md-select-value .md-select-icon:after{
+    -webkit-transform: scaleY(1) scaleX(1);
+    transform: scaleY(1) scaleX(1);
+}
+md-select-menu.md-default-theme, md-select-menu md-option[selected]:focus,
+md-select-menu.md-default-theme, md-select-menu md-option[selected]{
+    color: #525252;
+    font-weight: 700;
+}
+
+.ngdialog-overlay {
+  background: rgba(202, 202, 202, 0.5);
+}
+.ngdialog.ngdialog-theme-default{
+    padding: 0;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    padding: 0;
+    margin: 78px auto;
+    width: 450px;
+    border-radius: 0;
+    background: transparent;
+}
+
+.popup-scroll-wrap{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+

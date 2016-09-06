@@ -1,0 +1,15 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/bbuzzart/Dropbox/ionic/giftbox/www/js/services/storage.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/css/var/rmargin.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/core.js",
+        "/Users/NaYang/Desktop/giftbox/www/js/app.js",
+        "/Users/NaYang/Desktop/giftbox/www/js/services/rest-api.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/css/var/swap.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/css.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/data/Data.js",
+        "/Users/NaYang/Desktop/giftbox/www/js/directives/common/side-menu.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/css/curCSS.js",
+        "/Users/NaYang/Desktop/giftbox/www/lib/jquery/src/dimensions.js"
+    ]
+}

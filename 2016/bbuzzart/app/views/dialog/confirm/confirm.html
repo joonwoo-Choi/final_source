@@ -1,0 +1,86 @@
+<div class="popup-confirm" ng-cloak>
+    <div>
+        <div class="text">
+            <p ng-if="type == 'delete'">
+                Do you want to delete?
+            </p>
+            
+            <p ng-if="type == 'uploadCancel'">
+                If you cancel now,<br/>
+                your work will be discarded.
+            </p>
+            
+            <p ng-if="type == 'curatorPickCancel'">
+                If you cancel now,<br/>
+                your feedback will be discarded.
+            </p>
+            
+            <p ng-if="type == 'facebook'">
+                Couldn't get Facebook credentials.
+            </p>
+            
+            <p ng-if="type == 'signup'">
+                {{data.email}}<br/>
+                A verification e-mail has been sent.
+            </p>
+            
+            <p ng-if="type == 'nomember'">
+                This user is no longer on BBuzzArt.
+            </p>
+            
+            <p ng-if="type == 'issue'">
+                We’re glad you flag an issue about this.
+            </p>
+            
+            <p ng-if="type == 'page'">
+                The page can not be found.
+            </p>
+            
+            <p ng-if="type == 'imageSize'">
+                Your file is too large.<br/>
+                We have a 10MB limit.
+            </p>
+            
+            <p ng-if="type == 'videoUrl'">
+                Type or Paste<br/>
+                Preferably Youtube or Vimeo<br/>
+                video url above.
+            </p>
+            
+            <p ng-if="type == 'validateUrl'">
+                Improper URL
+            </p>
+            
+            <p ng-if="type == 'curatorPicked'">
+                You already featured this artwork!
+            </p>
+        </div>
+        
+        <div class="md-actions" ng-if="type == 'delete' || type == 'uploadCancel' || type == 'curatorPickCancel'">
+            <md-button aria-label="YES" title="YES" class="md-primary" ng-click="confirm('yes')">
+                YES
+            </md-button>
+            <md-button aria-label="NO" title="NO" class="md-primary" ng-click="confirm('no')">
+                NO
+            </md-button>
+        </div>
+        
+        <div class="md-actions" ng-if="type == 'facebook' || type == 'nomember' || type == 'page' || type == 'imageSize' || type == 'validateUrl' || type == 'curatorPicked'">
+            <md-button aria-label="OK" title="OK" class="md-primary" ng-click="confirm('no')">
+                OK
+            </md-button>
+        </div>
+        
+        <div class="md-actions" ng-if="type == 'signup'">
+            <md-button aria-label="CONFIRM" title="CONFIRM" class="md-primary" ng-click="confirm('no')">
+                CONFIRM
+            </md-button>
+        </div>
+        
+        <div class="md-actions" ng-if="type == 'issue' || type == 'videoUrl'">
+            <md-button aria-label="CLOSE" title="CLOSE" class="md-primary" ng-click="confirm('no')">
+                CLOSE
+            </md-button>
+        </div>
+    </div>
+</div>

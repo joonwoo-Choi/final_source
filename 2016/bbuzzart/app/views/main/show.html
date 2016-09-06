@@ -1,0 +1,30 @@
+<div class="show-view">
+    <div class="column-list-wrap" ng-if="mainShowLists.length > 0">
+        <ul>
+            <li class="show-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in mainShowLists track by $index">
+                <div artwork-list></div>
+            </li>
+        </ul>
+    </div>
+    <div class="column-list-wrap" ng-if="mainShowLists.length > 0">
+        <ul>
+            <li class="show-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in mainShowLists track by $index">
+                <div artwork-list></div>
+            </li>
+        </ul>
+    </div>
+    <div class="column-list-wrap" ng-if="mainShowLists.length > 0 && listColumnLength >= 4">
+        <ul>
+            <li class="show-list" ng-if="$index%listColumnLength == 2" ng-repeat="listItem in mainShowLists track by $index">
+                <div artwork-list></div>
+            </li>
+        </ul>
+    </div>
+    <div class="column-list-wrap" ng-if="mainShowLists.length > 0 && listColumnLength >= 4">
+        <ul>
+            <li class="show-list" ng-if="$index%listColumnLength == 3" ng-repeat="listItem in mainShowLists track by $index">
+                <div artwork-list></div>
+            </li>
+        </ul>
+    </div>
+</div>

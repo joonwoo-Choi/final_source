@@ -1,0 +1,22 @@
+/** web */
+@media screen and (min-width: 0px) {
+    
+    .popup-account .tab-expired>div{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .popup-account .tab-expired .dialog-title{
+        margin-top: 37px;
+    }
+    .popup-account .tab-expired .input{
+        margin-top: 46px;
+    }
+    .popup-account .tab-expired .btn-bottom-wrap{
+        margin-top: 235px;
+    }
+    
+}

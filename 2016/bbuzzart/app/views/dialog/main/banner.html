@@ -1,0 +1,16 @@
+<md-dialog class="popup-dialog popup-banner" aria-label="popup-banner" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <h2 class="title">Banner</h2>
+        <div class="thumbnail-wrap">
+            <a title="{{thumbnailTitle}}" ng-click="goDetail()">
+                <img class="thumbnail-image" src="{{thumbnailUrl}}" alt="{{thumbnailTitle}}" >
+            </a>
+        </div>
+        <div class="btn-wrap">
+            <md-checkbox class="md-primary dont-show" title="Don’t show again" aria-label="Don’t show again" ng-model="isDontShow">
+                Don’t show again
+            </md-checkbox>
+            <a class="close" title="CLOSE" ng-click="closeBanner()">CLOSE</a>
+        </div>
+    </div>
+</md-dialog>

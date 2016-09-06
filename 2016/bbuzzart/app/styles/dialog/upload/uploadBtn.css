@@ -1,0 +1,105 @@
+.btn-upload-menu{
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    z-index: 2;
+}
+
+.btn-upload-menu .btn-upload.md-button{
+    position: fixed;
+    min-width: 60px;
+    height: 60px;
+    bottom: 100px;
+    right: 100px;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #03b49b !important;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5) !important;
+}
+.btn-upload-menu .btn-upload.md-button:focus{
+    background-color: #525252;
+}
+.btn-upload-menu .btn-upload.md-button:hover{
+    background-color: #828282;
+}
+.btn-upload-menu .btn-upload.md-button img{
+    vertical-align: middle;
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+
+    -ms-transition: -webkit-transform 0.35s;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+}
+.btn-upload-menu.open .btn-upload.md-button img{
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.upload-menu{
+    padding: 0;
+    background-color: transparent;
+}
+.upload-menu .toggle-menu{
+    overflow: hidden;
+    width: 150px;
+    min-width: 150px;
+    border: 1px solid #cdcdcd;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.upload-menu .toggle-menu li{
+    position: relative;
+    text-align: right;
+}
+.upload-menu .toggle-menu li md-menu-item{
+    height: 60px;
+}
+.upload-menu .toggle-menu li .md-button{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-align: right;
+    color: #000;
+    background-color: #fff;
+}
+.upload-menu .toggle-menu li .md-button:not([disabled]){
+    box-shadow: none;
+}
+.upload-menu .toggle-menu li .md-button:not([disabled]):focus{
+    background-color: #fff;
+}
+.upload-menu .toggle-menu li .md-button:not([disabled]):hover{
+    background-color: #d0d0d0;
+}
+.upload-menu .toggle-menu li .md-button span{
+    margin-right: 13px;
+}
+.upload-menu .toggle-menu li .md-button img{
+    vertical-align: middle;
+    margin-right: 17px;
+}
+.upload-menu .toggle-menu li:first-child .divider{
+    display: none;
+}
+.upload-menu .toggle-menu li .divider{
+    width: auto;
+    height: 1px;
+    margin: 0 11px;
+    background-color:#cbcbcb;
+}
+
+.upload-menu .balloon-tail{
+    position: absolute;
+    top: 100%;
+    left: 122px;
+    margin-top: -1px;
+}

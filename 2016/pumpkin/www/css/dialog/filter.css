@@ -1,0 +1,98 @@
+#filter-dialog{
+    
+}
+
+#filter-dialog .dialog-content{
+    padding-top: 22px;
+}
+#filter-dialog .dialog-content .section-title{
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #666;
+}
+
+#filter-dialog .dialog-content .top-btn-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+    margin: 0 0 10px;
+}
+#filter-dialog .dialog-content .top-btn-wrap .btn-reset{
+    min-height: 28px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 28px;
+    border-width: 0;
+    border-radius: 0;
+    color: #fff;
+    background-color: #fc9302;
+}
+
+#filter-dialog .dialog-content .category-wrap{
+    margin-bottom: 30px;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap .category-item{
+    width: 33.33%;
+    margin-bottom: 10px;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap .category-item input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap .category-item label{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    line-height: 28px;
+    vertical-align: middle;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap .category-item label span{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 2px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #999;
+    border: 1px solid #999;
+    border-radius: 15px;
+}
+#filter-dialog .dialog-content .category-wrap .category-list-wrap .category-item.checked label span{
+    color: #4bacc6;
+    border-color: #4bacc6;
+}
+
+
+/** tablet  */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    
+    
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    
+}
+

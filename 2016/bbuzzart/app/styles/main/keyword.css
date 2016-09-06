@@ -1,0 +1,29 @@
+/** web */
+.keyword-view{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.keyword-view .column-list-wrap{
+    position: relative;
+    width: 23.5%;
+    margin: 0 0.75%;
+}
+.keyword-view .column-list-wrap .keyword-list{
+    margin-bottom: 18px;
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    .keyword-view .column-list-wrap{
+        width: 47%;
+        margin: 0 1.5%;
+    }
+    .keyword-view .column-list-wrap .keyword-list{
+        margin-bottom: 12px;
+    }
+    
+}

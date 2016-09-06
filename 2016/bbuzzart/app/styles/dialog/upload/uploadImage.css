@@ -1,0 +1,158 @@
+.popup-upload-image .select-image-wrap{
+    position: relative;
+    margin-top: 15px;
+}
+.popup-upload-image .select-image-wrap .default-view{
+    position: relative;
+    width: 100%;
+    padding: 67px 0 57px;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    text-align: center;
+    color: #919191;
+    background-color: #fff;
+}
+.popup-upload-image .select-image-wrap .default-view span{
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 34px;
+    height: 34px;
+}
+.popup-upload-image .select-image-wrap .default-view span img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.popup-upload-image .select-image-wrap .default-view.error span img{
+    top: -34px;
+}
+.popup-upload-image .select-image-wrap .default-view p{
+    padding-top: 5px;
+}
+.popup-upload-image .select-image-wrap .default-view.error p{
+    color: #ff2c2c;
+}
+.popup-upload-image .select-image-wrap .drop-box{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.popup-upload-image .select-image-wrap .file-tumb{
+    text-align: center;
+}
+.popup-upload-image .select-image-wrap .file-tumb .preview-thumbnail{
+    width: 520px;
+}
+.popup-upload-image .select-image-wrap .file-tumb.show-thumbnail .preview-thumbnail{
+    width: 100%;
+}
+.popup-upload-image .select-image-wrap .file-tumb a{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.popup-upload-image .input-category{
+    margin-top: 27px;
+}
+
+.popup-upload-image label{
+    font-size: 14px;
+    font-weight: 700;
+    color: #525252;
+}
+.popup-upload-image label span{
+    font-size: 12px;
+}
+.popup-upload-image .input-title{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-image .input-title .input{
+    height: 33px;
+    margin-top: 2px;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-image .input-description{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-image .input-description textarea{
+    overflow: auto;
+    min-height: 100px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 2px;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-image .input-tag{
+    position: relative;
+    margin-top: 7px;
+}
+.popup-upload-image .input-tag .input{
+    overflow: auto;
+    height: 33px;
+    padding-top: 8px;
+    vertical-align: middle;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-image .input-year{
+    margin-top: 10px;
+}
+.popup-upload-image .input-year .select{
+    margin-top: 2px;
+}
+
+.popup-upload-image .input-edition{
+    margin-top: 10px;
+}
+.popup-upload-image .input-edition .input{
+    height: 35px;
+    margin-top: 2px;
+}
+
+.popup-upload-image .input-size{
+    margin-top: 10px;
+}
+.popup-upload-image .input-size .input-size-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    min-height: 37px;
+}
+.popup-upload-image .input-size .input{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    height: 35px;
+    margin: 2px 0 0 5px;
+}
+.popup-upload-image .input-size .input:first-child{
+    margin-left: 0;
+}
+.popup-upload-image .input-size .md-input-has-value{
+    -webkit-flex: 1.5;
+    -ms-flex: 1.5;
+    flex: 1.5;
+    width: auto;
+    min-width: 0;
+    padding-top: 0;
+}
+.popup-upload-image .input-size .select{
+    margin: 2px 0 0 10px;
+}
+.popup-upload-image .input-size .select md-select-menu-container{
+    min-width: 95px;
+}

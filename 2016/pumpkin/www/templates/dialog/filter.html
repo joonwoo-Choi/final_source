@@ -1,0 +1,83 @@
+<ion-modal-view id="filter-dialog" class="modal">
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">필터</h1>
+        <button class="button button-primary" ng-click="closeFilterDialog()">
+            <i class="ion-close"></i>
+        </button>
+    </ion-header-bar>
+    <ion-content class="dialog-content">
+        <div class="top-btn-wrap">
+            <button class="button btn-reset" ng-click="resetFilterOptions()">
+                초기화
+            </button>
+        </div>
+        <div class="category-wrap">
+            <h2 class="section-title">
+                정렬
+            </h2>
+            <div class="category-list-wrap">
+                <div class="category-item" ng-class="{'checked':filterOption.sortType == item.val}" ng-repeat="item in filterOption.sort">
+                    <label aria-label="{{item.name}}">
+                        <input type="radio" ng-model="filterOption.sortType" value="{{item.val}}" name="sort-radio">
+                        <span>
+                            {{item.name}}
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="category-wrap">
+            <h2 class="section-title">
+                이벤트 진행
+            </h2>
+            <div class="category-list-wrap">
+                <div class="category-item" ng-class="{'checked':item.checked}" ng-repeat="item in filterOption.onGoings">
+                    <label aria-label="{{item.name}}">
+                        <input type="checkbox" ng-model="item.checked">
+                        <span>
+                            {{item.name}}
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="category-wrap">
+            <h2 class="section-title">
+                응모 방법
+            </h2>
+            <div class="category-list-wrap">
+                <div class="category-item" ng-class="{'checked':item.checked}" ng-repeat="item in filterOption.forms.form">
+                    <label aria-label="{{item.name}}">
+                        <input type="checkbox" ng-model="item.checked">
+                        <span>
+                            {{item.name}}
+                        </span>
+                    </label>
+                </div>
+<!--
+                <div class="category-item" ng-class="{'checked':item.checked}" ng-repeat="item in filterOption.forms.place">
+                    <label aria-label="{{item.name}}">
+                        <input type="checkbox" ng-model="item.checked">
+                        <span>
+                            {{item.name}}
+                        </span>
+                    </label>
+                </div>
+                <div class="category-item" ng-class="{'checked':item.checked}" ng-repeat="item in filterOption.forms.method">
+                    <label aria-label="{{item.name}}">
+                        <input type="checkbox" ng-model="item.checked">
+                        <span>
+                            {{item.name}}
+                        </span>
+                    </label>
+                </div>
+-->
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <button class="button button-full" ng-click="filterList()">
+                저장하기
+            </button>
+        </div>
+    </ion-content>
+</ion-modal-view>

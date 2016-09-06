@@ -1,0 +1,59 @@
+<div class="myfeeds-wrap" ng-class="{'mobile-myfeeds':isMobile}">
+    <div class="myfeeds-title-wrap" ng-if="isMyfeeds">
+        <h2>
+            <img src="/images/img_myfeeds_title.png" alt="My Feeds"/>
+            My Feed
+        </h2>
+    </div>
+    
+    <div class="myfeeds-flex-view">
+        <div class="myfeeds-scroll-wrap" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+            <div class="myfeeds-lists" ng-if="isMyfeeds">
+                <div class="column-list-wrap" ng-if="myFeedsLists.length > 0">
+                    <ul>
+                        <li ng-if="$index%listColumnLength == 0" ng-repeat="listItem in myFeedsLists track by $index">
+                            <div feed-list></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column-list-wrap" ng-if="myFeedsLists.length > 0 && listColumnLength >= 2">
+                    <ul>
+                        <li ng-if="$index%listColumnLength == 1" ng-repeat="listItem in myFeedsLists track by $index">
+                            <div feed-list></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column-list-wrap" ng-if="myFeedsLists.length > 0 && listColumnLength >= 3">
+                    <ul>
+                        <li ng-if="$index%listColumnLength == 2" ng-repeat="listItem in myFeedsLists track by $index">
+                            <div feed-list></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hot-buzzler-lists" ng-if="!isMyfeeds">
+                <p class="guide-text">
+                    You have no feed yet.<br/>
+                    Find the user to follow at HOT BUZZLER.
+                </p>
+                <div class="hot-buzzler">
+                    <div class="title">
+                        <h2>
+                            <img src="/images/img_hot_buzzler.png" alt="Hot Buzzler">
+                            Hot Buzzler
+                        </h2>
+                    </div>
+                    <div class="lists">
+                        <ul>
+                            <li class="people-list-item" ng-repeat="listItem in hotBuzzlerLists track by $index">
+                                <div people-list></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,21 @@
+<md-menu class="btn-upload-menu" md-offset="-94 -260" ng-class="{open:isOpen}">
+    <md-button title="upload" class="btn-upload md-raised" aria-label="upload" ng-click="toggleOpen($mdOpenMenu, $event)">
+        <img ng-src="/images/btn_upload_close.png" alt="upload">
+    </md-button>
+    <md-menu-content class="upload-menu">
+        <div class="toggle-menu">
+            <ul>
+                <li ng-repeat="uploadBtn in uploadBtns track by $index">
+                    <div class="divider"></div>
+                    <md-menu-item>
+                        <md-button aria-label="{{uploadBtn.title}}" title="{{uploadBtn.title}}" class="md-raised" ng-click="popupUpload(uploadBtn.title)">
+                            <span>{{uploadBtn.title}}</span>
+                            <img ng-src="{{uploadBtn.src}}" alt="{{uploadBtn.title}}">
+                        </md-button>
+                    </md-menu-item>
+                </li>
+            </ul>
+        </div>
+        <img class="balloon-tail" ng-src="/images/img_balloon_tail.png" alt="decoration" />
+    </md-menu-content>
+</md-menu>

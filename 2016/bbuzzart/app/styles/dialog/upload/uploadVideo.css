@@ -1,0 +1,119 @@
+.popup-upload-video label{
+    font-size: 14px;
+    font-weight: 700;
+    color: #525252;
+}
+.popup-upload-video label span{
+    font-size: 12px;
+}
+
+.popup-upload-video .input-url{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-video .input-url .input-url-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    margin-top: 2px;
+}
+.popup-upload-video .input-url .input{
+    -webkit-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    height: 33px;
+    border: 1px solid #ebebeb;
+}
+.popup-upload-video .input-url .btn-url{
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    min-width: 48px;
+    height: 33px;
+    padding: 0;
+    margin: 0 0 0 10px;
+    line-height: 33px;
+    text-align: center;
+    border: 1px solid #919191;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.popup-upload-video .input-url .btn-url:not([disabled]){
+    box-shadow: none;
+}
+.popup-upload-video .input-url .btn-url.on{
+    color: #188aff;
+    border-color: #188aff;
+}
+.popup-upload-video .input-url .btn-url img{
+    vertical-align: middle;
+}
+
+.popup-upload-video .video-thumbnail{
+    margin-top: 10px;
+}
+.popup-upload-video .video-thumbnail img{
+    width: 100%;
+}
+
+.popup-upload-video .input-title{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-video .input-title .input{
+    height: 33px;
+    margin-top: 2px;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-video .input-description{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-video .input-description textarea{
+    position: relative;
+    overflow: auto;
+    min-height: 100px;
+    padding: 12px 10px;
+    margin-top: 2px;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-video .input-tag{
+    position: relative;
+    margin-top: 7px;
+}
+.popup-upload-video .input-tag .input{
+    overflow: auto;
+    height: 33px;
+    padding-top: 8px;
+    vertical-align: middle;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-video .input-time{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-video .input-time .input{
+    height: 33px;
+    margin-top: 2px;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-video .input-year{
+    margin-top: 10px;
+}
+.popup-upload-video .input-year .select{
+    margin-top: 2px;
+}
+
+.popup-upload-video .input-edition{
+    margin-top: 10px;
+}
+.popup-upload-video .input-edition .input{
+    height: 35px;
+    margin-top: 2px;
+}

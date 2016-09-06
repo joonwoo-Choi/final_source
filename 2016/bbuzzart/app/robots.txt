@@ -1,0 +1,9 @@
+# robotstxt.org
+
+User-agent: *
+Disallow:
+
+Sitemap: http://www.bbuzzart.com/sitemap.xml
+Sitemap: http://www.bbuzzart.com/index_sitemap.xml
+Sitemap: http://www.bbuzzart.com/profile_sitemap.xml
+Sitemap: http://www.bbuzzart.com/work_sitemap.xml

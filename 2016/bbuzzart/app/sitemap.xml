@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"> 
+    <url>
+        <loc>http://www.bbuzzart.com/</loc>
+        <image:image>
+            <image:title>
+                BBuzzart
+            </image:title>
+            <image:loc>http://www.bbuzzart.com/images/apple-touch-icon.png</image:loc>
+            <image:caption>
+                BBuzzArt is an art social platform to present new and emerging art and to share simple and sincere feedback. It is open to every artists and art enthusiasts around the world.
+            </image:caption>
+        </image:image>
+    </url>
+</urlset>

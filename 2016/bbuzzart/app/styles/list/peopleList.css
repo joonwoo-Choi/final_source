@@ -1,0 +1,169 @@
+/** web */
+.people-list-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #cecece;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.people-list-wrap .status{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+.people-list-wrap .status .artist{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    overflow: hidden;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 36px;
+}
+.people-list-wrap .status .artist .profile-image{
+    overflow: hidden;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 18px;
+}
+.people-list-wrap .status .artist .profile-image a img{
+    width: 100%;
+    height: 100%;
+}
+.people-list-wrap .status .artist p{
+    display: -webkit-box;
+    overflow: hidden;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 36px;
+    vertical-align: middle;
+    color: #525252;
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.people-list-wrap .status .md-icon-button{
+    position: relative;
+    overflow: visible;
+    width: 36px;
+    height: 36px;
+    margin: 0 0 0 7px;
+    line-height: 36px;
+}
+.people-list-wrap .status .md-icon-button .tooltip{
+    position: absolute;
+    top: -16px;
+    left: -8px;
+    padding: 0 5px;
+    line-height: 16px;
+    font-size: 10px;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #aaa;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+}
+.people-list-wrap .status .md-icon-button:hover .tooltip{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+.people-list-wrap .status .md-icon-button.myprofile .tooltip{
+    display: none;
+}
+.people-list-wrap .status .md-icon-button img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -9px;
+    opacity: 0;
+}
+.people-list-wrap .status .md-icon-button.myprofile img.default,
+.people-list-wrap .status .md-icon-button.following img.default,
+.people-list-wrap .status .md-icon-button.unfollowing img.follow{
+    opacity: 1;
+}
+.people-list-wrap .status .md-icon-button.following:hover img.default{
+    opacity: 0;
+}
+.people-list-wrap .status .md-icon-button.following:hover img.unfollow{
+    opacity: 1;
+}
+
+.people-list-wrap .works{
+    position: relative;
+    overflow: hidden;
+    height: 94px;
+    margin: 0 44px 0 48px;
+
+}
+.people-list-wrap .works .works-scroll-wrap{
+    position: absolute !important;
+    width: 100% !important;
+    height: 100%;
+}
+.people-list-wrap .works .works-scroll-wrap.mobile-view{
+    overflow-y: hidden;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+.people-list-wrap .works .works-lists{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+.people-list-wrap .works .works-lists li{
+    position: relative;
+    overflow: hidden;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    width: 78px;
+    height: 78px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+.people-list-wrap .works .works-lists li img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+<div class="bookmarks-wrap" ng-if="bookmarksLists.length > 0">
+    
+    <div class="bookmarks-lists">
+        <div class="column-list-wrap" ng-if="bookmarksLists.length > 0">
+            <ul>
+                <li class="bookmark-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in bookmarksLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="bookmarksLists.length > 0">
+            <ul>
+                <li class="bookmark-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in bookmarksLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="bookmarksLists.length > 0 && listColumnLength >= 3">
+            <ul>
+                <li class="bookmark-list" ng-if="$index%listColumnLength == 2" ng-repeat="listItem in bookmarksLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+<div class="empty-list" ng-if="bookmarksLists.length <= 0">
+    <p>No bookmark yet.</p>
+</div>

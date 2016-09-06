@@ -1,0 +1,21 @@
+<md-dialog class="popup-dialog popup-flag-an-issue" aria-label="popup-flag-an-issue" ng-cloak>
+    <div>
+        <a title="close" class="popup-close" ng-click="popupClose()">
+            <img ng-src="/images/btn_popup_close.png" alt="close">
+        </a>
+        <div class="title">
+            <h2>FLAG AN ISSUE</h2>
+        </div>
+
+        <div class="issue-lists">
+            <ul>
+                <li ng-repeat="list in flagAnIssueLists track by $index">
+                    <div class="divider"></div>
+                    <md-button aria-label="{{list}}" title="{{list}}" class="md-raised" ng-click="flagAnIssue(list)">
+                        {{list}}
+                    </md-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</md-dialog>

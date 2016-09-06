@@ -1,0 +1,103 @@
+.popup-account .tab-login .btn-options{
+    margin-top: 13px;
+    min-height: 18px;
+}
+.popup-account .tab-login .btn-options li{
+    position: relative;
+    float: left;
+    width: 50%;
+}
+.popup-account .tab-login .btn-options md-checkbox{
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+}
+.popup-account .tab-login .btn-options md-checkbox .md-container{
+    top: 0;
+    left: 87px;
+    color: #525252;
+    -webkit-transform: scale(0.78, 0.78);
+    transform: scale(0.78, 0.78);
+}
+.popup-account .tab-login .btn-options md-checkbox .md-container .md-icon{
+    border: none;
+    background-color: #ebebeb;
+}
+.popup-account .tab-login .btn-options md-checkbox .md-container .md-icon:after{
+    border-color: #525252;
+}
+.popup-account .tab-login .btn-options md-checkbox .md-label{
+    margin: 0;
+    line-height: 18px;
+    vertical-align: top;
+}
+.popup-account .tab-login .btn-options .md-button{
+    position: absolute;
+    height: 18px;
+    min-height: 18px;
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: normal;
+}
+.popup-account .tab-login .btn-options .md-button:hover{
+    background-color: #fff;
+}
+.popup-account .tab-login .text-error{
+    height: 50px;
+}
+.popup-account .tab-login .text-error .valid-error{
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.15px;
+}
+.popup-account .tab-login .btn-bottom-wrap li.btn-signup{
+    margin-top: 10px;
+}
+
+.popup-account .tab-login .btn-bottom-wrap li.btn-submit.activate .md-button{
+    color: #188aff;
+    border: 1px solid #93c8ff;
+}
+
+.popup-verification-email{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 30px 26px 26px;
+    margin: -125px 0 0 190px;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 10px;
+    outline: none;
+    background-color: #fff;
+}
+.popup-verification-email.mobile-popup-verification-email{
+    margin: -56px 0 0 -160px;
+    padding: 30px 18px 26px;
+    border: 1px solid #fafafa;
+/*        box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;*/
+}
+.popup-verification-email img{
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    margin-top: -10px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.popup-verification-email p{
+    color: #525252;
+}
+.popup-verification-email a{
+    display: inline-block;
+    margin-top: 22px;
+    color: #ff2c2c;
+    text-decoration: underline;
+}
+
+

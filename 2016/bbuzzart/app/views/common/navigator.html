@@ -1,0 +1,191 @@
+<div class="header" ng-cloak>
+    <div class="header-bg"></div>
+    <div class="nav-wrap" role="navigation">
+        <h1 class="nav-logo">
+            <a title="BBuzzArt" class="navbar-brand" ng-click="logoHandler()">
+                <img src="/images/img_navigator_logo.png" alt="logo"/>
+            </a>
+        </h1>
+        <ul class="nav-navbar">
+            <li class="search-wrap" ng-class="{on: searchOn}">
+<!--                <div class="search-dimmed" ng-if="searchOn" ng-click="searchOff()"></div>-->
+                <div class="input-search-wrap">
+                    <input class="search" type="text" placeholder="Users, Tags and Works" ng-model="keyword" ng-keydown="searchKeydown($event, keyword)" ng-focus="searchOn=true;" />
+                </div>
+<!--                <div class="search-contents-wrap" ng-show="searchOn && searchHistories.length>0" ng-scrollbars>-->
+                <div class="search-contents-wrap" ng-show="searchOn && (searchHistories.length>0 || searched)">
+                    <div class="serch-scroll-wrap">
+                        <div class="serch-scroll-contents">
+                            <ul class="search-histories" ng-show="isLogin && !searched && searchHistories.length>0">
+                                <li ng-repeat="history in searchHistories track by $index">
+                                    <md-button aria-label="{{history.keyword}}" title="{{history.keyword}}" class="md-raised" ng-click="searchHistoryKeyword(history.keyword)">
+                                        <span>{{history.keyword}}</span>
+                                    </md-button>
+                                    <a title="remove" ng-click="removeKeywordHistory($index)">
+                                        <img ng-src="/images/btn_search_history_remove.png" alt="remove" />
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="search-result" ng-show="searched">
+                                <div class="search-person" ng-if="searchedLists.users.length>0">
+                                    <div class="title">
+                                        <p>Person</p>
+                                        <a title="More" ng-click="btnMoreHandler('person')">More</a>
+                                    </div>
+                                    <ul class="searched-list">
+                                        <li ng-repeat="listItem in searchedLists.users">
+                                            <div people-list></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="search-tag" ng-if="searchedLists.tags.length>0">
+                                    <div class="title">
+                                        <p>Tag</p>
+                                        <a title="More" ng-if="searchedLists.tags.length>3" ng-click="btnMoreHandler('tag')">More</a>
+                                    </div>
+                                    <ul class="searched-list">
+                                        <li ng-repeat="listItem in showTags track by $index">
+                                            <a title="{{listItem}}" ng-click="searchTag(listItem)">
+                                                {{listItem}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="search-title" ng-if="searchedLists.works.length>0">
+                                    <div class="title">
+                                        <p>Title</p>
+                                        <a title="More" ng-click="btnMoreHandler('title')">More</a>
+                                    </div>
+                                    <div class="title-list-wrap">
+                                        <div class="column-list-wrap" ng-if="searchedLists.works.length > 0">
+                                            <ul>
+                                                <li class="title-list" ng-if="$index%2 == 0" ng-repeat="listItem in searchedLists.works">
+                                                    <div artwork-list></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="column-list-wrap" ng-if="searchedLists.works.length > 0">
+                                            <ul>
+                                                <li class="title-list" ng-if="$index%2 == 1" ng-repeat="listItem in searchedLists.works">
+                                                    <div artwork-list></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search-no-result" ng-if="searchedLists.tags.length==0 && searchedLists.users.length==0 && searchedLists.works.length==0">
+                                    <p>No results found</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="btn-login" ng-show="!isLogin && !mobileView">
+                <md-button aria-label="LOGIN/SIGNUP" title="LOGIN/SIGNUP" class="login md-raised" ng-click="popupLogin()">
+                    LOG IN / SIGN UP
+                </md-button>
+            </li>
+            <li class="noti-menu" ng-show="isLogin">
+                <md-button aria-label="{{userInfo.username}}" title="{{userInfo.username}}" class="md-icon-button user-thumbnail" ng-if="!mobileView" ui-sref="profile({userId: userInfo.id})">
+                    <img ng-src="{{userInfo.thumbnail || '/images/img_profile_default.png'}}" alt="{{userInfo.username}}" />
+                </md-button>
+                <md-button aria-label="My feed" title="My feed" class="md-icon-button" ng-if="!mobileView" ui-sref="my-feeds">
+                    <img src="/images/btn_noti_myfeed.png" alt="my feed" />
+                </md-button>
+                
+                <md-menu md-offset="15 40">
+                    <md-button aria-label="notification" title="notification" class="md-icon-button" ng-click="toggleNoti($mdOpenMenu, $event)">
+                        <span class="noti-count-wrap" ng-if="userInfo.notificationCount>0">
+                            <span class="noti-count">
+                                {{userInfo.convertedNotificationCount}}
+                            </span>
+                        </span>
+                        <img src="/images/btn_noti_bell.png" alt="notification" />
+                    </md-button>
+                    
+                    <md-menu-content class="noti-list">
+                        <img class="balloon-tail" ng-if="!mobileView" ng-src="/images/img_balloon_tail.png" alt="decoration" />
+                        <div class="noti-scroll-wrap">
+<!--                            <div class="noti-scroll-contents" ng-scrollbars>-->
+                            <div class="noti-scroll-contents">
+                                <ul ng-if="notiLists.length>0">
+                                    <li ng-repeat="noti in notiLists track by $index">
+                                        <div class="noti-list-wrap" ng-class="{new: !noti.confirmed}">
+                                            <div class="noti-contents">
+                                                <div class="noti-info">
+                                                    <div class="profile-image">
+                                                        <a title="{{noti.createdBy.username}}" ng-click="goProfile(noti.createdBy.id, noti.confirmed, noti.id)">
+                                                            <img ng-src="{{noti.createdBy.profileImage || '/images/img_profile_default.png'}}" alt="{{noti.createdBy.username}}">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a title="{{noti.createdBy.username}}" ng-click="goProfile(noti.createdBy.id, noti.confirmed, noti.id)">
+                                                            <span class="user-name">{{noti.createdBy.username}}</span>
+                                                        </a>
+                                                        <span>{{noti.typeText}}</span><br/>
+                                                    </p>
+                                                    <p class="converted-date">{{noti.convertedDate}}</p>
+                                                </div>
+                                                <div ng-if="noti.type!='FOLLOW'">
+                                                    <div class="noti-feed" ng-if="noti.type=='FEEDBACK' || noti.type=='MENTION'">
+                                                        <a title="{{noti.work.title}}" ng-click="goWork(noti.work.type, noti.work.id, noti.confirmed, noti.id)">
+                                                            <pre ng-bind-html="noti.feedback.convertedMessage"></pre>
+                                                        </a>
+                                                    </div>
+                                                    <div class="artwork-wrap">
+                                                        <div class="thumbnail">
+                                                            <a title="{{noti.work.title}}" ng-click="goWork(noti.work.type, noti.work.id, noti.confirmed, noti.id)">
+                                                                <img ng-src="{{noti.work.attachments[0].thumbnail.small || '/images/thumbnail_default_img.png'}}" alt="{{noti.work.title}}" imageonload="imgLoadComplete()">
+                                                            </a>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-wrap">
+                                                                <a title="{{noti.work.title}}" ng-click="goWork(noti.work.type, noti.work.id, noti.confirmed, noti.id)">
+                                                                    <p class="title">{{noti.work.title}}</p>
+                                                                    <p class="user-name">{{noti.work.createdBy.username}}</p>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <div class="empty-list" ng-if="notiLists.length<=0">
+                                    <p>You have no notification yet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </md-menu-content>
+                </md-menu>
+                
+            </li>
+            <li>
+                <md-menu md-offset="14 40">
+                    <md-button aria-label="menu" title="menu" class="md-icon-button" ng-click="toggleSideNav($mdOpenMenu, $event)">
+                        <img src="/images/btn_menu.png" alt="menu" />
+                    </md-button>
+                    
+                    <md-menu-content class="side-nav-menu">
+                        <img class="balloon-tail" ng-if="!mobileView" ng-src="/images/img_balloon_tail.png" alt="decoration" />
+                        <div class="nav-menu">
+                            <ul>
+                                <li ng-hide="(menu == 'LOG OUT' && !isLogin) || menu == 'CHANGE PASSWORD' && !isLogin || (menu == 'LOG IN / SIGN UP' && isLogin) || (menu == 'LOG IN / SIGN UP' && !mobileView) || (menu == 'MY PROFILE' && !isLogin) || (menu == 'MY PROFILE' && !mobileView) || (menu == 'MY FEED' && !isLogin) || (menu == 'MY FEED' && !mobileView)" ng-repeat="menu in sideNavLists track by $index">
+                                    <div class="divider"></div>
+                                    <md-menu-item>
+                                        <md-button aria-label="{{menu}}" title="{{menu}}" class="md-raised" ng-click="sideNavHandler(menu)">
+                                            <span>{{menu}}</span>
+                                        </md-button>
+                                    </md-menu-item>
+                                </li>
+                            </ul>
+                        </div>
+                    </md-menu-content>
+                </md-menu>
+            </li>
+        </ul>
+    </div>
+</div>

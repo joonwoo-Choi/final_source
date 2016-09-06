@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-analytics-8.4.0_e9246a6f3ae3e70aabc1f975df7af8b28acefabe.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-8.4.0_2b4bd69c52e8a2e68c5fccdd8168bc790507f194.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.1.1_4addd40d5ce852e5e7b52edf52a8e8c1813aedb9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/debug_469ab4c1dea0166e417325dd8221b6bc642692fb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/internal_impl-24.1.1_0e7227380447c2a82ca5a9b9d0b8ab69f5cd07bd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-24.1.1_d71ea421d10c131ce56158ce9172b64735bd3297.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-8.4.0_c0851a56ad166be9dc1d8f724085a61de0523f60.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/sqlite-connector_9b67a6e96de0e4d7911545baf25192cf43ecb88c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-8.4.0_b57c403bd0fcc2c41dae0df20b8335f0deab2768.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_325d643249e8e8c7b90ec4590766a77cb241e038.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

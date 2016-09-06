@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sqlite-connector2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/platforms/android/libs/sqlite-connector.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

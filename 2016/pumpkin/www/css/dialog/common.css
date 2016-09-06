@@ -1,0 +1,52 @@
+
+.modal .bar-header{
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    background-image: none;
+}
+.modal .bar-header .title{
+    color: #666;
+/*    font-weight: 600;*/
+}
+.modal .bar-header .button{
+    font-size: 22px;
+    border-width: 0;
+    color: #666;
+    background-color: #fff;
+}
+
+.modal .dialog-content{
+    padding: 40px 10px;
+}
+
+.modal .dialog-content .btn-wrap{
+    margin-top: 40px;
+    padding: 0 0 100px;
+}
+.modal .dialog-content .btn-wrap .button{
+    min-height: 40px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 40px;
+/*    font-weight: 600;*/
+    color: #fff;
+    border-bottom: 4px solid #ff7800;
+/*    border-bottom: 2px solid #ddd;*/
+    background-color: #fc9302;
+/*    background-color: #f8f8f8;*/
+}
+
+
+/** tablet  */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    
+    
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    
+}
+

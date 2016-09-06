@@ -1,0 +1,99 @@
+<md-dialog class="popup-dialog popup-upload" aria-label="popup-upload-image" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <div class="popup-upload-image">
+            <div class="title">
+                <img ng-src="/images/img_upload_image_title.png" alt="image upload">
+                <h2>IMAGE UPLOAD</h2>
+            </div>
+            <div class="select-image-wrap">
+                <!--    upload image area   -->
+                <div ng-if="!isShowFileThumb && !isEditUpload">
+                    <div class="default-view {{error.image}}">
+                        <span>
+                            <img ng-src="/images/img_select_image.png" alt="select image">
+                        </span>
+                        <p>Select Image</p>
+                    </div>
+                    <a ngf-drop ngf-select ng-model="uploadInfo.file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-allow-dir="true" accept="image/*" ngf-pattern="image/*" ngf-change="convertFile(uploadInfo.file)" ng-click="error.image=''"></a>
+                </div>
+                <!--    thumbnail   -->
+                <div class="file-tumb" ng-class="{'show-thumbnail':isShowFileThumb}" ng-show="isShowFileThumb">
+                    <img class="preview-thumbnail" ng-src="{{imageThumbnailUrl}}" alt="preview thumbnail">
+                    <a title="delete" ng-if="!isEditUpload" ng-click="removeFile()">
+                        <img ng-src="/images/btn_upload_image_cancel.png" alt="delete">
+                    </a>
+                </div>
+            </div>
+            <div class="input-category">
+                <md-input-container>
+                    <md-select class="select {{error.category}}" ng-model="uploadInfo.workImage.category" aria-label="input-category" ng-change="categoryChange(uploadInfo.workImage.category)" ng-focus="error.category=''">
+                        <md-option ng-repeat="category in categories" value="{{category.value}}">{{category.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="input-flex input-title">
+                <div>
+                    <label for="input-image-title">TITLE</label>
+                </div>
+                <input id="input-image-title" class="input {{error.title}}" ng-model="uploadInfo.workImage.title" type="text" placeholder="{{error.title == '' ? 'Title' : 'Please enter a Title.'}}" maxLength="100" ng-focus="error.title=''; focusTitle=true" ng-blur="focusTitle=false">
+                <p class="text-count" ng-show="focusTitle">{{uploadInfo.workImage.title.length}}/100</p>
+            </div>
+            <div class="input-flex input-description">
+                <div>
+                    <label for="input-image-description">CREATOR'S NOTE</label>
+                </div>
+                <textarea id="input-image-description" spellcheck="false" class="input {{error.note}}" ng-model="uploadInfo.workImage.note" type="text" placeholder="{{error.note == '' ? 'Inspiration behind?' : 'Please enter a CREATOR’S description.'}}" maxLength="4000" ng-focus="error.note=''; focusDescription=true" ng-blur="focusDescription=false"></textarea>
+                <p class="text-count" ng-show="focusDescription">{{uploadInfo.workImage.note.length | currency:'':0}}/4,000</p>
+            </div>
+            <div class="input-flex input-tag">
+                <textarea class="input" spellcheck="false" placeholder="TAG" type="text" ng-keypress="tagKeyDown($event)" ng-focus="focusTag=true" ng-blur="tagListCheck(); focusTag=false"></textarea>
+                <p class="text-count" ng-show="focusTag">{{uploadInfo.workImage.tags.length}}/10</p>
+            </div>
+            <div class="input-year">
+                <div>
+                    <label for="input-image-year">YEAR <span>(OPTION)</span></label>
+                </div>
+                <md-input-container>
+                    <md-select id="input-image-year" class="select" ng-model="uploadInfo.workImage.year" aria-label="input-image-year">
+                        <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="input-flex input-edition">
+                <div>
+                    <label for="input-image-edition">EDITION NUMBER <span>(OPTION)</span></label>
+                </div>
+                <input id="input-image-edition" class="input" ng-model="uploadInfo.workImage.edition" type="text" placeholder="Edition number" maxLength="4" ng-keypress="onlyNumber($event)">
+            </div>
+            <div class="input-size">
+                <div>
+                    <label for="input-image-size">SIZE <span>(OPTION)</span></label>
+                </div>
+                <div class="input-size-wrap">
+                    <input id="input-image-size" class="input" ng-model="uploadInfo.workImage.width" type="text" placeholder="Width" maxLength="6" ng-keypress="onlyNumber($event, uploadInfo.workImage.width, true)">
+                    <input class="input" ng-model="uploadInfo.workImage.height" type="text" placeholder="Height" maxLength="6" ng-keypress="onlyNumber($event, uploadInfo.workImage.height, true)">
+                    <input class="input" ng-model="uploadInfo.workImage.depth" type="text" placeholder="Depth" maxLength="6" ng-keypress="onlyNumber($event, uploadInfo.workImage.depth, true)">
+                    <md-input-container>
+                        <md-select class="select" ng-model="uploadInfo.workImage.sizeUnit" aria-label="unit">
+                            <md-option ng-repeat="unit in units" value="{{unit}}">{{unit}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <ul>
+                    <li class="upload" ng-class="{activate: activate}">
+                        <md-button title="UPLOAD" class="md-raised" ng-click="uploadImage()">
+                            UPLOAD
+                        </md-button>
+                    </li>
+                    <li class="cancel">
+                        <md-button title="CANCEL" class="md-raised" ng-click="popupClose()">
+                            CANCEL
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</md-dialog>

@@ -1,0 +1,55 @@
+<div class="main-wrap" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+    
+    <div class="curation-wrap">
+        <div class="curation-list">
+            <ul class="thumbnail-wrap">
+                <li class="" ng-class="{on:($index==curationIdx)}" ng-repeat="curationList in mainCurationLists">
+                    <div class="list-bg" ng-style="{background: 'url(' + curationList.work.attachments[0].thumbnail.medium + ') 50% 50% no-repeat'}">
+                    </div>
+                    <div class="list-thumbnail">
+                        <a title="{{curationList.title}}" ng-click="goDetail()">
+                            <img ng-src="{{curationList.croppedImage || '/images/thumbnail_default_img.png'}}" alt="{{curationList.title}}" imageonload="curationImgLoadComplete()">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="title-wrap">
+            <p class="date">{{mainCurationLists[curationIdx].convertedDate}}&nbsp;</p>
+            <p class="title">Curator’s Pick</p>
+        </div>
+        <div class="info-wrap">
+            <ul>
+                <li ng-class="{on:($index==curationIdx)}" ng-repeat="curationList in mainCurationLists">
+                    <p class="title">
+                        <a title="{{curationList.work.title}}" ng-click="curationListChange($index)">
+                            {{curationList.work.title}}
+                        </a>
+                    </p>
+                    <p class="user-name">
+                        <a title="{{curationList.work.title}}" ng-click="curationListChange($index)">
+                            {{curationList.work.createdBy.username}}
+                        </a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="contents-wrap">
+        <div class="nav-main">
+            <div class="nav-main-wrap">
+                <ul>
+                    <li ng-repeat="menu in mainMenu">
+                        <md-button title="{{menu.name}}" class="{{menu.class}} md-raised" ui-sref="main.{{menu.name}}" ng-click="mainNavHandler(menu.name)">
+                            {{menu.name}}
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div ui-view="mainView" class="main-view"></div>
+    </div>
+    
+</div>

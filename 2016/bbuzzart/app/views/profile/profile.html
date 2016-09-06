@@ -1,0 +1,180 @@
+<div class="profile-wrap">
+    
+    <div class="profile-scroll-wrap">
+        
+        <div class="profile-contents-wrap">
+
+            <div class="user-profile" ng-class="{'mobile-view':isMobile}" ng-scrollbars>
+                <div class="scroll-contents-wrap" ng-if="!isEdit">
+                    <div class="profile">
+                        <div class="btn-edit-profile" ng-if="isMe && !isMobile">
+                            <a title="EDIT PROFILE" ng-click="editProfile()">EDIT</a>
+                        </div>
+                        <div class="profile-header">
+                            <div class="user-image">
+                                <img ng-src="{{profile.createdBy.thumbnail || '/images/img_profile_default.png'}}" alt="{{profile.createdBy.username}}"/>
+                            </div>
+                            <div class="user-status">
+                                <div class="user-name">
+                                    <p>{{profile.createdBy.username}}</p>
+                                    <md-button aria-label="{{tooltipTitle}}" title="{{tooltipTitle}}" class="md-icon-button" ng-class="{myprofile: isMe, following: profile.createdBy.followed && !isMe, unfollowing: !profile.createdBy.followed && !isMe}" ng-hide="isMe" ng-click="followHandler(profile.createdBy.followed)">
+                                        <span class="tooltip">{{tooltipTitle}}</span>
+                                        <img class="default" src="/images/btn_follow_default.png" alt="default" />
+                                        <img class="follow" src="/images/btn_follow_follow.png" alt="follow" />
+                                        <img class="unfollow" src="/images/btn_follow_unfollow.png" alt="unfollow" />
+                                    </md-button>
+                                </div>
+                                <div class="follow-wrap">
+                                    <a title="FOLLOWING" ng-click="openFollowDialog('following')">
+                                        <span class="count">
+                                            {{profile.convertedFollowingCount}}
+                                        </span>
+                                        <br/>
+                                        <span>FOLLOWING</span>
+                                    </a>
+                                    <a title="FOLLOWERS" ng-click="openFollowDialog('followers')">
+                                        <span class="count">
+                                            {{profile.convertedFollowerCount}}
+                                        </span>
+                                        <br/>
+                                        <span>FOLLOWERS</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="profile-contents">
+                            <li class="section about">
+                                <label>ABOUT YOU</label>
+                                <p class="description">{{profile.description}}</p>
+                            </li>
+
+                            <li class="section work" ng-if="profile.education.length > 0">
+                                <label>WORK / EDUCATION</label>
+                                <p class="description">{{profile.education}}</p>
+                            </li>
+
+                            <li class="section url" ng-if="profile.urls.length > 0">
+                                <label>URL</label>
+                                <ul>
+                                    <li ng-repeat="url in profile.convertedUrls">
+                                        <a title="{{url}}" ng-href="{{profile.convertedLinks[$index]}}" target="_blank">{{url}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="scroll-contents-wrap" ng-if="isEdit">
+                    <div class="profile edit">
+                        <div class="profile-header">
+                            <div class="user-image">
+                                <img ng-show="!uploadInfo.profileImageFile" ng-src="{{profile.createdBy.thumbnail || '/images/img_profile_default.png'}}" alt="{{profile.createdBy.username}}"/>
+                                <img class="preview-thumbnail" ngf-thumbnail="uploadInfo.profileImageFile" alt="preview thumbnail">
+                                <img ng-src="/images/img_profile_picture_upload.png" alt="upload profile image"/>
+                                <a title="profile image" ngf-drop ngf-select ng-model="uploadInfo.profileImageFile" class="drop-box" ngf-drag-over-class="'dragover'" ngf-allow-dir="true" accept="image/*" ngf-pattern="image/*" ngf-change="convertFile(uploadInfo.profileImageFile)"></a>
+                            </div>
+                            <div class="user-status">
+                                <div class="name-wrap">
+                                    <input ng-model="uploadInfo.username" type="text" placeholder="Name" maxLength="50" ng-focus="focusUsername=true" ng-blur="focusUsername=false">
+                                </div>
+                                <p class="text-count" ng-show="focusUsername">
+                                    {{uploadInfo.username.length}}/50
+                                </p>
+                                <div class="btn-edit-wrap">
+                                    <ul>
+                                        <li class="upload" ng-class="{activate: activate}">
+                                            <md-button title="SAVE" class="md-raised" ng-click="editSave()">
+                                                SAVE
+                                            </md-button>
+                                        </li>
+                                        <li class="cancel">
+                                            <md-button title="CANCEL" class="md-raised" ng-click="editCancel()">
+                                                CANCEL
+                                            </md-button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="profile-contents">
+                            <li class="section about">
+                                <label for="input-profile-description">ABOUT YOU</label>
+                                <div class="textarea-wrap">
+                                    <textarea id="input-profile-description" ng-model="uploadInfo.description" type="text" placeholder="Please tell us about you" maxLength="4000" ng-focus="focusDescription=true" ng-blur="focusDescription=false"></textarea>
+                                </div>
+                                <p class="text-count" ng-show="focusDescription">
+                                    {{uploadInfo.description.length}}/4,000
+                                </p>
+                            </li>
+
+                            <li class="section work">
+                                <label for="input-profile-work">WORK / EDUCATION</label>
+                                <div class="textarea-wrap">
+                                    <textarea id="input-profile-work" ng-model="uploadInfo.education" type="text" placeholder="You can add work / education" maxLength="1000" ng-focus="focusWork=true" ng-blur="focusWork=false"></textarea>
+                                </div>
+                                <p class="text-count" ng-show="focusWork">
+                                    {{uploadInfo.education.length}}/1,000
+                                </p>
+                            </li>
+
+                            <li class="section url">
+                                <label>URL</label>
+                                <ul class="add-url-list">
+                                    <li class="add-url-item" ng-repeat="url in uploadInfo.urls track by $index">
+                                        <div class="input">
+                                            <input ng-model="uploadInfo.urls[$index]" type="text" placeholder="http://" disabled maxLength="100">
+                                        </div>
+                                        <div class="btn">
+                                            <md-button aria-label="remove url" title="remove url" class="md-icon-button" ng-click="removeUrl($index)">
+                                                <img ng-src="/images/btn_add_url.png" alt="remove url" />
+                                            </md-button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="add-url-item">
+                                    <div class="input">
+                                        <input class="input-add-urls" ng-model="uploadInfo.inputAddUrls" type="text" placeholder="http://" maxLength="100">
+                                    </div>
+                                    <div class="btn">
+                                        <md-button aria-label="add url" title="add url" class="md-icon-button" ng-click="addUrl()">
+                                            <img ng-src="/images/btn_add_url.png" alt="add url" />
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-tabs-wrap">
+                <div class="btn-profile-tabs">
+                    <ul>
+                        <li>
+                            <a title="WORK" ng-class="{on: isTabWorks}" ui-sref="profile.works">
+                                <img ng-src="/images/btn_profile_works.png" alt="WORK" />
+                                WORK
+                            </a>
+                        </li>
+                        <li>
+                            <a title="BOOKMARK" ng-class="{on: !isTabWorks}" ui-sref="profile.bookmarks">
+                                <img ng-src="/images/btn_profile_bookmarks.png" alt="BOOKMARK" />
+                                BOOKMARK
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="profile-flex-view">
+                    <div class="profile-view-wrap" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+                        <div ui-view="profileView" class="profile-view"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div>

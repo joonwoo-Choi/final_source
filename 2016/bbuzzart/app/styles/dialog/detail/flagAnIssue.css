@@ -1,0 +1,54 @@
+/** web */
+.popup-flag-an-issue{
+    max-width: 290px;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #cbcbcb;
+    color: #525252;
+}
+.popup-flag-an-issue .popup-close{
+    top: 15px;
+    right: 15px;
+}
+
+.popup-flag-an-issue .title{
+
+}
+.popup-flag-an-issue .title h2{
+    font-size: 14px;
+    line-height: 68px;
+    vertical-align: middle;
+}
+
+.popup-flag-an-issue .issue-lists li{
+
+}
+.popup-flag-an-issue .issue-lists li:first-child .divider{
+    display: none;
+}
+.popup-flag-an-issue .issue-lists .md-button{
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 44px;
+    vertical-align: middle;
+    color: #525252;
+    background-color: #fff;
+    box-shadow: none;
+}
+.popup-flag-an-issue .issue-lists .md-button:not([disabled]){
+    box-shadow: none;
+}
+.popup-flag-an-issue .issue-lists .md-button:not([disabled]).md-focused{
+    background-color: #fff;
+    box-shadow: none;
+}
+.popup-flag-an-issue .issue-lists .divider{
+    width: auto;
+    height: 1px;
+    margin: 0 14px;
+    background-color:#cbcbcb;
+}
+    

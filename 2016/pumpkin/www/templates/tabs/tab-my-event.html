@@ -1,0 +1,29 @@
+<ion-view id="tab-my-event" view-title="{{pageTitle}}">
+    <ion-content ng-class="{'empty-list':isEmptyList}">
+        <ion-refresher ng-if="os == 'IOS'" pulling-text="" pulling-icon="ion-refresh" spinner="ios" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-refresher ng-if="os == 'ANDROID'" pulling-text="" pulling-icon="ion-refresh" spinner="android" on-refresh="doRefresh()">
+        </ion-refresher>
+        
+        <div ng-if="!isEmptyList" ng-repeat="listItem in eventList track by $index">
+            <div event-list></div>
+        </div>
+        
+        <div class="empty-text" ng-if="isEmptyList">
+            <p ng-if="currentState == 'tab.viewed'">
+                최근 본 이벤트가 없습니다.
+            </p>
+            <p ng-if="currentState == 'tab.bookmarked'">
+                찜 한 이벤트가 없습니다.
+            </p>
+            <p ng-if="currentState == 'tab.joined'">
+                응모한 이벤트가 없습니다.
+            </p>
+        </div>
+        
+        <ion-infinite-scroll ng-if="!isLast && (os == 'IOS')" on-infinite="listLoad()" distance="0" immediate-check="true" spinner="ios">
+        </ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="!isLast && (os == 'ANDROID')" on-infinite="listLoad()" distance="0" immediate-check="true" spinner="android">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

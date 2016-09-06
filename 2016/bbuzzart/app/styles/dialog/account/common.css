@@ -1,0 +1,231 @@
+/** web */
+.popup-account{
+    position: relative;
+    max-width: 350px;
+/*        height: 500px;*/
+    border-radius: 10px;
+    background-color: #fff;
+}
+.popup-account .popup-close{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 1;
+}
+
+.popup-account md-tabs{
+    height: 100% !important;
+}
+.popup-account md-tabs-wrapper{
+    display: none;
+}
+
+.popup-account md-tab-content{
+/*        width: 250px;*/
+/*        height: 370px;*/
+}
+.popup-account md-content{
+    overflow: visible;
+    padding: 65px 50px;
+/*        height: 370px;*/
+}
+
+.popup-account .md-button{
+    width: 100%;
+    height: 32px;
+    margin: 0;
+    font-weight: 700;
+    text-transform: none;
+    color: #525252;
+    background-color: #fff;
+    border: 1px solid #a3a3a3;
+    border-radius: 5px;
+}
+.popup-account .md-button.md-raised:not([disabled]){
+    box-shadow: none;
+}
+
+.popup-account md-tab.forgot{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+.popup-account iframe{
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    border: none;
+    outline: none;
+}
+
+.popup-account .error{
+    border-color: #ff2c2c !important;
+    color: #ff2c2c !important;
+}
+.popup-account .label{
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+.popup-account .input-wrap li{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    margin-top: 11px;
+}
+.popup-account .input-wrap li:first-child{
+    margin: 0;
+}
+.popup-account .input{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 32px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #525252;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    background-color: #ebebeb;
+}
+.popup-account .input::-webkit-input-placeholder{
+   color: #919191;
+}
+.popup-account .input:-moz-placeholder{
+   color: #919191;
+}
+.popup-account .input::-moz-placeholder{
+   color: #919191;
+}
+.popup-account .input:-ms-input-placeholder{
+   color: #919191;
+}
+.popup-account .input.error::-webkit-input-placeholder{
+   color: #ff2c2c;
+}
+.popup-account .input.error:-moz-placeholder{
+   color: #ff2c2c;
+}
+.popup-account .input.error::-moz-placeholder{
+   color: #ff2c2c;  
+}
+.popup-account .input.error:-ms-input-placeholder{
+   color: #ff2c2c;
+}
+.popup-account .btn-bottom-wrap{
+    width: 100%;
+    bottom: 0;
+}
+.popup-account .btn-bottom-wrap li.btn-submit .md-button{
+    color: #dbdbdb;
+    border: 1px solid #dedede;
+}
+.popup-account .btn-bottom-wrap li.btn-submit.activate .md-button{
+    color: #525252;
+    border: 1px solid #a3a3a3;
+}
+
+.hide-text{
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+.dialog-title{
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    color: #525252;
+}
+.dialog-text{
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.35px;
+    text-align: center;
+    color: #929292;
+}
+
+.popup-account .terms-of-use a,
+.popup-account .text-error a{
+    text-decoration: underline;
+}
+.popup-account .text-error{
+    display: table;
+    position: relative;
+    width: 350px;
+    margin-left: -50px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+}
+.popup-account .text-error li{
+    display: table-cell;
+    vertical-align: middle;
+}
+.popup-account .text-error li p{
+    color: #ff2c2c;
+}
+
+/** login / signup  */
+.popup-account .md-button.btn-facebook{
+    height: 42px;
+    color: #fff;
+    border-color: #49639f;
+    background-color: #49639f;
+}
+.popup-account .md-button.btn-facebook:hover{
+    background-color: #445b92;
+}
+.popup-account .logintype{
+    position: relative;
+    height: 63px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 63px;
+    text-align: center;
+}
+.popup-account .logintype span{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    background-color: #ccc;
+}
+.popup-account .logintype p{
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    background-color: #fff;
+}
+
+
+/** mobile  */
+@media screen and (max-width: 480px) {
+    .popup-dialog.popup-account{
+        max-width: none;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

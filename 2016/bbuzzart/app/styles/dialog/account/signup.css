@@ -1,0 +1,16 @@
+/** web */
+@media screen and (min-width: 0px) {
+    
+    .popup-account .tab-signup .terms-of-use{
+        position: relative;
+        margin-top: 5px;
+        font-size: 11px;
+    }
+    .popup-account .tab-signup .terms-of-use p{
+        letter-spacing: -0.1px;
+    }
+    .popup-account .tab-signup .text-error{
+        height: 70px;
+    }
+    
+}

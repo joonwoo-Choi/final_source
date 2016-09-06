@@ -1,0 +1,72 @@
+<md-dialog class="popup-dialog popup-upload" aria-label="popup-upload-video" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <div class="popup-upload-video">
+            <div class="title">
+                <img ng-src="/images/img_upload_video_title.png" alt="video upload">
+                <h2>VIDEO UPLOAD</h2>
+            </div>
+            <div class="input-flex input-url">
+                <div>
+                    <label for="input-video-url">VIDEO URL</label>
+                </div>
+                <div class="input-url-wrap">
+                    <input id="input-video-url" class="input {{error.inputUrl}}" type="text" placeholder="Preferably Youtube or Vimeo" ng-model="uploadInfo.inputUrl" ng-disabled="isEditUpload" ng-focus="error.inputUrl='';">
+                    <md-button title="video url check" aria-label="video-url-check" class="btn-url md-raised" ng-class="{'on':uploadInfo.inputUrl != ''}"  ng-disabled="isEditUpload" ng-click="videoUrlCheck()">
+                        <img ng-src="{{uploadInfo.inputUrl == '' ? '/images/btn_url_check_off.png' : '/images/btn_url_check_on.png'}}" alt="video url check">
+                    </md-button>
+                </div>
+            </div>
+            <div class="video-thumbnail" ng-show="uploadInfo.thumbnail">
+                <img ng-src="{{uploadInfo.thumbnail}}" alt="{{uploadInfo.title}}">
+            </div>
+            <div class="input-flex input-title">
+                <div>
+                    <label for="input-video-title">TITLE</label>
+                </div>
+                <input id="input-video-title" class="input {{error.title}}" ng-model="uploadInfo.title" type="text" placeholder="{{error.title == '' ? 'Title' : 'Please enter a Title.'}}" maxLength="100" ng-focus="error.title=''; focusTitle=true" ng-blur="focusTitle=false">
+                <p class="text-count" ng-show="focusTitle">{{uploadInfo.title.length}}/100</p>
+            </div>
+            <div class="input-flex input-description">
+                <div>
+                    <label for="input-description">CREATOR'S NOTE</label>
+                </div>
+                <textarea id="input-description" spellcheck="false" class="input {{error.note}}" ng-model="uploadInfo.note" type="text" placeholder="{{error.note == '' ? 'INSPIRATION BEHIND?' : 'Please enter a CREATOR’S description'}}" maxLength="4000" ng-focus="error.note=''; focusNote=true" ng-blur="focusNote=false"></textarea>
+                <p class="text-count" ng-show="focusNote">{{uploadInfo.note.length | currency:'':0}}/4,000</p>
+            </div>
+            <div class="input-flex input-tag">
+                <textarea class="input" spellcheck="false" placeholder="TAG" type="text" ng-keypress="tagKeyDown($event)" ng-focus="focusTag=true" ng-blur="tagListCheck(); focusTag=false"></textarea>
+                <p class="text-count" ng-show="focusTag">{{uploadInfo.tags.length}}/10</p>
+            </div>
+            <div class="input-flex input-time">
+                <div>
+                    <label for="input-video-time">TIME</label>
+                </div>
+                <input id="input-video-time" class="input" disabled ng-model="uploadInfo.convertedDuration" type="text" placeholder="HH:MM:SS">
+            </div>
+            <div class="input-year">
+                <div>
+                    <label for="input-video-year">YEAR <span>(OPTION)</span></label>
+                </div>
+                <md-input-container>
+                    <md-select id="input-video-year" class="select" ng-model="uploadInfo.year" aria-label="input-video-year">
+                        <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="btn-wrap">
+                <ul>
+                    <li class="upload" ng-class="{activate: activate}">
+                        <md-button title="UPLOAD" class="md-raised" ng-click="uploadVideo()">
+                            UPLOAD
+                        </md-button>
+                    </li>
+                    <li class="cancel">
+                        <md-button title="CANCEL" class="md-raised" ng-click="popupClose()">
+                            CANCEL
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</md-dialog>

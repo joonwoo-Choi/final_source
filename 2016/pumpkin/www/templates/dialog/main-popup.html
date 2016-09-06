@@ -1,0 +1,18 @@
+<div>
+    <div class="thumbnail-wrap">
+        <a title="{{mainPopup.title}}" ng-click="goDetail(mainPopup.eventId, mainPopup.popupPage)">
+            <img class="thumbnail-image" ng-src="{{thumbnailUrl}}" alt="{{mainPopup.title}}" >
+        </a>
+    </div>
+    <div class="btn-wrap">
+        <div>
+            <button title="다시보지않기" class="button-icon" ng-click="toggleDontShow()">
+                <i ng-class="{'ion-android-checkbox-outline-blank':!isDontShow, 'ion-android-checkbox-outline':isDontShow}"></i>
+                다시보지않기
+            </button>
+        </div>
+        <div>
+            <button class="button-icon close" title="CLOSE" ng-click="popupClose()">CLOSE</button>
+        </div>
+    </div>
+</div>

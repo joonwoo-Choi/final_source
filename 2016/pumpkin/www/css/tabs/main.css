@@ -1,0 +1,76 @@
+
+#main-navigation .btn-filter{
+    font-size: 26px;
+    color: #6a6a6a;
+}
+
+#tab-home{
+    background-color: #f6f6f6;
+}
+#tab-home .scroll-content .scroll{
+    height: auto;
+    padding-bottom: 50px;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap{
+    height: 320px;
+    margin-bottom: 24px;
+    opacity: 0;
+/*    background-color: #fff;*/
+}
+#tab-home .scroll-content .scroll .top-banner-wrap.show{
+    opacity: 1;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap.empty{
+    height: 0;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap .slider{
+    height: 100%;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap .slider .box{
+    height: 100%;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap .slider .box button{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap .slider .box button img{
+    width: 100%;
+    height: auto;
+    max-height: none;
+}
+#tab-home .scroll-content .scroll .top-banner-wrap .slider-pager .slider-pager-page{
+    color: #4bacc6;
+}
+
+#tab-home .scroll-content .scroll .empty-events p{
+    margin-top: 75px;
+    text-align: center;
+    color: #666;
+}
+
+
+/** tablet  */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    
+    
+    
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    
+    
+}
+

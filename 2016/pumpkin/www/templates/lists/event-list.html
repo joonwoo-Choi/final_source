@@ -1,0 +1,75 @@
+<div id="event-list" ng-class="{'premium-list':listItem.premium && isMainList}">
+<!--<div id="event-list">-->
+    
+    <div class="premium-text" ng-if="listItem.premium && isMainList">
+        <h1>
+            추천 이벤트
+        </h1>
+    </div>
+    
+<!--
+    <div class="top-bar">
+        <div>
+            {{'No. ' + listItem.id}}
+        </div>
+        <div>
+            {{listItem.registrationDate}}
+        </div>
+    </div>
+-->
+    
+    <div class="thumbnail-wrap">
+        <a title="{{listItem.title}}" ng-click="goDetail(listItem.id, listItem.company)">
+            <img ng-src="{{thumbnailUrl}}">
+            <span class="d-day" ng-if="dDay < 0">
+                {{'D' + dDay}}
+            </span>
+            <span class="d-day" ng-if="waitingEvent">
+                예정
+            </span>
+            <span class="d-day" ng-if="openedEvent">
+                진행중
+            </span>
+            <span class="d-day" ng-class="{'closed':closedEvent}" ng-if="closedEvent">
+                종료
+            </span>
+            <span class="dimmed" ng-if="closedEvent"></span>
+        </a>
+    </div>
+    
+    <ion-list>
+        <ion-item class="info-wrap item-icon-right">
+            <div class="list-title">
+                <h2>
+                    {{listItem.company}}
+                </h2>
+                <div class="title-option">
+                    <div class="target" ng-if="listItem.eventTarget == '누구나'">
+                        <p>
+                            A
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h3>
+                <button title="{{listItem.title}}" class="button-icon" ng-click="goDetail(listItem.id)">
+                    {{listItem.title}}
+                </button>
+            </h3>
+            <div class="tags-wrap">
+                <p style="border-color:{{type.color}}; color:{{type.color}}" ng-repeat="type in listItem.eventTypes">
+                    {{type.name}}
+                </p>
+            </div>
+<!--
+            <i class="icon ion-chevron-right icon-accessory"></i>
+
+            <ion-option-button class="ion-android-open" ng-click="openSitelinkDialog(listItem.eventPage)">
+            </ion-option-button>
+            <ion-option-button class="btn-bookmark" ng-class="{'ion-android-star':listItem.isBookmarked, 'ion-android-star-outline':!listItem.isBookmarked}" ng-click="toggleBookmark()">
+            </ion-option-button>
+-->
+        </ion-item>
+    </ion-list>
+    
+</div>

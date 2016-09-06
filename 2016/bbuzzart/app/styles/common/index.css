@@ -1,0 +1,127 @@
+/** web */
+html{
+    overflow: hidden !important;
+}
+h2, p, pre, span{
+    cursor: default;
+/*        pointer-events: none;*/
+}
+a h2, a p, a pre, a span,
+button h2, button p, button pre, button span,
+md-select h2, md-select p, md-select pre, md-select span{
+    cursor: pointer;
+}
+body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+/*        overflow: hidden;*/
+    -webkit-overflow-scrolling: touch;
+}
+.wrap{
+    position: relative;
+/*        overflow: hidden;*/
+    width: 100%;
+    height: 100%;
+/*        padding: 70px 0 0;*/
+    margin: 0;
+
+}
+.container{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+/*
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+*/
+    position: relative;
+/*        overflow-y: auto;*/
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+.container .page-view-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+/*
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+*/
+    width: 100%;
+    padding-top: 70px;
+}
+.container .page-view{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    width: 100%;
+/*
+    height: 100%;
+    min-height: 100%;
+*/
+}
+/*
+.container .page-view.mobile-view{
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+*/
+
+/** custom scroll bar   */
+.mCSB_draggerRail{
+    display: none;
+}
+.mCSB_dragger_bar{
+    background-color: #e1e1e1;
+}
+.wrap>.mCSB_scrollTools>.mCSB_draggerContainer{
+    margin-top: 70px;
+}
+/** mobile default scrollbar    */
+.mobile-view{
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/** angular material    */
+.md-button{
+    text-transform: none !important;
+}
+.md-button:not([disabled]).md-focused{
+    background-color: transparent;
+}
+/** popup menu  */
+.md-open-menu-container{
+    box-shadow: none;
+}
+
+/** empty list  */
+.empty-list{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+.empty-list p{
+    font-size: 14px;
+    text-align: center;
+    color: #919191;
+}

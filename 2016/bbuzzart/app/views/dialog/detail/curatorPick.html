@@ -1,0 +1,77 @@
+<md-dialog class="popup-dialog popup-curator-pick" aria-label="popup-curator-pick" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <div class="title">
+            <span>C</span>
+            <h2>PICK!</h2>
+        </div>
+
+        <div class="img-crop-wrap">
+            <div class="img-container">
+                <img ng-if="dataUrl" ng-src="{{dataUrl}}"
+                     ng-cropper
+                     ng-cropper-proxy="cropperProxy"
+                     ng-cropper-show="showEvent"
+                     ng-cropper-hide="hideEvent"
+                     ng-cropper-options="cropperOptions">
+            </div>
+            <div class="img-cropper-guide">
+                <div class="cropper-guide-title">
+                    PICK’s POINT<br/>
+                    <span>Set the cover image</span>
+                </div>
+                <div class="cropper-guide-image">
+                    <div class="guide">
+                        <div class="image">
+                            <div>
+                                <img ng-src="/images/img_pick_wheel.png" alt="zoom">
+                            </div>
+                            <p>
+                                mouse<br/>
+                                wheel
+                            </p>
+                        </div>
+                        <div class="text">
+                            <p>Zoom In / Out</p>
+                        </div>
+                    </div>
+                    <div class="guide">
+                        <div class="image">
+                            <div>
+                                <img ng-src="/images/img_pick_drag.png" alt="drag">
+                            </div>
+                            <p>
+                                drag
+                            </p>
+                        </div>
+                        <div class="text">
+                            <p>Move Image</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-pick-feedback">
+            <div>
+                <label for="input-pick-feedback">PICK’s FEEDBACK</label>
+            </div>
+            <textarea id="input-pick-feedback" spellcheck="false" ng-model="picksFeedback" type="text" placeholder="What do you think of it?" maxLength="1000" ng-focus="focusPicksFeedback=true" ng-blur="focusPicksFeedback=false"></textarea>
+            <p class="text-count" ng-show="focusPicksFeedback">{{picksFeedback.length | currency:'':0}}/1,000</p>
+        </div>
+
+        <div class="btn-wrap">
+            <ul>
+                <li class="upload" ng-class="{activate: activate}">
+                    <md-button title="POST" class="md-raised" ng-mousedown="pickSubmit()">
+                        POST
+                    </md-button>
+                </li>
+                <li class="cancel">
+                    <md-button title="CANCEL" class="md-raised" ng-mousedown="popupClose()">
+                        CANCEL
+                    </md-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</md-dialog>

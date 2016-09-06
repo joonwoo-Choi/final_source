@@ -1,0 +1,49 @@
+
+<ion-side-menus id="contents-container" side-menu enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="tabs-navigation bar-stable">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        
+        <ion-nav-view name="tab-home">
+<!--            <div bottom-banner></div>-->
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu class="side-menu" side="right">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">
+                Pumpkin
+            </h1>
+            <button class="btn-push button button-icon icon" ng-class="{'ion-android-notifications':isPush, 'ion-android-notifications-off':!isPush}" ng-click="togglePush()"></button>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list class="menu-wrap">
+                <ion-item menu-close ui-sref="tab.home" ng-click="sendGoogleAnalytics('Home Page')">
+                    홈
+                </ion-item>
+                <ion-item menu-close ui-sref="tab.viewed" ng-click="sendGoogleAnalytics('Viewed Page')">
+                    최근 본 이벤트
+                </ion-item>
+                <ion-item menu-close ui-sref="tab.bookmarked" ng-click="sendGoogleAnalytics('Bookmarked Page')">
+                    찜한 이벤트
+                </ion-item>
+                <ion-item menu-close ui-sref="tab.joined" ng-click="sendGoogleAnalytics('Joined Page')">
+                    응모한 이벤트
+                </ion-item>
+            </ion-list>
+            
+            <div class="btn-wrap">
+                <button title="앱 공유하기" class="button button-full" ng-click="openShareSheet()">
+                    앱 공유하기
+                </button>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

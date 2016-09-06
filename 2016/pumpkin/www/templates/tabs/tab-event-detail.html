@@ -1,0 +1,135 @@
+<ion-view id="tab-event-detail" view-title="상세보기">
+    <ion-nav-buttons side="right">
+        <div id="event-detail-navigation">
+            <button title="share" class="btn-util button button-icon icon" ng-click="openShareSheet()">
+                <i class="ion-android-share-alt"></i>
+            </button>
+            <button title="bookmark" class="btn-bookmark btn-util button button-icon icon" ng-click="toggleBookmark()">
+                <i ng-class="{'ion-ios-star':isBookmarked, 'ion-ios-star-outline':!isBookmarked}"></i>
+            </button>
+        </div>
+    </ion-nav-buttons>
+    <ion-content class="" on-swipe-right="swipe('right')">
+        
+        <div class="thumbnail-wrap">
+            <a title="{{detailInfo.title}}" ng-click="showFullScreenImage()">
+                <img ng-src="{{thumbnailUrl}}" alt="{{detailInfo.title}}">
+            </a>
+        </div>
+        
+        <div class="info-wrap">
+            <h1>
+                {{detailInfo.company}}
+            </h1>
+            <h2>
+                {{detailInfo.title}}
+            </h2>
+            <div class="event-text" ng-if="detailInfo.eventTypes">
+                <div class="option-title">
+                    응모형태
+                </div>
+                <div class="text-wrap event-type">
+                    <p style="border-color:{{type.color}}; color:{{type.color}}" ng-repeat="type in detailInfo.eventTypes">
+                        {{type.name}}
+                    </p>
+                </div>
+            </div>
+            <div class="event-text" ng-if="detailInfo.eventTarget">
+                <div class="option-title">
+                    응모대상
+                </div>
+                <div class="text-wrap">
+                    <pre>
+                        {{detailInfo.eventTarget}}
+                    </pre>
+                </div>
+            </div>
+            <div class="event-text" ng-if="convertedStartDate && convertedEndDate">
+                <div class="option-title">
+                    응모기간
+                </div>
+                <div class="text-wrap">
+                    <p>
+                        <button title="기간" class="button-icon" ng-click="">
+                            {{convertedStartDate + ' ~ ' + convertedEndDate}}
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="event-text" ng-if="convertedPublicationDate">
+                <div class="option-title">
+                    발표일정
+                </div>
+                <div class="text-wrap">
+                    <p>
+                        {{convertedPublicationDate}}
+                    </p>
+                </div>
+            </div>
+            <div class="event-text" ng-if="detailInfo.publicationType != null && detailInfo.publicationType != 'null' && detailInfo.publicationType.length > 0">
+                <div class="option-title">
+                    <span ng-if="convertedPublicationDate == 0">
+                        발표방식
+                    </span>
+                </div>
+                <div class="text-wrap">
+                    <p>
+                        {{detailInfo.publicationType}}
+                    </p>
+                </div>
+            </div>
+            <div class="event-text" ng-if="detailInfo.gifts.length > 0">
+                <div class="option-title">
+                    경품내역
+                </div>
+                <div class="text-wrap">
+                    <ul>
+                        <li ng-repeat="gift in convertedGifts">
+                            <p>
+                                {{gift.product + ' - ' + gift.count + '명'}}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="description-wrap" ng-if="detailInfo.description">
+            <pre>
+                {{detailInfo.description}}
+            </pre>
+        </div>
+        
+        <div class="btn-wrap">
+            <!--    응모버튼 클릭 X   -->
+            <div ng-if="!isJoining">
+                <button title="응모하러가기" class="button button-full" ng-click="openSitelinkDialog(detailInfo.eventPage, true)">
+                    응모하러가기
+                </button>
+            </div>
+            
+            <!--    응모버튼 클릭 후   -->
+            <div class="viewed-btn-wrap" ng-if="isJoining">
+                <!--    버튼 1    -->
+                <button title="응모하러가기" class="btn-1 button button-full" ng-if="!isClosedEvent" ng-click="openSitelinkDialog(detailInfo.eventPage)">
+                    응모하러가기
+                </button>
+                <button title="정보 확인" class="btn-1 button button-full" ng-if="!isJoinComplete && isClosedEvent" ng-click="openSitelinkDialog(detailInfo.eventPage)">
+                    정보 확인
+                </button>
+                <button title="당첨자 확인" class="btn-1 button button-full" ng-if="detailInfo.prizePage.length>0 && isJoinComplete && isClosedEvent" ng-click="openSitelinkDialog(detailInfo.prizePage)">
+                    당첨자 확인
+                </button>
+                
+                <!--    버튼 2    -->
+                <button title="응모안했어요!" class="btn-2 button button-full" ng-if="!isJoinComplete" ng-click="toggleJoinComplete()">
+                    응모안했어요!
+                </button>
+                <button title="응모했어요!" class="btn-2 join-complete button button-full" ng-if="isJoinComplete" ng-click="toggleJoinComplete()">
+                    응모했어요!
+                </button>
+            </div>
+        </div>
+        
+    </ion-content>
+</ion-view>

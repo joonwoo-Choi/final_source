@@ -1,0 +1,75 @@
+/** dialog  */
+.popup-confirm-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+.popup-confirm-wrap.ngdialog-theme-default .ngdialog-content{
+    width: auto;
+    max-width: 400px;
+    margin: 0;
+}
+
+.popup-confirm{
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: none;
+    text-align: center;
+    background-color: #fff;
+}
+.popup-confirm .text{
+    min-width: 150px;
+    padding: 50px 35px 25px;
+    line-height: 23px;
+    color: #525252;
+}
+.popup-confirm .text p{
+    font-size: 14px;
+}
+.popup-confirm .md-actions{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    box-sizing: border-box;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    overflow: hidden;
+    min-height: 52px;
+    padding: 0;
+    margin: 0;
+    border: none !important;
+}
+.popup-confirm .md-actions .md-button:first-child{
+    color: #188aff !important;
+}
+.popup-confirm .md-actions .md-button{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 64px;
+    font-size: 14px;
+    line-height: 64px;
+    font-weight: normal;
+    border: none;
+    color: #525252 !important;
+}
+.popup-confirm .md-actions .md-button:not([disabled]):hover,
+.popup-confirm .md-actions .md-button:not([disabled]).md-focused{
+    background-color: transparent;
+}

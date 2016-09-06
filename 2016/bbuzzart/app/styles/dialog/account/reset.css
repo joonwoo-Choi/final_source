@@ -1,0 +1,11 @@
+/** web */
+@media screen and (min-width: 0px) {
+    
+    .popup-account .tab-reset .input-wrap{
+        margin-top: 22px;
+    }
+    .popup-account .tab-reset .text-error{
+        height: 170px;
+    }
+    
+}

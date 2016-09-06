@@ -1,0 +1,109 @@
+<div class="feed-list-wrap" ng-class="{'profile-work': isProfileWork}">
+    <div class="artwork-list" ng-if="listItem.type!='FEEDBACK'">
+        <div class="status">
+            <div class="artist">
+                <div class="profile-image">
+                    <a title="{{listItem.createdBy.username}}" ui-sref="profile({userId: listItem.createdBy.id})" ng-click="sendTrackWork('PROFILE')">
+                        <img ng-src="{{listItem.createdBy.profileImage || '/images/img_profile_default.png'}}" alt="{{listItem.createdBy.username}}">
+                    </a>
+                </div>
+                <p>
+                    <a title="{{listItem.createdBy.username}}" ui-sref="profile({userId: listItem.createdBy.id})" ng-click="sendTrackWork('PROFILE')">
+                        {{listItem.createdBy.username}}
+                    </a>
+                </p>
+            </div>
+            <p class="converted-date" ng-if="!isBookmarks || isBookmarks == undefined">
+                {{listItem.convertedDate}}
+            </p>
+        </div>
+        
+        <div class="thumb-wrap">
+            <img ng-if="isProfileWork" ng-src="{{thumbnailUrl}}" alt="{{listItem.work.title}}">
+            <img ng-if="!isProfileWork" ng-src="{{thumbnailUrl}}" alt="{{listItem.work.title}}">
+            <div class="cover-wrap pre-wrap" ng-if="listItem.work.type == 'WORK_WRITING'">
+                <div class="pre-mask">
+                    <pre>{{listItem.work.abstractText}}</pre>
+                </div>
+            </div>
+            <div class="cover-wrap btn-video" ng-if="listItem.work.type == 'WORK_VIDEO'">
+                <img ng-src="/images/img_list_play.png" alt="movie play">
+            </div>
+            <div class="cover-wrap btn-thumb">
+                <a class="btn-detail-view" title="{{listItem.work.title}}" ui-sref="detail({artworkType:listItem.work.type, id:listItem.work.id})" ng-click="sendTrackWork('WORK DETAIL')"></a>
+            </div>
+        </div>
+        
+        <div class="artwork-info">
+            <p class="title">{{listItem.work.title}}</p>
+            <div class="like-wrap">
+                <div class="like">
+                    <md-button aria-label="like" title="like" class="md-icon-button" ng-class="{liked: listItem.work.liked}" ng-click="likeThis(listItem.work.liked, listItem.work.id)">
+                        <img class="off" ng-src="/images/btn_detail_like_off.png" alt="like" />
+                        <img class="on" ng-src="/images/btn_detail_like_on.png" alt="like" />
+                    </md-button>
+                    <a title="PEOPLE LIKE THIS" class="count" ng-click="openLikedPeopleLists(listItem.work.id)">
+                        {{listItem.work.convertedLikeCount}}
+                    </a>
+                </div>
+                <div class="feedback">
+                    <md-button aria-label="feedback" title="feedback" class="md-icon-button" ui-sref="detail({artworkType:listItem.work.type, id:listItem.work.id, inputFeed:true})" ng-click="sendTrackWork('FEEDBACK')">
+                        <img ng-src="/images/btn_detail_feed.png" alt="feedback" />
+                    </md-button>
+                    <a title="feedback" class="count" ui-sref="detail({artworkType:listItem.work.type, id:listItem.work.id})" ng-click="sendTrackWork('FEEDBACK COUNT')">
+                        {{listItem.work.convertedFeedbackCount}}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="feed-list" ng-if="listItem.type=='FEEDBACK'">
+        <div class="artwork-info">
+            <div class="status">
+                <div class="artist">
+                    <div class="profile-image">
+                        <a title="{{listItem.createdBy.username}}" ui-sref="profile({userId: listItem.createdBy.id})" ng-click="sendTrackFeedback('PROFILE')">
+                            <img ng-src="{{listItem.createdBy.profileImage || '/images/img_profile_default.png'}}" alt="{{listItem.createdBy.username}}">
+                        </a>
+                    </div>
+                    <p>
+                        <a title="{{listItem.createdBy.username}}" ui-sref="profile({userId: listItem.createdBy.id})" ng-click="sendTrackFeedback('PROFILE')">
+                            {{listItem.createdBy.username}}
+                        </a>
+                    </p>
+                    <p class="converted-date">
+                        {{listItem.convertedDate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="quotation-top">
+            <img ng-src="/images/img_feed_quotation_top.png" alt="quotation" />
+        </div>
+        <div class="feed-text">
+            <a title="{{listItem.feedback.convertedMessage}}" ui-sref="detail({artworkType:listItem.work.type, id:listItem.work.id, option:'showFeeds'})" ng-click="sendTrackFeedback('WORK DETAIL')">
+                <pre>{{listItem.feedback.convertedMessage}}</pre>
+            </a>
+        </div>
+<!--
+        <div class="quotation-bottom">
+            <img ng-src="/images/img_feed_quotation_bottom.png" alt="quotation" />
+        </div>
+-->
+        <div class="feed-info">
+            <div class="thumbnail">
+                <a title="{{listItem.work.title}}" ui-sref="detail({artworkType:listItem.work.type, id:listItem.work.id})" ng-click="sendTrackFeedback('WORK DETAIL')">
+                    <img ng-if="isProfileWork" ng-src="{{thumbnailUrl}}" alt="{{listItem.work.title}}">
+                    <img ng-if="!isProfileWork"ng-src="{{thumbnailUrl}}" alt="{{listItem.work.title}}">
+                </a>
+            </div>
+            <div class="artwork">
+                <div class="artwork-info-wrap">
+                    <p class="title">{{listItem.work.title}}</p>
+                    <p class="user-name">{{listItem.work.createdBy.username}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

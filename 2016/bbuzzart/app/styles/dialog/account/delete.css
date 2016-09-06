@@ -1,0 +1,22 @@
+/** web */
+@media screen and (min-width: 0px) {
+    
+    .popup-account .tab-delete>div{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .popup-account .tab-delete .dialog-title{
+        margin-top: 37px;
+    }
+    .popup-account .tab-delete .input{
+        margin-top: 46px;
+    }
+    .popup-account .tab-delete .btn-bottom-wrap{
+        margin-top: 215px;
+    }
+    
+}

@@ -1,0 +1,40 @@
+<ion-modal-view id="account-change-info-dialog" class="modal">
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">정보수정</h1>
+        <button class="button button-primary" ng-click="closeChangeInfoDialog()">
+            <i class="ion-close"></i>
+        </button>
+    </ion-header-bar>
+    <ion-content class="dialog-content">
+        <div class="item-wrap">
+            <h2 class="item-title">
+                이름
+            </h2>
+            <label class="item item-input" aria-label="이름">
+                <input ng-model="userInfo.userName" type="text" placeholder="이름">
+            </label>
+        </div>
+        <div class="item-wrap">
+            <h2 class="item-title">
+                주소
+            </h2>
+            <label class="item item-input" aria-label="주소">
+                <input ng-model="userInfo.address1" type="text" placeholder="">
+            </label>
+            <label class="item item-input" aria-label="주소">
+                <input ng-model="userInfo.address2" type="text" placeholder="">
+            </label>
+        </div>
+        <div class="item-wrap">
+            <h2 class="item-title">
+                전화번호
+            </h2>
+            <label class="item item-input" aria-label="전화번호">
+                <input ng-model="userInfo.cellPhone" type="text" placeholder="전화번호">
+            </label>
+        </div>
+        <div class="btn-wrap">
+            <button class="button button-full" ng-click="setUserInfo()">저장하기</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

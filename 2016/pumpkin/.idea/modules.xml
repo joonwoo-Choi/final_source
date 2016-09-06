@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/android.iml" filepath="$PROJECT_DIR$/platforms/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/build/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/platforms/android/build/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig1.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/com.phonegap.plugins.OrientationLock/com.phonegap.plugins.OrientationLock.iml" filepath="$PROJECT_DIR$/plugins/com.phonegap.plugins.OrientationLock/com.phonegap.plugins.OrientationLock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-admob-simple/src/cordova-plugin-admob-simple.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-admob-simple/src/cordova-plugin-admob-simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-appavailability/src/cordova-plugin-appavailability.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-appavailability/src/cordova-plugin-appavailability.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-calendar/src/cordova-plugin-calendar.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-calendar/src/cordova-plugin-calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-compat/src/cordova-plugin-compat.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-compat/src/cordova-plugin-compat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-file/src/cordova-plugin-file.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-file/src/cordova-plugin-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-file-transfer/src/cordova-plugin-file-transfer.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-file-transfer/src/cordova-plugin-file-transfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/cordova-plugin-google-analytics.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/cordova-plugin-google-analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-inappbrowser/src/cordova-plugin-inappbrowser.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-inappbrowser/src/cordova-plugin-inappbrowser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/cordova-plugin-x-socialsharing.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/cordova-plugin-x-socialsharing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-sqlite-storage/src/cordova-sqlite-storage.iml" filepath="$PROJECT_DIR$/plugins/cordova-sqlite-storage/src/cordova-sqlite-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/ionic-plugin-keyboard/src/ionic-plugin-keyboard.iml" filepath="$PROJECT_DIR$/plugins/ionic-plugin-keyboard/src/ionic-plugin-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/phonegap-plugin-push/src/phonegap-plugin-push.iml" filepath="$PROJECT_DIR$/plugins/phonegap-plugin-push/src/phonegap-plugin-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/cordova/node_modules/properties-parser/properties-parser.iml" filepath="$PROJECT_DIR$/platforms/android/cordova/node_modules/properties-parser/properties-parser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/build/generated/source/r/r.iml" filepath="$PROJECT_DIR$/platforms/android/build/generated/source/r/r.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-http/src/android/com/synconset/synconset.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-http/src/android/com/synconset/synconset.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-file/tests/src/tests.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-file/tests/src/tests.iml" />
+    </modules>
+  </component>
+</project>

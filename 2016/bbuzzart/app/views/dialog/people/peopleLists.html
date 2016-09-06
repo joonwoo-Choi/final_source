@@ -1,0 +1,40 @@
+<md-dialog class="popup-dialog popup-people-lists-dialog" aria-label="popup-people-lists" ng-cloak>
+    <div class="popup-people-lists">
+        <a title="close" class="popup-close" ng-click="popupClose()">
+            <img ng-src="/images/btn_popup_close.png" alt="close">
+        </a>
+        <h2>
+            <img ng-if="dialogType=='following'||dialogType=='followers'" src="/images/img_people_dialog_follow.png" alt="{{dialogTitle}}" />
+            <img ng-if="dialogType=='search'" src="/images/img_people_dialog_search.png" alt="{{dialogTitle}}" />
+            <img class="img-like" ng-if="dialogType=='like'" src="/images/img_people_dialog_like.png" alt="{{dialogTitle}}" />
+            {{dialogTitle}}
+        </h2>
+
+        <div class="people-lists-container" ng-if="peopleLists.length > 0">
+            <div class="list-wrap">
+                <div class="people-lists">
+                    <div class="column-list-wrap" ng-if="peopleLists.length > 0">
+                        <ul>
+                            <li class="people-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in peopleLists track by $index">
+                                <div people-list></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column-list-wrap" ng-if="peopleLists.length > 0 && listColumnLength >= 2">
+                        <ul>
+                            <li class="people-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in peopleLists track by $index">
+                                <div people-list></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="empty-list" ng-if="peopleLists.length <= 0 && isFirstSearched">
+            <p ng-if="dialogTitle == 'FOLLOWING'">No following user yet.</p>
+            <p ng-if="dialogTitle == 'FOLLOWERS'">No follower yet.</p>
+            <p ng-if="dialogTitle == 'PEOPLE LIKE THIS'">Have no people like this yet.</p>
+        </div>
+    </div>
+</md-dialog>

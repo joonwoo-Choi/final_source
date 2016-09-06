@@ -1,0 +1,44 @@
+<div class="discover-view">
+    <div class="discover-filtering-btns">
+        <div class="btn-filtering">
+            <a title="RECENT" ng-class="{'on':isRecent}" ng-click="listFiltering('recent')">
+                RECENT
+            </a>
+        </div>
+        <div class="btn-filtering">
+            <a title="TRENDING" ng-class="{'on':!isRecent}" ng-click="listFiltering('trending')">
+                TRENDING
+            </a>
+        </div>
+    </div>
+    <div class="discover-list-wrap">
+        <div class="column-list-wrap" ng-if="mainDiscoverLists.length > 0">
+            <ul>
+                <li class="discover-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in mainDiscoverLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="mainDiscoverLists.length > 0">
+            <ul>
+                <li class="discover-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in mainDiscoverLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="mainDiscoverLists.length > 0 && listColumnLength >= 4">
+            <ul>
+                <li class="discover-list" ng-if="$index%listColumnLength == 2" ng-repeat="listItem in mainDiscoverLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="mainDiscoverLists.length > 0 && listColumnLength >= 4">
+            <ul>
+                <li class="discover-list" ng-if="$index%listColumnLength == 3" ng-repeat="listItem in mainDiscoverLists track by $index">
+                    <div artwork-list></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

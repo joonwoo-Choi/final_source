@@ -1,0 +1,110 @@
+
+
+
+.mobile-banner{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    max-height: 242px;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+    -webkit-overflow-scrolling: touch;
+}
+.mobile-banner .banner-bg{
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 38px;
+    left: -100px;
+    background-color: #2a2a2a;
+    -webkit-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    transform: rotate(7deg);
+    pointer-events: none;
+}
+.mobile-banner .banner-wrap{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 15px;
+    z-index: 1;
+}
+
+.mobile-banner .btn-close{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 2;
+}
+.mobile-banner .btn-close img{
+    width: 20px;
+    height: 20px;
+}
+
+.mobile-banner .title{
+    margin-top: 50px;
+}
+.mobile-banner .title h2{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+.mobile-banner .title p{
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+}
+
+.mobile-banner .btn-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    margin-top: 16px;
+}
+.mobile-banner .btn-wrap .btn-link{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 5px;
+    color: #2a2a2a;
+    background-color: #fff;
+}
+.mobile-banner .btn-wrap .btn-link span{
+    margin-left: 6px;
+}
+
+.mobile-banner .sub-text{
+    margin-top: 10px;
+}
+.mobile-banner .sub-text p{
+    font-size: 13px;
+    color: #fff;
+}
+
+
+
+
+
+
+

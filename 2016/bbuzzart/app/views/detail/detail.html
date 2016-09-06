@@ -1,0 +1,387 @@
+
+<div class="detail-wrap">
+    <h2 class="detail-page-text">
+        {{detailData.title}}
+    </h2>
+    <p class="detail-page-text">
+        {{detailData.note || detailData.abstractText || detailData.introduction}}
+    </p>
+    
+    <div class="detail-scroll-wrap">
+    
+        <div class="detail-contents-wrap">
+
+            <div class="content-detail" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+                <div class="scroll-contents-wrap">
+
+                    <div class="creator-info">
+                        <div class="user">
+                            <div class="profile-image">
+                                <a title="{{detailData.createdBy.username}}" ui-sref="profile({userId: detailData.createdBy.id})" ng-click="sendTrackDetail('PROFILE')">
+                                    <img ng-src="{{detailData.createdBy.profileImage || '/images/img_profile_default.png'}}" alt="{{detailData.createdBy.username}}">
+                                </a>
+                            </div>
+                            <p>
+                                <a title="{{detailData.createdBy.username}}" ui-sref="profile({userId: detailData.createdBy.id})" ng-click="sendTrackDetail('PROFILE')">
+                                    {{detailData.createdBy.username}}
+                                </a>
+                            </p>
+                            <md-button aria-label="curator pick" title="curator pick" class="md-icon-button btn-curator" ng-if="!isMobile && isCurator && (detailData.type!='WORK_SHOW')" ng-click="openCuratorPick()">
+                                C
+                            </md-button>
+                            <md-menu class="btn-detail-more" ng-if="!isMobile" md-offset="16 38">
+                                <md-button aria-label="more" title="more" class="md-icon-button btn-more" ng-click="openMenu($mdOpenMenu, $event)">
+                                    <img ng-src="/images/btn_feedback_more.png" alt="more" />
+                                </md-button>
+                                <md-menu-content class="detail-menu-contents detail-menu">
+                                    <img ng-src="/images/img_balloon_tail.png" alt="decoration" />
+                                    <div class="menu-item-wrap">
+                                        <ul ng-if="detailData.createdBy.id == myId">
+                                            <li ng-repeat="menu in detailEditMenus track by $index">
+                                                <div class="divider"></div>
+                                                <md-menu-item>
+                                                    <md-button aria-label="{{menu}}" title="{{menu}}" class="md-raised" ng-click="myDtailContentEdit($index)">
+                                                        {{menu}}
+                                                    </md-button>
+                                                </md-menu-item>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="flag-menus" ng-if="detailData.createdBy.id != myId">
+                                            <li ng-repeat="menu in detailFlagMenus track by $index">
+                                                <div class="divider"></div>
+                                                <md-menu-item>
+                                                    <md-button aria-label="{{menu}}" title="{{menu}}" class="md-raised" ng-click="detailMenuHandler($index)">
+                                                        {{menu}}
+                                                    </md-button>
+                                                </md-menu-item>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </md-menu-content>
+                            </md-menu>
+                        </div>
+                    </div>
+
+                    <div class="content-artwork content-thumbnail" ng-if="detailData.type=='WORK_IMAGE' || detailData.type=='WORK_SHOW'">
+                        <a title="{{detailData.title}}" ng-class="{'block-detail-view':isMobile}" ng-click="openImageViewer()">
+                            <img class="artwork-thumbnail" ng-src="{{thumbnailUrl}}" alt="{{detailData.title}}" />
+                        </a>
+                    </div>
+
+                    <div class="content-video content-thumbnail" ng-class="{'empty-thumbnail':detailData.attachments.length==0}" ng-if="detailData.type=='WORK_VIDEO'">
+                        <img class="artwork-thumbnail" ng-src="{{detailData.attachments[0].thumbnail.small}}" alt="{{detailData.title}}" />
+                        <iframe type="text/html" ng-src="{{detailData.validVideoUrl}}" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="content-writing content-thumbnail" ng-if="detailData.type=='WORK_WRITING'">
+                        <img class="artwork-thumbnail" ng-src="{{thumbnailUrl}}" alt="{{detailData.title}}" />
+                        <div class="writing-title-wrap">
+                            <p class="title">{{detailData.title}}</p>
+                            <p class="year" ng-if="detailData.year > 0">{{detailData.year}}</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-info-wrap">
+                        <div class="scroll-info-wrap" ng-scrollbars>
+                            <div class="detail-info">
+                                <md-button aria-label="open/close" title="open/close" class="md-icon-button btn-toggle-info" ng-class="{open: isOpenDetailInfo}" ng-if="detailData.type!='WORK_VIDEO' && detailData.type!='WORK_WRITING'" ng-href="" ng-click="btnToggleDetailInfo()">
+                                    <img ng-src="/images/btn_detail_info.png" alt="open/close" />
+                                </md-button>
+
+                                <div class="writing-text" ng-if="detailData.type=='WORK_WRITING'">
+                                    <pre>{{detailData.abstractText}}</pre>
+                                </div>
+
+                                <div class="title-wrap">
+                                    <p>{{detailData.title}}</p>
+                                    <md-button aria-label="bookmark" title="bookmark" class="md-icon-button" ng-class="{bookmarked: detailData.bookmarked}" ng-href="" ng-click="bookmarkThis()">
+                                        <img class="off" ng-src="/images/btn_bookmark_off.png" alt="bookmark" />
+                                        <img class="on" ng-src="/images/btn_bookmark_on.png" alt="bookmark" />
+                                    </md-button>
+                                </div>
+                                <p class="info" ng-if="detailData.type == 'WORK_IMAGE' || detailData.type == 'WORK_VIDEO' || detailData.type=='WORK_SHOW'">
+                                    <!--    Image   -->
+                                    <span ng-if="detailData.category.name">
+                                        {{detailData.category.name}}
+                                    </span>
+                                    <span ng-if="(detailData.type == 'WORK_IMAGE') && detailData.year">
+                                        {{', '+detailData.year}}
+                                    </span>
+                                    <span ng-if="(detailData.type == 'WORK_VIDEO') && detailData.year">
+                                        {{detailData.year}}
+                                    </span>
+                                    <span ng-if="detailData.convertedEdition">
+                                        {{', '+detailData.convertedEdition}}
+                                    </span>
+                                    <span ng-if="detailData.type=='WORK_SHOW'">
+                                        {{detailData.startDate + ' ~ ' + detailData.endDate}}
+                                    </span>
+                                </p>
+                                <p class="size" ng-if="detailData.convertedSize || detailData.convertedDuration">
+                                    <!--    Image   -->
+                                    {{detailData.convertedSize}}
+
+                                    <!--    Video   -->
+                                    {{detailData.convertedDuration}}
+                                </p>
+                                <div class="like-wrap">
+                                    <div class="like">
+                                        <md-button aria-label="like" title="like" class="md-icon-button" ng-class="{liked: detailData.liked}" ng-href="" ng-click="likeThis()">
+                                            <img class="off" ng-src="/images/btn_detail_like_off.png" alt="like" />
+                                            <img class="on" ng-src="/images/btn_detail_like_on.png" alt="like" />
+                                        </md-button>
+                                        <a title="PEOPLE LIKE THIS" class="count" ng-click="openLikedPeopleLists()">
+                                            {{detailData.convertedLikeCount}}
+                                        </a>
+                                    </div>
+                                    <div class="feedback">
+                                        <md-button aria-label="feedback" title="feedback" class="md-icon-button" ng-href="" ng-click="focusInputFeedback()">
+                                            <img ng-src="/images/btn_detail_feed.png" alt="feedback" />
+                                        </md-button>
+                                        <span class="count">
+                                            {{detailData.convertedFeedbackCount}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="show-info" ng-if="detailData.type=='WORK_SHOW'">
+                                    <ul>
+                                        <li ng-if="detailData.place.length>0">
+                                            <div class="image-wrap">
+                                                <img src="/images/img_show_place.png" alt="place">
+                                            </div>
+                                            <div>
+                                                <a title="{{detailData.place}}" href="{{'https://maps.google.co.kr/?q=' + detailData.latitude + ',' + detailData.longitude}}" target="_blank">
+                                                    {{detailData.place}}
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li ng-if="detailData.homepage.length>0">
+                                            <div class="image-wrap">
+                                                <img src="/images/img_show_homepage.png" alt="homepage">
+                                            </div>
+                                            <div>
+                                                <a href="{{detailData.homepage}}" target="_blank">
+                                                    {{detailData.homepage}}
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li ng-if="detailData.contact.length>0">
+                                            <div class="image-wrap">
+                                                <img src="/images/img_show_contact.png" alt="contact">
+                                            </div>
+                                            <div>
+                                                <p>{{detailData.contact}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tags" ng-if="detailData.tags.length>0">
+                                    <ul>
+                                        <li ng-repeat="tag in detailData.tags track by $index">
+                                            <a title="{{'#'+tag}}" ng-if="tag.indexOf('#')<=-1" ng-click="openSearchTagLists('#'+tag)">
+                                                {{'#'+tag}}
+                                            </a>
+                                            <a title="{{tag}}" ng-if="tag.indexOf('#')>-1" ng-click="openSearchTagLists(tag)">
+                                                {{tag}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="description" ng-if="detailData.note.length>0 || detailData.introduction.length>0">
+                                    <pre ng-if="detailData.note.length>0">{{detailData.note}}</pre>
+                                    <pre ng-if="detailData.introduction.length>0">{{detailData.introduction}}</pre>
+                                </div>
+                                <p class="converted-date">{{detailData.convertedDate}}</p>
+                                <div class="participation-works" ng-if="detailData.type=='WORK_SHOW' && detailData.participationWorks.length>0">
+                                    <ul>
+                                        <li ng-repeat="work in detailData.participationWorks track by $index">
+                                            <a title="{{work.title}}" ui-sref="detail({artworkType: work.type, id: work.id})">
+                                                <img ng-src="{{work.attachments[0].thumbnail.small}}" alt="{{work.title}}" imageonload="participationWorksLoaded($index)">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="feedback-lists">
+
+                <div class="feedback-lists-contents" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="feedbackScrollbarsConfig">
+
+                    <div class="scroll-contents-wrap">
+
+                        <div class="input-feedback-wrap">
+                            <div class="input-feedback">
+                                <textarea mentio
+                                          mentio-macros="macros"
+                                          mentio-trigger-char="'@'"
+                                          mentio-items="mentionUsers"
+                                          mentio-template-url="/views/detail/mentionItem.html"
+                                          mentio-search="searchPeople(term)"
+                                          mentio-select="getNewMentionTextRaw(item)"
+                                          mentio-typed-term="typedTerm"
+                                          ng-trim="false"
+                                          placeholder="What do you think of it?" 
+                                          maxLength="1000"
+                                          spellcheck="false"
+                                          ng-model="feedback"
+                                          ng-focus="focusFeedback=true"
+                                          ng-blur="focusFeedback=false">
+                                </textarea>
+                                <a title="" ng-if="!isLogin" ng-click="openAccount()"></a>
+                            </div>
+                            <p class="text-count" ng-show="focusFeedback">
+                                {{feedback.length | currency:'':0}}/1,000
+                            </p>
+                            <div class="feedback-btn-wrap">
+                                <a title="Try FeedbackAide" ng-class="{'btn-feedbackaide-hide':detailData.type=='WORK_SHOW'}" ng-click="openFeedbackAide()">
+                                    <img ng-src="/images/btn_feedback_aide.png" alt="Try FeedbackAide">
+                                    <span>
+                                        Try FeedbackAide
+                                    </span>
+                                </a>
+                                <div>
+                                    <md-button aria-label="REGENERATE" title="REGENERATE" class="activate md-raised" ng-if="generateComplete" ng-mousedown="regenerate()">
+                                        REGENERATE
+                                    </md-button>
+                                    <md-button aria-label="POST" title="POST" class="md-raised" ng-class="{activate: feedback.length>0}" ng-mousedown="addFeedback(feedback)">
+                                        POST
+                                    </md-button>
+                                </div>
+                            </div>
+
+                            <div class="feedback-aide-wrap" ng-if="isOpenFeedbackAide">
+                                <md-button aria-label="close" title="close" class="md-icon-button btn-close" ng-click="hideFeedbackAide()">
+                                    <img ng-src="/images/btn_popup_close.png" alt="close" />
+                                </md-button>
+                                <div class="feedback-aide-title">
+                                    <p>
+                                        {{feedbackAideTitle[feedbackAideStep]}}
+                                    </p>
+                                </div>
+                                <div class="feedback-aide-steps">
+                                    <div class="feedback-aide-step feeling" ng-class="{selected: selectedFeedbackAideIdxs[$index] >= 0}" ng-repeat="wordsList in feedbackAideLists track by $index">
+                                        <ul>
+                                            <li ng-repeat="word in wordsList track by $index">
+                                                <a title="{{word}}" ng-class="{on: selectedFeedbackAideIdxs[$parent.$index] == $index}" ng-click="selectWord($parent.$index, $index)">
+                                                    {{word}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <md-button aria-label="OTHER WORDS" title="OTHER WORDS" class="md-raised btn-box" ng-if="feedbackAideStep==$index" ng-click="btnOtherWords($index)">
+                                            OTHER WORDS
+                                        </md-button>
+                                    </div>
+                                </div>
+                                <div class="generate-complate" ng-if="generateComplete">
+                                    <md-button aria-label="REGENERATE" title="REGENERATE" class="md-raised btn-box" ng-click="regenerate()">
+                                        REGENERATE
+                                    </md-button>
+                                    <p>Generate other sentence(?)</p>
+                                </div>
+                                <div class="loader" ng-if="isGenerating" ng-class="{on: isGenerating}">
+                                    <span>
+                                        <img ng-src="/images/img_feedback_aide_loader.gif" alt="loader" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-lists-wrap" ng-if="feedbackLists.length > 0">
+                            <ul>
+                                <li ng-repeat="comment in feedbackLists track by $index">
+                                    <div class="user">
+                                        <div class="profile-image">
+                                            <a title="{{comment.createdBy.username}}" ui-sref="profile({userId: comment.createdBy.id})">
+                                                <img ng-src="{{comment.createdBy.profileImage || '/images/img_profile_default.png'}}" alt="{{comment.createdBy.username}}">
+                                            </a>
+                                        </div>
+                                        <p>
+                                            <a title="{{comment.createdBy.username}}" ui-sref="profile({userId: comment.createdBy.id})">
+                                                {{comment.createdBy.username}}
+                                            </a>
+                                        </p>
+
+                                        <md-menu class="btn-feedback-edit" ng-if="comment.isMe" md-offset="-90 -100">
+                                            <md-button aria-label="EDIT/DELETE" title="EDIT/DELETE" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                                                <img ng-src="/images/btn_feedback_more.png" alt="EDIT/DELETE" />
+                                            </md-button>
+                                            <md-menu-content class="detail-menu-contents feedback-menu">
+                                                <div class="menu-item-wrap">
+                                                    <ul>
+                                                        <li ng-repeat="menu in feedbackEditMenus track by $index">
+                                                            <div class="divider"></div>
+                                                            <md-menu-item>
+                                                                <md-button aria-label="{{menu}}" title="{{menu}}" class="md-raised" ng-click="feedbackEditMenuHandler($index, comment.commentIdx, comment.id)">
+                                                                    {{menu}}
+                                                                </md-button>
+                                                            </md-menu-item>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <img ng-src="/images/img_balloon_tail.png" alt="decoration" />
+                                            </md-menu-content>
+                                        </md-menu>
+
+                                    </div>
+                                    <div class="feedback">
+                                        <div class="list" ng-if="!comment.isEditFeedback">
+                                            <p class="comment" ng-bind-html="comment.convertedMessage"></p>
+                                            <p class="date">{{comment.convertedDate}}</p>
+                                        </div>
+                                        <div class="edit" ng-if="comment.isEditFeedback">
+                                            <div class="input-feedback">
+                                                <textarea mentio
+                                                          mentio-macros="macros"
+                                                          mentio-trigger-char="'@'"
+                                                          mentio-items="mentionUsers"
+                                                          mentio-template-url="/views/detail/mentionItem.html"
+                                                          mentio-search="searchPeople(term)"
+                                                          mentio-select="getEditMentionTextRaw(item)"
+                                                          mentio-typed-term="typedTerm"
+                                                          ng-trim="false"
+                                                          placeholder="Wthat do you Think of it?" 
+                                                          maxLength="1000"
+                                                          spellcheck="false"
+                                                          ng-model="editFeedback"
+                                                          ng-focus="focusEditFeedback=true"
+                                                          ng-blur="focusEditFeedback=false">
+                                                </textarea>
+                                                <a title="" ng-if="!isLogin" ng-click="openAccount()"></a>
+                                            </div>
+                                            <p class="text-count" ng-show="focusEditFeedback">
+                                                {{editFeedback.length | currency:'':0}}/1,000
+                                            </p>
+                                            <div class="feedback-btn-wrap">
+                                                <md-button aria-label="POST" title="POST" class="submit md-raised" ng-class="{activate: editFeedback.length>0}" ng-mousedown="updateFeedback(comment.id, editFeedback, $index)">
+                                                    POST
+                                                </md-button>
+                                                <md-button aria-label="CANCEL" title="CANCEL" class="cancel" ng-mousedown="editFeedbackCancel(comment.commentIdx)">
+                                                    CANCEL
+                                                </md-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="empty-list" ng-if="feedbackLists.length <= 0">
+                    <p>Be the first to leave feedback.</p>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+</div>

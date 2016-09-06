@@ -1,0 +1,321 @@
+/** web */
+.md-calendar-date span{
+    pointer-events: auto;
+}
+.md-calendar-date-disabled{
+    opacity: 0.35;
+}
+@media screen and (min-width: 0px) {
+    .popup-upload-show .select-image-wrap{
+        position: relative;
+        margin-top: 15px;
+    }
+    .popup-upload-show .select-image-wrap .default-view{
+        position: relative;
+        width: 100%;
+        padding: 40px 0;
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        text-align: center;
+        color: #919191;
+        background-color: #fff;
+    }
+    .popup-upload-show .select-image-wrap .default-view span{
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        width: 34px;
+        height: 34px;
+    }
+    .popup-upload-show .select-image-wrap .default-view span img{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .popup-upload-show .select-image-wrap .default-view.error span img{
+        top: -34px;
+    }
+    .popup-upload-show .select-image-wrap .default-view p{
+        padding-top: 5px;
+    }
+    .popup-upload-show .select-image-wrap .default-view.error p{
+        color: #ff2c2c;
+    }
+    .popup-upload-show .select-image-wrap .drop-box{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+    .popup-upload-show .select-image-wrap.show-upload .drop-box{
+        display: block;
+    }
+    .popup-upload-show .select-image-wrap .file-tumb{
+        text-align: center;
+    }
+    .popup-upload-show .select-image-wrap .file-tumb .preview-thumbnail{
+        width: 520px;
+    }
+    .popup-upload-show .select-image-wrap .file-tumb.show-thumbnail .preview-thumbnail{
+        width: 100%;
+    }
+    .popup-upload-show .select-image-wrap .file-tumb a{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .popup-upload-show label{
+        font-size: 14px;
+        font-weight: 700;
+        color: #525252;
+    }
+    .popup-upload-show label span{
+        font-size: 12px;
+    }
+    .popup-upload-show .input-title{
+        position: relative;
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-title .input{
+        height: 33px;
+        margin-top: 2px;
+        border: 1px solid #ebebeb;
+    }
+    
+    .popup-upload-show .input-period{
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-period .calendar-wrap{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        position: relative;
+        min-height: 35px;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input{
+        width: 50%;
+        height: 33px;
+        padding: 0;
+        margin-top: 2px;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input:first-child{
+        margin-right: 20px;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input md-datepicker{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        height: 100%;
+        line-height: 32px;
+        vertical-align: middle;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input md-datepicker .md-datepicker-input{
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        height: auto;
+        margin-left: 14px;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input md-datepicker .md-datepicker-triangle-button{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 0;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input md-datepicker .md-datepicker-button{
+        -webkit-flex: none;
+        -ms-flex: none;
+        flex: none;
+        margin: -7px 6px 0 0;
+    }
+    .popup-upload-show .input-period .calendar-wrap .input .md-datepicker-input-container{
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .md-datepicker-calendar-pane .md-datepicker-input-mask{
+        height: 32px;
+    }
+    .md-datepicker-calendar-pane .md-datepicker-input-mask-opaque{
+        left: 130px !important;
+    }
+    .md-datepicker-calendar-pane .md-datepicker-input-mask-opaque,
+    .md-datepicker-calendar-pane .md-datepicker-calendar{
+        background-color: #fff;
+    }
+    .md-datepicker-calendar-pane .md-datepicker-calendar .md-calendar-day-header{
+        background-color: #ebebeb;
+    }
+    .md-datepicker-calendar-pane .md-datepicker-calendar .md-calendar-month-label{
+        font-weight: 700;
+    }
+    .md-calendar-date .md-calendar-date-selection-indicator:hover{
+        background-color: #ebebeb;
+    }
+    .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator{
+        border: 1px solid rgb(16,108,200);
+    }
+    .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator{
+        color: #fff;
+        background-color: rgb(16,108,200);
+    }
+    
+    .popup-upload-show .input-place{
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-place .input{
+        height: 33px;
+        margin-top: 2px;
+        border: 1px solid #ebebeb;
+    }
+    .popup-upload-show .input-place .angular-google-map{
+        position: relative;
+        overflow: hidden;
+        margin-top: 12px;
+    }
+    .popup-upload-show .input-place .angular-google-map-container{
+        height: 200px;
+    }
+    .popup-upload-show .input-place .angular-google-map-container .gm-style-cc{
+        display: none;
+    }
+    
+    .popup-upload-show .input-description{
+        position: relative;
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-description textarea{
+        overflow: auto;
+        min-height: 100px;
+        padding: 12px 10px;
+        margin-top: 2px;
+        resize: none !important;
+        border: 1px solid #ebebeb;
+    }
+    
+    .popup-upload-show .input-tag{
+        position: relative;
+        margin-top: 7px;
+    }
+    .popup-upload-show .input-tag .input{
+        overflow: auto;
+        height: 33px;
+        padding-top: 8px;
+        vertical-align: middle;
+        resize: none !important;
+        border: 1px solid #ebebeb;
+    }
+    
+    .popup-upload-show .input-homepage{
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-homepage .input{
+        height: 33px;
+        margin-top: 2px;
+    }
+    
+    .popup-upload-show .input-contact{
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-contact .input{
+        height: 35px;
+        margin-top: 2px;
+    }
+    
+    .popup-upload-show .input-works{
+        margin-top: 10px;
+    }
+    .popup-upload-show .input-works .btn-show-works-wrap{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        margin-top: 2px;
+    }
+    .popup-upload-show .input-works .btn-show-works-wrap .md-button{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        width: 100%;
+        height: 33px;
+        min-height: 33px;
+        margin: 0;
+        padding: 0 10px;
+        border: 1px solid #a3a3a3;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 33px;
+        text-align: left;
+        color: #525252;
+        background-color: #fff;
+        box-shadow: none;
+    }
+    .popup-upload-show .input-works .btn-show-works-wrap .md-button .img-decoration{
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+    .popup-upload-show .input-works .btn-show-works-wrap .md-button .img-decoration img{
+        width: 15px;
+        vertical-align: middle;
+    }
+    .popup-upload-show .input-works .btn-show-works-wrap .md-button:not([disabled]){
+        box-shadow: none;
+    }
+    .popup-upload-show .input-works .selected-works-wrap{
+        margin-top: 11px;
+    }
+    .popup-upload-show .input-works .selected-works-wrap ul{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .popup-upload-show .input-works .selected-works-wrap ul li{
+        position: relative;
+        overflow: hidden;
+        width: 19%;
+        margin: 0 0.5% 5px;
+        border-radius: 2px;
+    }
+    .popup-upload-show .input-works .selected-works-wrap ul li .thumbnail-cover{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(0,0,0,0.5);
+        -webkit-transition: opacity 0.35s;
+        transition: opacity 0.35s;
+    }
+    .popup-upload-show .input-works .selected-works-wrap ul li .thumbnail-cover:hover{
+        opacity: 1;
+    }
+    .popup-upload-show .input-works .selected-works-wrap ul li .thumbnail-cover .btn-remove{
+        position: absolute;
+        top: 9px;
+        right: 9px;
+    }
+}

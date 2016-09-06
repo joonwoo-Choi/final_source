@@ -1,0 +1,292 @@
+<md-dialog class="popup-dialog popup-account" aria-label="popup-account" ng-cloak>
+    <a title="close" class="popup-close" ng-click="popupClose()">
+        <img ng-src="/images/btn_popup_close.png" alt="close">
+    </a>
+    <md-dialog-content>
+        <div class="popup-scroll-wrap">
+            <md-tabs md-dynamic-height md-selected="selectedIdx">
+                <!--    login   -->
+                <md-tab label="login">
+                    <md-content class="tab-login">
+                        <h2 class="hide-text">Log in</h2>
+                        <md-button title="Continue With Facebook" class="btn-facebook md-raised" ng-click="fbLogin()">
+                            Continue With Facebook
+                        </md-button>
+                        <div class="logintype">
+                            <span></span>
+                            <p>or</p>
+                        </div>
+                        <ul class="input-wrap">
+                            <li>
+                                <label for="input-login-email" class="label">E-mail</label>
+                                <input id="input-login-email" class="input" ng-class="{error: error.login.email}" ng-model="loginInfo.email" type="text" placeholder="E-mail" ng-keydown="loginKeydown($event)" ng-focus="error.login.email=false; error.login.account=false;">
+                            </li>
+                            <li>
+                                <label for="input-login-password" class="label">Password</label>
+                                <input id="input-login-password" class="input" ng-class="{error: error.login.password}" ng-model="loginInfo.password" type="password" placeholder="Password" ng-keydown="loginKeydown($event)" ng-focus="error.login.password?loginInfo.password='':null; error.login.password=false; error.login.wrongPassword=false;">
+                            </li>
+                        </ul>
+                        <div class="btn-options">
+                            <ul>
+                                <li>
+                                    <md-checkbox title="Remember me" ng-model="loginInfo.remember" aria-label="Remember me">
+                                        Remember me
+                                    </md-checkbox>
+                                </li>
+                                <li>
+                                    <md-button title="Forgot Password" md-no-ink ng-click="changeTab(2)">
+                                        Forgot Password
+                                    </md-button>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="text-error">
+                            <li ng-if="!error.login.account && error.login.email">
+                                <p>
+                                    Please enter a valid E-mail address.
+                                </p>
+                            </li>
+                            <li ng-if="!error.login.wrongPassword && !error.login.email && error.login.password">
+                                <p>
+                                    Wrong password.
+<!--                                    Password must contain at least 6characters.-->
+                                </p>
+                            </li>
+                            <!--    response error  -->
+                            <li ng-if="error.login.account">
+                                <p>
+                                    No user for given E-mail.
+                                </p>
+                            </li>
+                            <li ng-if="!error.login.account && error.login.wrongPassword">
+                                <p>
+                                    Wrong password.
+                                </p>
+                            </li>
+                            <li class="valid-error" ng-if="error.login.valid">
+                                <p>
+                                   E-mail verification has not been completed. Verification will be complete once you click the link contained within the e-mail<br/>
+                                    <a title="verification e-mail" ng-click="">
+                                        Didn’t receive a verification e-mail?
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="btn-bottom-wrap">
+                            <ul>
+                                <li class="btn-submit" ng-class="{activate: loginActivate}">
+                                    <md-button title="LOG IN" class="md-raised" ng-click="login()">
+                                        LOG IN
+                                    </md-button>
+                                </li>
+                                <li class="btn-signup">
+                                    <md-button title="SIGN UP WITH E-MAIL" class="md-raised" ng-click="changeTab(1)">
+                                        SIGN UP WITH E-MAIL
+                                    </md-button>
+                                </li>
+                            </ul>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <!--    signup  -->
+                <md-tab label="signup">
+                    <md-content class="tab-signup">
+                        <h2 class="hide-text">Sign up</h2>
+                        <md-button title="Continue With Facebook" class="btn-facebook md-raised" ng-click="btnFbSignup()">
+                            Continue With Facebook
+                        </md-button>
+                        <div class="logintype">
+                            <span></span>
+                            <p>or</p>
+                        </div>
+                        <ul class="input-wrap">
+                            <li>
+                                <label for="input-signup-name" class="label">Name</label>
+                                <input id="input-signup-name" class="input" type="text" placeholder="Name" maxLength="50" ng-class="{error: error.signup.name}" ng-model="signupInfo.name" ng-keydown="signupKeydown($event)" ng-focus="error.signup.name=false">
+                            </li>
+                            <li>
+                                <label for="input-signup-email" class="label">E-mail</label>
+                                <input id="input-signup-email" class="input" ng-class="{error: error.signup.email || error.signup.alreadyEmail}" ng-model="signupInfo.email" type="text" placeholder="E-mail" ng-keydown="signupKeydown($event)" ng-focus="error.signup.email=false; error.signup.alreadyEmail=false;">
+                            </li>
+                            <li>
+                                <label for="input-signup-password" class="label">Password</label>
+                                <input id="input-signup-password" class="input" ng-class="{error: error.signup.password}" ng-model="signupInfo.password" type="password" placeholder="Password" ng-keydown="signupKeydown($event)" ng-focus="error.signup.password?signupInfo.password='':null; error.signup.password=false">
+                            </li>
+                        </ul>
+                        <div class="terms-of-use">
+                            <p>
+                                By creating your BBuzzArt account<br/>
+                                you agree to our <a title="ourTerms of Use" ng-href="/static/service/termsofuse.html" target="_blank">Terms of Use</a> and <a title="Privacy Policy." ng-href="/static/service/privacypolicy.html" target="_blank">Privacy Policy.</a>
+                            </p>
+                        </div>
+                        <ul class="text-error">
+                            <li ng-if="error.signup.name">
+                                <p>
+                                    Please enter a name.
+                                </p>
+                            </li>
+                            <li ng-if="!error.signup.name && error.signup.email">
+                                <p>
+                                    Please enter a valid E-mail address.
+                                </p>
+                            </li>
+                            <li ng-if="!error.signup.name && !error.signup.email && error.signup.password">
+                                <p>
+                                    Password must be at least 6 characters long
+                                </p>
+                            </li>
+                            <!--    response error  -->
+                            <li ng-if="error.signup.alreadyEmail">
+                                <p>
+                                    E-mail is already in use.<br/>
+<!--                                    <a title="Have an account?" ng-click="changeTab(0)">Have an account?</a>-->
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="btn-bottom-wrap">
+                            <li class="btn-submit" ng-class="{activate: signupActivate}">
+                                <md-button title="SIGN UP" class="md-raised" ng-click="btnSignUp()">
+                                    SIGN UP
+                                </md-button>
+                            </li>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <!--    forgot  -->
+                <md-tab label="forgot">
+                    <iframe ng-src="/static/account/forgotPassword.html" scrolling="no" seamless="seamless"></iframe>
+                </md-tab>
+
+                <!--    expired -->
+                <md-tab label="expired">
+                    <md-content class="tab-expired">
+                        <div>
+                        <h2 class="dialog-title">The URL link sent <br/>by e-mail has expired.</h2>
+                        <p class="input">
+                            {{expiredInfo.email}}
+                        </p>
+                        <div class="btn-bottom-wrap">
+                            <li class="activate btn-submit">
+                                <md-button title="RESET E-MAIL & PASSWORD" class="md-raised" ng-click="sendResetLink()">
+                                    RESET E-MAIL &amp; PASSWORD
+                                </md-button>
+                            </li>
+                        </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <!--    reset   -->
+                <md-tab label="reset">
+                    <md-content class="tab-reset">
+                        <h2 class="dialog-title">Reset Password</h2>
+                        <ul class="input-wrap">
+                            <li>
+                                <p class="input">
+                                    {{resetInfo.email}}
+                                </p>
+                            </li>
+                            <li>
+                                <label for="input-reset-new-password" class="label">New Password</label>
+                                <input id="input-reset-new-password" class="input" ng-class="{error: error.reset.newPassword}" ng-model="resetInfo.newPassword" type="password" placeholder="New Password" ng-keydown="resetKeydown($event)" ng-focus="error.reset.newPassword?resetInfo.newPassword='':null; error.reset.newPassword=false">
+                            </li>
+                            <li>
+                                <label for="input-reset-verify-password" class="label">Verify Password</label>
+                                <input id="input-reset-verify-password" class="input" ng-class="{error: error.reset.verifyPassword}" ng-model="resetInfo.verifyPassword" type="password" placeholder="{{error.reset.verifyPassword?'Passwords do not match':'Verify Password'}}" ng-keydown="resetKeydown($event)" ng-focus="error.reset.verifyPassword?resetInfo.verifyPassword='':null; error.reset.verifyPassword=false">
+                            </li>
+                        </ul>
+                        <ul class="text-error">
+                            <li ng-if="error.reset.newPassword">
+                                <p>
+                                    Password must be at least 6 characters long
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="btn-bottom-wrap">
+                            <li class="btn-submit" ng-class="{activate: resetActivate}">
+                                <md-button title="SIGN UP" class="md-raised" ng-click="btnReset()">
+                                    RESET
+                                </md-button>
+                            </li>
+                        </div>
+                    </md-content>
+                </md-tab>
+                
+                <!--    change   -->
+                <md-tab label="change">
+                    <md-content class="tab-reset">
+                        <h2 class="dialog-title">Change Password</h2>
+                        <ul class="input-wrap">
+                            <li>
+                                <label for="input-change-current-password" class="label">Current Password</label>
+                                <input id="input-change-current-password" class="input" ng-class="{error: error.change.currentPassword}" ng-model="changeInfo.currentPassword" type="password" placeholder="Current Password" ng-keydown="changeKeydown($event)" ng-focus="error.change.currentPassword?changeInfo.currentPassword='':null; error.change.currentPassword=false">
+                            </li>
+                            <li>
+                                <label for="input-change-new-password" class="label">New Password</label>
+                                <input id="input-change-new-password" class="input" ng-class="{error: error.change.newPassword}" ng-model="changeInfo.newPassword" type="password" placeholder="New Password" ng-keydown="changeKeydown($event)" ng-focus="error.change.newPassword?changeInfo.newPassword='':null; error.change.newPassword=false">
+                            </li>
+                            <li>
+                                <label for="input-change-verify-password" class="label">Verify Password</label>
+                                <input id="input-change-verify-password" class="input" ng-class="{error: error.change.verifyPassword}" ng-model="changeInfo.verifyPassword" type="password" placeholder="{{error.change.verifyPassword?'Passwords do not match':'Verify Password'}}" ng-keydown="changeKeydown($event)" ng-focus="error.change.verifyPassword?changeInfo.verifyPassword='':null; error.change.verifyPassword=false">
+                            </li>
+                        </ul>
+                        <ul class="text-error">
+                            <li ng-if="error.change.newPassword">
+                                <p>
+                                    Password must be at least 6 characters long
+                                </p>
+                            </li>
+                            <li ng-if="error.change.currentPassword">
+                                <p>
+                                    Wrong current password.
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="btn-bottom-wrap">
+                            <li class="btn-submit" ng-class="{activate: changeActivate}">
+                                <md-button title="CHANGE" class="md-raised" ng-click="btnChange()">
+                                    CHANGE
+                                </md-button>
+                            </li>
+                        </div>
+                    </md-content>
+                </md-tab>
+                
+                <!--    delete  -->
+                <md-tab label="delete">
+                    <md-content class="tab-delete">
+                        <div>
+                        <h2 class="dialog-title">Do you want to cancel the sign up of BBuzzArt?</h2>
+                        <p class="input">
+                            {{deleteInfo.email}}
+                        </p>
+                        <div class="btn-bottom-wrap">
+                            <li class="activate btn-submit">
+                                <md-button title="Request reset link" class="md-raised" ng-click="deleteEmail()">
+                                    Delete e-mail address
+                                </md-button>
+                            </li>
+                        </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+        </div>
+    </md-dialog-content>
+</md-dialog>
+<div class="popup-verification-email" ng-class="{'mobile-popup-verification-email':isMoibileView}" ng-click="hideVerificationPopup()">
+    <img src="/images/img_balloon_tail.png" alt="decoration" ng-if="!isMoibileView">
+    <p>
+        E-mail verification has not been completed.<br/>
+        Verification will be complete once you click<br/>
+        the link contained within the e-mail.
+    </p>
+<!--
+    <a title="Didn’t receive a verification e-mail?" ng-click="">
+        Didn’t receive a verification e-mail?
+    </a>
+-->
+</div>

@@ -1,0 +1,33 @@
+<div class="people-list-wrap">
+    <div class="status">
+        <div class="artist">
+            <div class="profile-image">
+                <a title="{{listItem.username}}" ui-sref="profile({userId: listItem.id})" ng-click="sendTrackProfile()">
+                    <img ng-src="{{profileThumbnailUrl}}" alt="{{listItem.username}}">
+                </a>
+            </div>
+            <p>
+                <a title="{{listItem.username}}" ui-sref="profile({userId: listItem.id})" ng-click="sendTrackProfile()">
+                    {{listItem.username}}
+                </a>
+            </p>
+        </div>
+        <md-button aria-label="{{listItem.tooltipTitle}}" title="{{listItem.tooltipTitle}}" class="md-icon-button" ng-class="{myprofile: listItem.isMe, following: listItem.followed && !listItem.isMe, unfollowing: !listItem.followed && !listItem.isMe}" ng-hide="listItem.isMe" ng-click="followHandler(listItem)">
+            <span class="tooltip">{{listItem.tooltipTitle}}</span>
+            <img class="default" src="/images/btn_follow_default.png" alt="default" />
+            <img class="follow" src="/images/btn_follow_follow.png" alt="follow" />
+            <img class="unfollow" src="/images/btn_follow_unfollow.png" alt="unfollow" />
+        </md-button>
+    </div>
+    <div class="works" ng-if="listItem.works.length > 0">
+        <div class="works-scroll-wrap" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+            <ul class="works-lists">
+                <li ng-repeat="work in listItem.works">
+                    <a title="{{work.title}}" ui-sref="detail({artworkType:work.type, id:work.id})" ng-click="sendTrackDetail()">
+                        <img class="work-thumbnail" ng-src="{{worksThumbnailUrl[$index]}}" alt="{{work.title}}" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

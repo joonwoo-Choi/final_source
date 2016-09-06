@@ -1,0 +1,47 @@
+/** web */
+.bookmarks-wrap .bookmarks-lists{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+/*    padding-top: 24px;*/
+/*    margin: 0 59px;*/
+}
+.bookmarks-wrap .bookmarks-lists .column-list-wrap{
+    width: 31%;
+    margin: 0 1.15%;
+}
+.bookmarks-wrap .bookmarks-lists .column-list-wrap .bookmark-list{
+    margin-bottom: 27px;
+}
+
+
+/** tablet & mobile */
+@media screen and (min-width: 1000px) and (max-width: 1280px) {
+    
+    .bookmarks-wrap .bookmarks-lists{
+        margin: 0;
+    }
+    .bookmarks-wrap .bookmarks-lists .column-list-wrap{
+        width: 47%;
+        margin: 0 1.5%;
+    }
+    .bookmarks-wrap .bookmarks-lists .column-list-wrap .bookmark-list{
+        margin-bottom: 17px;
+    }
+    
+}
+
+@media screen and (max-width: 999px) {
+    
+    .bookmarks-wrap .bookmarks-lists{
+        margin: 0;
+    }
+    .bookmarks-wrap .bookmarks-lists .column-list-wrap{
+        width: 48%;
+        margin: 0 1%;
+    }
+    .bookmarks-wrap .bookmarks-lists .column-list-wrap .bookmark-list{
+        margin-bottom: 17px;
+    }
+    
+}

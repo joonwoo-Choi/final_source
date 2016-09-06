@@ -1,0 +1,38 @@
+<div class="artwork-list-wrap" ng-class="{like: listItem.liked}">
+    <div class="thumb-wrap">
+        <img ng-src="{{thumbnailUrl}}" alt="{{listItem.title}}" imageonload="imgLoadComplete()">
+        <div class="cover-wrap pre-wrap" ng-show="listItem.type == 'WORK_WRITING'">
+            <div class="pre-mask">
+                <pre>{{listItem.abstractText}}</pre>
+            </div>
+        </div>
+        <div class="cover-wrap btn-video" ng-show="listItem.type == 'WORK_VIDEO'">
+            <img ng-src="/images/img_list_play.png" alt="movie play">
+        </div>
+        <div class="cover-wrap btn-thumb">
+            <a class="btn-detail-view" title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-click="sendTrack()"></a>
+            <a class="btn-like-toggle" title="like" ng-click="likeThis(listItem.liked, listItem.id)">
+                <img ng-src="/images/img_discover_like_off.png" alt="like off">
+                <img class="like-on" ng-src="/images/img_discover_like_on.png" alt="like on">
+            </a>
+        </div>
+    </div>
+    <a title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-click="sendTrack()">
+        <div class="artwork-info">
+            <p class="title">
+                {{listItem.title}}
+            </p>
+            <p class="username">
+                {{listItem.createdBy.username}}
+            </p>
+        </div>
+    </a>
+    <a title="{{listItem.title}}" class="btn-participation-works" ng-class="{selected:listItem.selected}" ng-if="isParticipationWorksLists" ng-click="selectWork(listItem)">
+        <span class="off">
+            <img src="/images/btn_participation_works_off.png" alt="off">
+        </span>
+        <span class="on">
+            <img src="/images/btn_participation_works_on.png" alt="on">
+        </span>
+    </a>
+</div>

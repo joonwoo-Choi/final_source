@@ -1,0 +1,29 @@
+/** web */
+.show-view{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.show-view .column-list-wrap{
+    position: relative;
+    width: 23.5%;
+    margin: 0 0.75%;
+}
+.show-view .column-list-wrap .show-list{
+    margin-bottom: 18px;
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    .show-view .column-list-wrap{
+        width: 47%;
+        margin: 0 1.5% 12px;
+    }
+    .show-view .column-list-wrap .show-list{
+        margin-bottom: 12px;
+    }
+    
+}

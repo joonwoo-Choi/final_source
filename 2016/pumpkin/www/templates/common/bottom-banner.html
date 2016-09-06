@@ -1,0 +1,12 @@
+<div class="banner-wrap">
+    <span class="btn-close">
+        <button title="close" class="button-icon" ng-click="closeBanner()">
+            <i class="ion-close"></i>
+        </button>
+    </span>
+    <div class="thmbnail-wrap">
+        <button title="{{bottomBanner.title}}" class="btn-bottom-banner button-icon" ng-click="openBannerSite(bottomBanner.eventPage)">
+            <img ng-src="{{bottomBanner.attachments[0].thumbnailS}}" alt="{{bottomBanner.title}}">
+        </button>
+    </div>
+</div>

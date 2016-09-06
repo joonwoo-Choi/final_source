@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sqlite-connector">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/plugins/cordova-sqlite-storage/node_modules/cordova-sqlite-storage-dependencies/libs/sqlite-connector.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

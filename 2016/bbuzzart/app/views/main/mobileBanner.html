@@ -1,0 +1,67 @@
+<div class="mobile-banner">
+    
+    <div class="banner-bg"></div>
+    
+    <a class="btn-close" title="close" ng-click="popupClose()">
+        <img src="/images/btn_selected_participation_works_remove.png" alt="close">
+    </a>
+    
+    <div class="banner-wrap ios-banner" ng-if="!isAndroid">
+        
+        <div class="title">
+            <h2>
+                APP INSTALLATION
+            </h2>
+            <p>
+                BBuzzArt mobile application is<br/>
+                faster and easier.
+            </p>
+        </div>
+        
+        <div class="btn-wrap">
+            <a class="btn-link" title="iOS" ng-click="openApp()">
+                <img src="/images/btn_app_link_ios.png" alt="iOS" >
+                <span>
+                    Download on the <strong>App Store</strong>
+                </span>
+            </a>
+        </div>
+        
+        <div class="sub-text">
+            <p>
+                Requires iOS 8.0 or later
+            </p>
+        </div>
+        
+    </div>
+    
+    <div class="banner-wrap android-banner" ng-if="isAndroid">
+        
+        <div class="title">
+            <h2>
+                APP INSTALLATION
+            </h2>
+            <p>
+                BBuzzArt mobile application is<br/>
+                faster and easier.
+            </p>
+        </div>
+        
+        <div class="btn-wrap">
+            <a class="btn-link" title="Android" ng-click="openApp()">
+                <img src="/images/btn_app_link_android.png" alt="Android" >
+                <span>
+                    Download on the <strong>Google Play</strong>
+                </span>
+            </a>
+        </div>
+        
+        <div class="sub-text">
+            <p>
+                Requires Android OS 4.1 or later
+            </p>
+        </div>
+        
+    </div>
+    
+</div>

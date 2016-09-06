@@ -1,0 +1,304 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>BBuzzArt :: Contact</title>
+    <meta name="description" content="BBuzzArt Contact">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-Equiv="Expires" Content="0" />
+
+    <!-- Android Icon -->
+    <link rel="icon bookmark" href="../../images/apple-touch-icon.png">
+    <!-- iPhone Icon -->
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57 72x72 114x114" href="../../images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../images/apple-touch-icon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:=400,700' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        /** reset   */
+        * {margin:0; padding:0; -webkit-text-size-adjust:none;}
+        html, body {}
+        body, select, textarea, input, p, pre {font-family:'Open Sans', sans-serif, Dotum, "돋움", gulim, "굴림", verdana; color:#333; border:0; outline:none;}
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td, embed, object, textarea, a, img {padding: 0; margin: 0;}
+        table {border-collapse:collapse; border-spacing:0;}
+        table img {vertical-align:middle;}
+        select, input, table tr td, table tr th {vertical-align:middle;}
+        form, fieldset, abbr, acronym {border:0;}
+        img {border:0; vertical-align:top;} /* 이미지에 공간을 없애기 위해 vertical-align:top 사용 */
+        address, caption, cite, code, dfn, em, h1, h2, h3, h4, h5, h6, th, var {font-weight:normal; font-style:normal;}
+        ol, ul, li {list-style:none;}
+        table td a {display:inline-block;}
+        table caption {display:none;}
+        strong, .bold {font-family:'Open Sans', sans-serif}
+        a {cursor:pointer; pointer-events: auto; text-decoration:none; outline:none; color:inherit;}
+        input[type="image"] {vertical-align:top;}
+        
+        .contact-view-wrap{
+            max-width: none;
+/*            min-height: 710px;*/
+            margin: 0 14px;
+/*            border-bottom: 1px solid #e6e6e6;*/
+        }
+        
+        .contact-view-wrap .input-wrap{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        
+        .contact-view-wrap h1{
+            font-size: 24px;
+            font-weight: 700;
+            color: #525252;
+        }
+        .contact-view-wrap .input-wrap label{
+            display: inline-block;
+            overflow: hidden;
+            width: 0;
+            height: 0;
+        }
+        .contact-view-wrap .input-wrap .input{
+            height: 32px;
+            padding : 0 10px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 32px;
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+            color: #525252;
+        }
+        .contact-view-wrap .input-wrap .input-text{
+            height: 282px;
+            padding : 10px;
+            margin-top: 12px;
+            font-size: 14px;
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+            resize: none;
+            color: #525252;
+        }
+        .contact-view-wrap .input-wrap .input.error,
+        .contact-view-wrap .input-wrap .input-text.error{
+            color: #ff2c2c;
+            border-color: #ff2c2c;
+        }
+        .input::-webkit-input-placeholder,
+        .input-text::-webkit-input-placeholder{
+           color: #ccc;
+        }
+        .input:-moz-placeholder,
+        .input-text:-moz-placeholder{
+           color: #ccc;
+        }
+        .input::-moz-placeholder,
+        .input-text::-moz-placeholder{
+           color: #ccc;
+        }
+        .input:-ms-input-placeholder,
+        .input-text:-ms-input-placeholder{
+           color: #ccc;
+        }
+        .input.error::-webkit-input-placeholder,
+        .input-text.error::-webkit-input-placeholder{
+           color: #ff2c2c;
+        }
+        .input.error:-moz-placeholder,
+        .input-text.error:-moz-placeholder{
+           color: #ff2c2c;
+        }
+        .input.error::-moz-placeholder,
+        .input-text.error::-moz-placeholder{
+           color: #ff2c2c;  
+        }
+        .input.error:-ms-input-placeholder,
+        .input-text.error:-ms-input-placeholder{
+           color: #ff2c2c;
+        }
+        
+        .contact-view-wrap .btn-wrap{
+            margin-top: 12px;
+            text-align: right;
+        }
+        .contact-view-wrap .btn-wrap .md-button{
+            display: inline-block;
+            padding: 0 22px;
+            font-size: 14px;
+            line-height: 32px;
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+            color: #ccc;
+        }
+        .contact-view-wrap .btn-wrap .md-button.activate{
+            color: #188aff;
+            border: 1px solid #188aff;
+        }
+        
+        #dimmed{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="contact-view-wrap">
+        <h1>CONTACT US</h1>
+        <div class="input-wrap">
+            <label for="input-contact-name">Name</label>
+            <input id="input-contact-name" class="input" type="text" placeholder="Name" maxLength="100" onkeydown="contactKeydown(event)" onkeyup="contactKeydown(event)" onfocus="inputFocus(0)">
+            <label for="input-contact-email">E-mail</label>
+            <input id="input-contact-email" class="input" type="text" placeholder="E-mail" maxLength="100" onkeydown="contactKeydown(event)" onkeyup="contactKeydown(event)" onfocus="inputFocus(1)">
+            <label for="input-contact-region">Region</label>
+            <input id="input-contact-region" class="input" type="text" placeholder="Your country or region" maxLength="500" onkeydown="contactKeydown(event)" onkeyup="contactKeydown(event)" onfocus="inputFocus(2)">
+            <label for="input-contact-inquiry">Inquiry</label>
+            <textarea id="input-contact-inquiry" class="input-text" spellcheck="false" placeholder="If you provide the following information, &#13;&#10;we can process your inquiry more quickly. &#13;&#10;&#13;&#10;Date of latest problem: &#13;&#10;&#13;&#10;Describe your inquiry:" type="text" maxLength="1000" onkeydown="contactKeydown(event)" onkeyup="contactKeydown(event)" onfocus="inputFocus(3)"></textarea>
+        </div>
+        <div class="btn-wrap">
+            <a title="SUBMIT" id="btn-submit" class="md-button" onclick="submit()">
+                SUBMIT
+            </a>
+        </div>
+    </div>
+    <div id="dimmed"></div>
+
+<script type="text/javascript">
+    
+    var isActivate = false;
+    var isLoading = false;
+    var inputName = document.getElementById('input-contact-name');
+    var inputEmail = document.getElementById('input-contact-email');
+    var inputRegion = document.getElementById('input-contact-region');
+    var inputInquiry = document.getElementById('input-contact-inquiry');
+    var btnSubmit = document.getElementById('btn-submit');
+    var dimmed = document.getElementById('dimmed');
+    var apiPath = 'http://api3.bbuzzart.com/support/contacts';
+//    var apiPath = 'http://alpha3.bbuzzart.com/support/contacts';
+    
+    function contactKeydown(e){
+        setTimeout(function(){
+            var tempActivate = true;
+            if(inputName.value.length <= 0){
+                tempActivate = false;
+            }
+            if(inputEmail.value.length <= 0){
+                tempActivate = false;
+            }
+            if(inputRegion.value.length <= 0){
+                tempActivate = false;
+            }
+            if(inputInquiry.value.length <= 0){
+                tempActivate = false;
+            }
+
+            isActivate = tempActivate;
+            if(isActivate){
+                addClass(btnSubmit, 'activate');
+            }else{
+                removeClass(btnSubmit, 'activate');
+            }
+        });
+    }
+    
+    function inputFocus(idx){
+        switch(idx){
+            case 0 :
+                removeClass(inputName, 'error');
+                break;
+            case 1 :
+                removeClass(inputEmail, 'error');
+                break;
+            case 2 :
+                removeClass(inputRegion, 'error');
+                break;
+            case 3 :
+                removeClass(inputInquiry, 'error');
+                break;
+        }
+    }
+    
+    function submit(){
+        if(!isActivate || isLoading) return;
+
+        if(!isValidEmail(inputEmail.value)){
+            addClass(inputEmail, 'error');
+            addClass(inputEmail, 'error');
+        }else{
+            sendData();
+        }
+    }
+    function sendData(){
+        isLoading = true;
+        dimmed.style.display = 'block';
+
+        inputEmail.value = inputEmail.value.replace(/\s+/g, "");
+        var xmlhttp = new XMLHttpRequest();
+        var params = {
+                'username': inputName.value,
+                'email': inputEmail.value,
+                'country': inputRegion.value,
+                'inquiry': inputInquiry.value
+            };
+        params = JSON.stringify(params);
+        xmlhttp.open("POST", apiPath);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                isLoading = false;
+                dimmed.style.display = 'none';
+                var res = JSON.parse(xmlhttp.responseText);
+                
+                if(xmlhttp.status == 200){
+                    console.log('Response: ' + xmlhttp.responseText);
+                    
+                    if(res.success){
+                        inputName.value = '';
+                        inputEmail.value = '';
+                        inputRegion.value = '';
+                        inputInquiry.value = '';
+                        alert('Thank you for your opinion!');
+                    }
+                }else{
+                    console.log('Error: ' + res);
+                }
+            }
+        }
+        xmlhttp.send(params);
+        console.log('sendData ', xmlhttp);
+    }
+    
+    
+    
+    
+    
+    
+    function addClass(element, setClass){
+        if(element.className.indexOf(setClass) > -1) return;
+        
+        element.className += ' ' + setClass;
+    }
+    function removeClass(element, setClass){
+        element.className = element.className.replace(
+            new RegExp('( |^)' + setClass + '( |$)', 'g'), ' ').trim();
+    }
+
+    function isValidEmail(email){
+        var pattern = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+        return pattern.test(email);
+    }
+    
+</script>
+</body>
+</html>

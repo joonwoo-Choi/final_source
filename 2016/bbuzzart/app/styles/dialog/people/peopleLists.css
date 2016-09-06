@@ -1,0 +1,118 @@
+/** web */
+.popup-people-lists-dialog{
+    overflow: hidden;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 20px;
+}
+
+.popup-people-lists{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+/*        max-height: 500px;*/
+    padding: 23px 27px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.popup-people-lists .popup-close{
+    position: absolute;
+    top: 30px;
+    left: 100%;
+    margin-left: -49px;
+    z-index: 10;
+}
+.popup-people-lists h2{
+    padding: 0 0 20px;
+    border-bottom: 1px solid #ccc;
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 700;
+    color: #525252;
+}
+.popup-people-lists h2 img.img-like{
+    vertical-align: middle;
+}
+
+.popup-people-lists .people-lists-container{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+.popup-people-lists .people-lists-container .list-wrap{
+/*        min-height: 420px;*/
+    padding: 22px 14px 0;
+}
+.popup-people-lists .people-lists-container .list-wrap .people-lists{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    width: 100%;
+}
+.popup-people-lists .people-lists-container .list-wrap .column-list-wrap{
+    width: 49%;
+    margin: 0 0.5%;
+}
+.popup-people-lists .people-lists-container .list-wrap .column-list-wrap .people-list{
+    margin-bottom: 8px;
+}
+
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    .popup-people-lists-dialog{
+        height: 100% !important;
+        max-height: none;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .popup-people-lists{
+        padding: 23px 0;
+    }
+    .popup-people-lists h2{
+        padding: 0 10px 20px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .popup-people-lists h2 img{
+        height: 20px;
+    }
+    
+    .popup-people-lists .popup-close{
+        top: 23px;
+        margin-left: -35px;
+    }
+    
+    .popup-people-lists .people-lists-container .list-wrap{
+        padding: 22px 10px 0;
+    }
+    .popup-people-lists .people-lists-container .list-wrap .column-list-wrap{
+        width: 98%;
+        margin: 0 1%;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+

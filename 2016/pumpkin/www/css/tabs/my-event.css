@@ -1,0 +1,52 @@
+
+#tab-my-event{
+    background-color: #f6f6f6;
+}
+
+#tab-my-event .scroll-content{
+    
+}
+#tab-my-event .scroll-content .scroll{
+    height: auto;
+    padding-top: 24px;
+    padding-bottom: 50px;
+}
+
+#tab-my-event .scroll-content.empty-list .scroll{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    height: 99%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#tab-my-event .scroll-content.empty-list .scroll .empty-text{
+    
+}
+#tab-my-event .scroll-content.empty-list .scroll .empty-text p{
+    color: #666;
+    margin: 0;
+}
+
+
+/** tablet  */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    
+    
+    
+}
+
+
+/** mobile  */
+@media screen and (max-width: 767px) {
+    
+    
+    
+}
+

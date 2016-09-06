@@ -1,0 +1,93 @@
+<md-dialog class="popup-dialog popup-upload" aria-label="popup-upload-writing" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <div class="popup-upload-writing">
+            <div class="title">
+                <img ng-src="/images/img_upload_writing_title.png" alt="writing upload">
+                <h2>WRITING UPLOAD</h2>
+            </div>
+            <div class="input-flex input-title">
+                <div>
+                    <label for="input-writing-title">TITLE</label>
+                </div>
+                <input id="input-writing-title" class="input {{error.title}}" ng-model="uploadInfo.workWriting.title" type="text" placeholder="{{error.title == '' ? 'Title' : 'Please enter a Title.'}}" maxLength="100" ng-focus="error.title=''; focusTitle=true" ng-blur="focusTitle=false">
+                <p class="text-count" ng-show="focusTitle">{{uploadInfo.workWriting.title.length}}/100</p>
+            </div>
+            <div class="input-writing">
+                <div class="title-wrap">
+                    <label for="input-writing">EXCERPT OR ABSTRACT</label>
+                    <div class="btn-image-wrap" ng-if="!isEditUpload">
+                        <div class="text">
+                            <p>Select background image</p>
+                            <img ng-src="/images/img_upload_writing_tail.png" alt="decoration">
+                        </div>
+                        
+                        <md-menu md-offset="-428 55">
+                            <md-button aria-label="default image" title="default image" class="btn md-icon-button" ng-click="openDefaultImageLists($mdOpenMenu, $event)">
+                                <img ng-src="/images/btn_upload_writing_image_default.png" alt="default image">
+                            </md-button>
+
+                            <md-menu-content class="writing-background-list">
+                                <p>
+                                    Select background image
+                                </p>
+                                <div class="writing-scroll-wrap">
+        <!--                            <div class="noti-scroll-contents" ng-scrollbars>-->
+                                    <div class="writing-scroll-contents">
+                                        <ul>
+                                            <li ng-repeat="list in defaultBackgroundImageLists track by $index">
+                                                <a title="{{'image'+($index+1)}}" ng-click="defaultBackgroundImageSelect(list.image)">
+                                                    <img ng-src="{{list.thumbnail}}" alt="{{'image'+($index+1)}}">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </md-menu-content>
+                        </md-menu>
+                        
+                        <md-button title="select image" class="md-icon-button" ngf-select ng-model="uploadInfo.file" ngf-allow-dir="true" accept="image/*" ngf-pattern="image/*" ngf-change="convertFile(uploadInfo.file)" ng-click="error.image=''">
+                            <img ng-src="/images/btn_upload_writing_image_select.png" alt="select image">
+                        </md-button>
+                    </div>
+                </div>
+                <div class="input-flex input-writing-wrap">
+                    <div class="file-tumb">
+                        <img class="preview-thumbnail" ng-src="{{writingThumbnailUrl}}" alt="preview thumbnail">
+                    </div>
+                    <div class="textarea-wrap">
+                        <textarea id="input-writing" spellcheck="false" class="input {{error.abstractText}}" ng-model="uploadInfo.workWriting.abstractText" type="text" placeholder="{{error.abstractText == '' ? 'Express your rhetorical and literary mind!' : 'Please enter a Excerpt or abstract'}}" maxLength="20000" ng-focus="error.abstractText=''; focusNote=true" ng-blur="focusNote=false"></textarea>
+                    </div>
+                </div>
+                <p class="text-count" ng-show="focusNote">{{uploadInfo.workWriting.abstractText.length | currency:'':0}}/20,000</p>
+            </div>
+            <div class="input-flex input-tag">
+                <textarea class="input" spellcheck="false" placeholder="TAG" type="text" ng-keypress="tagKeyDown($event)" ng-focus="focusTag=true" ng-blur="tagListCheck(); focusTag=false"></textarea>
+                <p class="text-count" ng-show="focusTag">{{uploadInfo.workWriting.tags.length}}/10</p>
+            </div>
+            <div class="input-year">
+                <div>
+                    <label for="input-writing-year">YEAR <span>(OPTION)</span></label>
+                </div>
+                <md-input-container>
+                    <md-select id="input-writing-year" class="select" ng-model="uploadInfo.workWriting.year" aria-label="input-writing-year">
+                        <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="btn-wrap">
+                <ul>
+                    <li class="upload" ng-class="{activate: activate}">
+                        <md-button title="UPLOAD" class="md-raised" ng-click="uploadWriting()">
+                            UPLOAD
+                        </md-button>
+                    </li>
+                    <li class="cancel">
+                        <md-button title="CANCEL" class="md-raised" ng-click="popupClose()">
+                            CANCEL
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</md-dialog>

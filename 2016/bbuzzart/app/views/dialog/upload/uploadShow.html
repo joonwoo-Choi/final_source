@@ -1,0 +1,107 @@
+<md-dialog class="popup-dialog popup-upload" aria-label="popup-upload-show" ng-cloak>
+    <div class="popup-scroll-wrap">
+        <div class="popup-upload-show">
+            <div class="title">
+                <img ng-src="/images/img_upload_image_title.png" alt="image upload">
+                <h2>SHOW UPLOAD</h2>
+            </div>
+            <div class="select-image-wrap">
+                <!--    upload image area   -->
+                <div ng-if="!isShowFileThumb && !isEditUpload">
+                    <div class="default-view {{error.image}}">
+                        <span>
+                            <img ng-src="/images/img_select_image.png" alt="select image">
+                        </span>
+                        <p>Select Image</p>
+                    </div>
+                    <a ngf-drop ngf-select ng-model="uploadInfo.file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-allow-dir="true" accept="image/*" ngf-pattern="image/*" ngf-change="convertFile(uploadInfo.file)" ng-click="error.image=''"></a>
+                </div>
+                <!--    thumbnail   -->
+                <div class="file-tumb" ng-class="{'show-thumbnail':isShowFileThumb}" ng-show="isShowFileThumb">
+                    <img class="preview-thumbnail" ng-src="{{showThumbnailUrl}}" alt="preview thumbnail">
+                    <a title="delete" ng-if="!isEditUpload" ng-click="removeFile()">
+                        <img ng-src="/images/btn_upload_image_cancel.png" alt="delete">
+                    </a>
+                </div>
+            </div>
+            <div class="input-flex input-title">
+                <label for="input-show-title">TITLE</label>
+                <input id="input-show-title" class="input {{error.title}}" ng-model="uploadInfo.workShow.title" type="text" placeholder="{{error.title == '' ? 'Title' : 'Please enter a Title.'}}" maxLength="100" ng-focus="error.title=''; focusTitle=true" ng-blur="focusTitle=false">
+                <p class="text-count" ng-show="focusTitle">{{uploadInfo.workShow.title.length}}/100</p>
+            </div>
+            <div class="input-period">
+                <label for="input-show-period">PERIOD</label>
+                <div class="calendar-wrap">
+                    <div class="input {{error.startDate}}" ng-click="error.startDate=''">
+                        <md-datepicker id="input-show-period" ng-model="uploadInfo.workShow.startDate" md-placeholder="YYYY-MM-DD" md-min-date="startMinDate" md-max-date="startMaxDate"></md-datepicker>
+                    </div>
+                    <div class="input {{error.endDate}}" ng-click="error.endDate=''">
+                        <md-datepicker ng-model="uploadInfo.workShow.endDate" md-placeholder="YYYY-MM-DD" md-min-date="endMinDate" md-max-date="endMaxDate"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="input-flex input-place">
+                <label for="input-show-place">PLACE</label>
+                <input id="input-show-place" class="input {{error.place}}" ng-model="uploadInfo.workShow.place" type="text" placeholder="Place" ng-focus="error.place=''; focusPlace=true" ng-blur="focusPlace=false; findAddress(uploadInfo.workShow.place)" ng-keydown="inputAddress($event, uploadInfo.workShow.place)">
+                <ui-gmap-google-map options="map.options" center='map.center' zoom='map.zoom'>
+                    <ui-gmap-marker coords="map.center" options="marker.options" idkey="marker.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+            <div class="input-flex input-description">
+                <label for="input-show-description">INTRODUCTION OF SHOW</label>
+                <textarea id="input-show-description" spellcheck="false" class="input {{error.introduction}}" ng-model="uploadInfo.workShow.introduction" type="text" placeholder="{{error.introduction == '' ? 'Introduction of show?' : 'Please enter a INTRODUCTION OF SHOW'}}" maxLength="4000" ng-focus="error.introduction=''; focusDescription=true" ng-blur="focusDescription=false"></textarea>
+                <p class="text-count" ng-show="focusDescription">{{uploadInfo.workShow.introduction.length | currency:'':0}}/4,000</p>
+            </div>
+            <div class="input-flex input-tag">
+                <textarea class="input" spellcheck="false" placeholder="TAG" type="text" ng-keypress="tagKeyDown($event)" ng-focus="focusTag=true" ng-blur="tagListCheck(); focusTag=false"></textarea>
+                <p class="text-count" ng-show="focusTag">{{uploadInfo.workShow.tags.length}}/10</p>
+            </div>
+            <div class="input-flex input-homepage">
+                <label for="input-show-homepage">HOMEPAGE <span>(OPTION)</span></label>
+                <input id="input-show-homepage" class="input" ng-model="uploadInfo.workShow.homepage" type="text" placeholder="http://">
+            </div>
+            <div class="input-flex input-contact">
+                <label for="input-show-contact">CONTACT NUMBER <span>(OPTION)</span></label>
+                <input id="input-show-contact" class="input" ng-model="uploadInfo.workShow.contact" type="text" placeholder="Contact number" maxLength="30" ng-keydown="onlyNumber($event)">
+            </div>
+            <div class="input-works">
+                <label for="input-show-works">PARTICIPATION WORKS <span>(OPTION)</span></label>
+                <div class="btn-show-works-wrap">
+                    <md-button id="input-show-works" class="md-raised" title="PARTICIPATION WORKS" ng-click="openParticipationWorksLists()">
+                        PARTICIPATION WORKS
+                        <span class="img-decoration">
+                            <img src="/images/btn_add_url.png" alt="decoration">
+                        </span>
+                    </md-button>
+                </div>
+                <div class="selected-works-wrap">
+                    <ul>
+                        <li ng-repeat="work in participationWorksLists">
+                            <img class="work-thumbnail" ng-src="{{work.thumbnail}}" imageonload="imgLoadComplete($index)" alt="{{'participation-work' + $index}}">
+                            <div class="thumbnail-cover">
+                                <a title="remove" class="btn-remove" ng-click="removeSelectedWork($index)">
+                                    <img src="/images/btn_selected_participation_works_remove.png" alt="remove">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <ul>
+                    <li class="upload" ng-class="{activate: activate}">
+                        <md-button title="UPLOAD" class="md-raised" ng-click="btnUploadShow()">
+                            UPLOAD
+                        </md-button>
+                    </li>
+                    <li class="cancel">
+                        <md-button title="CANCEL" class="md-raised" ng-click="popupClose()">
+                            CANCEL
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</md-dialog>

@@ -1,0 +1,202 @@
+.popup-upload-writing .select-image-wrap{
+    position: relative;
+    margin-top: 15px;
+}
+.popup-upload-writing .select-image-wrap .default-view{
+    position: relative;
+    width: 100%;
+    padding: 67px 0 57px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    text-align: center;
+    color: #919191;
+    background-color: #ebebeb;
+}
+.popup-upload-writing .select-image-wrap .default-view p{
+    padding-top: 10px;
+}
+.popup-upload-writing .select-image-wrap .drop-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.popup-upload-writing label{
+    font-size: 14px;
+    font-weight: 700;
+    color: #525252;
+}
+.popup-upload-writing label span{
+    font-size: 12px;
+}
+.popup-upload-writing .input-title{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-writing .input-title .input{
+    height: 33px;
+    margin-top: 2px;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-writing .input-writing{
+    position: relative;
+    margin-top: 10px;
+}
+.popup-upload-writing .input-writing .title-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+}
+.popup-upload-writing .input-writing .btn-image-wrap{
+    position: relative;
+    margin-top: -5px;
+}
+.popup-upload-writing .input-writing .btn-image-wrap .text{
+    display: inline-block;
+    position: relative;
+    width: 147px;
+    height: 24px;
+    margin-right: 5px;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    color: #919191;
+}
+.popup-upload-writing .input-writing .btn-image-wrap .text img{
+    position: absolute;
+    top: 10px;
+    left: 100%;
+}
+.popup-upload-writing .input-writing .btn-image-wrap .md-button{
+    width: 26px;
+    height: 26px;
+    min-height: 26px;
+    line-height: 26px;
+    margin: 0;
+}
+.popup-upload-writing .input-writing .btn-image-wrap .md-button img{
+    margin: 0;
+    vertical-align: middle;
+}
+.writing-background-list{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-height: none;
+    padding: 15px;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+}
+.writing-background-list .writing-scroll-wrap{
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.writing-background-list p{
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #525252;
+}
+.writing-background-list .writing-scroll-wrap .writing-scroll-contents ul{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 475px;
+    margin-top: 10px;
+}
+.writing-background-list .writing-scroll-wrap .writing-scroll-contents ul li{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 30.3%;
+    max-width: 144px;
+    max-height: 180px;
+    margin: 0 1.5% 15px;
+}
+.writing-background-list .writing-scroll-wrap .writing-scroll-contents ul li a{
+
+}
+.writing-background-list .writing-scroll-wrap .writing-scroll-contents ul li img{
+    width: 100%;
+}
+
+.popup-upload-writing .input-writing .input-writing-wrap{
+    position: relative;
+    margin-top: 2px;
+}
+.popup-upload-writing .input-writing .input-writing-wrap .file-tumb{
+    position: relative;
+    overflow: hidden;
+    min-height: 165px;
+    top: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 5px;
+}
+.popup-upload-writing .input-writing .input-writing-wrap .file-tumb .preview-thumbnail{
+    width: 100%;
+}
+.popup-upload-writing .input-writing .input-writing-wrap .textarea-wrap{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.popup-upload-writing .input-writing .input-writing-wrap .textarea-wrap textarea{
+    overflow: auto;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 12px 10px;
+    line-height: 21px;
+    color: #fff;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+    background-color: rgba(44, 41, 42, 0.7);
+}
+
+.popup-upload-writing .input-tag{
+    position: relative;
+    margin-top: 7px;
+}
+.popup-upload-writing .input-tag .input{
+    overflow: auto;
+    height: 33px;
+    padding-top: 8px;
+    vertical-align: middle;
+    resize: none !important;
+    border: 1px solid #ebebeb;
+}
+
+.popup-upload-writing .input-year{
+    margin-top: 10px;
+}
+.popup-upload-writing .input-year .select{
+    margin-top: 2px;
+}
+
+.popup-upload-writing .input-edition{
+    margin-top: 10px;
+}
+.popup-upload-writing .input-edition .input{
+    height: 35px;
+    margin-top: 2px;
+}

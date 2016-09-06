@@ -1,0 +1,56 @@
+<div class="popup-participation-lists">
+    <a title="close" class="popup-close" ng-click="popupClose()">
+        <img ng-src="/images/btn_popup_close.png" alt="close">
+    </a>
+    <h2>
+        SELECT PARTICIPATION WORKS
+        <span>
+            ({{participationWorkIds.length}}/10)
+        </span>
+    </h2>
+
+    <div class="searched-lists-container" ng-if="searchedLists.length > 0">
+        <div class="list-wrap">
+            <div class="searched-lists">
+                <div class="column-list-wrap" ng-if="searchedLists.length > 0">
+                    <ul>
+                        <li class="search-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in searchedLists track by $index">
+                            <div artwork-list></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column-list-wrap" ng-if="searchedLists.length > 0">
+                    <ul>
+                        <li class="search-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in searchedLists track by $index">
+                            <div artwork-list></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column-list-wrap" ng-if="searchedLists.length > 0 && listColumnLength >= 3">
+                    <ul>
+                        <li class="search-list" ng-if="$index%listColumnLength == 2" ng-repeat="listItem in searchedLists track by $index">
+                            <div artwork-list></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column-list-wrap" ng-if="searchedLists.length > 0 && listColumnLength >= 4">
+                    <ul>
+                        <li class="search-list" ng-if="$index%listColumnLength == 3" ng-repeat="listItem in searchedLists track by $index">
+                            <div artwork-list></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="btn-confirm-wrap" ng-if="searchedLists.length > 0">
+        <md-button title="CONFIRM" class="md-raised" ng-class="{activate: participationWorkIds.length>0}" ng-click="confirm()">
+            CONFIRM
+        </md-button>
+    </div>
+
+    <div class="empty-list" ng-if="searchedLists.length <= 0 && isFirstSearched">
+        <p>Have no works yet</p>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="notice-wrap">
+    
+    <div class="notice-contents-wrap">
+        
+        <div class="notice-tabs-wrap">
+            <ul>
+                <li ng-class="{on: $index == pageIdx}" ng-repeat="menu in noticeMenus track by $index">
+                    <a title="{{menu.name}}" ui-sref="{{menu.state}}">
+                        {{menu.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="notice-view">
+            <div class="notice-scroll-wrap" ng-scrollbars>
+<!--                <div ui-view="noticeView"></div>-->
+                <iframe id="notice-view" ng-src="{{pageSrcLists[pageIdx]}}" scrolling="no" seamless="seamless"></iframe>
+            </div>
+        </div>
+        
+    </div>
+</div>

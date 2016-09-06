@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>BBuzzArt :: Notice</title>
+    <meta name="description" content="BBuzzArt Notice">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-Equiv="Expires" Content="0" />
+
+    <!-- Android Icon -->
+    <link rel="icon bookmark" href="../../images/apple-touch-icon.png">
+    <!-- iPhone Icon -->
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57 72x72 114x114" href="../../images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../images/apple-touch-icon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:=400,700' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        /** reset   */
+        * {margin:0; padding:0; -webkit-text-size-adjust:none;}
+        html, body {}
+        body, select, textarea, input, p, pre {font-family:'Open Sans', sans-serif, Dotum, "돋움", gulim, "굴림", verdana; color:#333; border:0; outline:none;}
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td, embed, object, textarea, a, img {padding: 0; margin: 0;}
+        table {border-collapse:collapse; border-spacing:0;}
+        table img {vertical-align:middle;}
+        select, input, table tr td, table tr th {vertical-align:middle;}
+        form, fieldset, abbr, acronym {border:0;}
+        img {border:0; vertical-align:top;} /* 이미지에 공간을 없애기 위해 vertical-align:top 사용 */
+        address, caption, cite, code, dfn, em, h1, h2, h3, h4, h5, h6, th, var {font-weight:normal; font-style:normal;}
+        ol, ul, li {list-style:none;}
+        table td a {display:inline-block;}
+        table caption {display:none;}
+        strong, .bold {font-family:'Open Sans', sans-serif}
+        a {cursor:pointer; pointer-events: auto; text-decoration:none; outline:none; color:inherit;}
+        input[type="image"] {vertical-align:top;}
+        
+        .notice-view-wrap{
+            padding: 0 14px;
+        }
+        h1{
+            padding: 0 0 35px 15px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #525252;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        #notice-lists-wrap.open .notice-list{
+            display: none;
+        }
+        #notice-lists-wrap.open .notice-list.show{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+        }
+        #notice-lists-wrap .notice-list{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .notice-list .list-title{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .notice-list .list-title a{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            -ms-justify-content: space-between;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 10px 12px 15px;
+        }
+        .notice-list .list-title .title{
+            font-size: 14px;
+            font-weight: bold;
+            word-break: break-all;
+            color: #525252;
+        }
+        .notice-list .list-title .date{
+            -webkit-flex: none;
+            -ms-flex: none;
+            flex: none;
+            padding-top: 3px;
+            font-size: 11px;
+            word-break: break-all;
+            color: #8f8f8f;
+        }
+        .notice-list .list-contents-wrap{
+            display: none;
+            overflow: hidden;
+        }
+        .notice-list.show .list-contents-wrap{
+            display: block;
+        }
+        .notice-list .list-contents-wrap .list-contents{
+            min-height: 500px;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 23px;
+            word-break: break-all;
+            color: #525252;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .notice-list .list-contents-wrap .list-contents img{
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        .notice-list .list-contents-wrap .btn-wrap{
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -webkit-justify-content: flex-end;
+            -ms-justify-content: flex-end;
+            justify-content: flex-end;
+            padding: 15px;
+        }
+        .notice-list .list-contents-wrap .btn-wrap a span{
+            display: inline-block;
+            width: 21px;
+        }
+        .notice-list .list-contents-wrap .btn-wrap a span{
+            display: block;
+            height: 1px;
+            margin-top: 10px;
+            background-color: #565656;
+        }
+        .notice-list .list-contents-wrap .btn-wrap a span:first-child{
+            margin: 0;
+        }
+    </style>
+    </head>
+<body>
+    <div class="notice-view-wrap">
+        <h1>NOTICE</h1>
+        <ul id="notice-lists-wrap">
+            
+        </ul>
+    </div>
+<script type="text/javascript">
+    
+    var apiPath = 'http://api3.bbuzzart.com/support/notices';
+//    var apiPath = 'http://alpha3.bbuzzart.com/support/notices';
+    var noticeLists = [];
+    var noticeListsWrap = document.getElementById('notice-lists-wrap');
+    
+    function toggleNoticeDetail(idx){
+        var target = document.getElementsByClassName('notice-list')[idx];
+        if(target.className.indexOf('show') < 0){
+            document.getElementById('notice-lists-wrap').className = 'open';
+            target.className = 'notice-list show';
+        }else{
+            document.getElementById('notice-lists-wrap').className = '';
+            target.className = 'notice-list';
+        }
+        top.window.postMessage({data: {message: 'resize'}}, "*");
+    }
+    
+    function getLoticeLists(){
+        
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", apiPath);
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                if(xmlhttp.status == 200){
+                    var res = JSON.parse(xmlhttp.responseText);
+                    noticeLists = res.data.content;
+                    if(res.success){
+                        var htmlText = '';
+                        noticeLists.forEach(function(val, idx){
+                            var convertedDate = getDate(val.createdDate);
+                            var convertedContents = val.contents;
+                            htmlText += 
+                                '<li class="notice-list">' +
+                                    '<div class="list-title">' +
+                                        '<a title="' + val.title + '" href="javascript:toggleNoticeDetail(' + idx + ');">' +
+                                            '<p class="title">' +
+                                                val.title +
+                                            '</p>' +
+                                            '<p class="date">' +
+                                                convertedDate +
+                                            '</p>' +
+                                        '</a>' +
+                                    '</div>' +
+                                    '<div class="list-contents-wrap">' +
+                                        '<div class="list-contents">' +
+                                            convertedContents +
+                                        '</div>' +
+                                        '<div class="btn-wrap">' +
+                                            '<a title="list" href="javascript:toggleNoticeDetail(' + idx + ');">' +
+                                                '<span></span>' +
+                                                '<span></span>' +
+                                                '<span></span>' +
+                                            '</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</li>';
+                        });
+                        noticeListsWrap.innerHTML = htmlText;
+                        top.window.postMessage({data: {message: 'resize'}}, "*");
+                    }
+                }else{
+                    var res = JSON.parse(xmlhttp.responseText);
+                }
+            }
+        }
+        xmlhttp.send();
+    }
+    
+    function getDate(date) {
+        var temp = String(date).split(' ')[0];
+        var tempDate = new Date(Date.parse(temp)).toString();
+        var splitDate = String(tempDate).split(' ');
+        var convertedDate = splitDate[1] + ', ' + splitDate[2] + ', ' + splitDate[3];
+        
+        return convertedDate;	
+    }
+    
+    getLoticeLists();
+    
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,240 @@
+<!doctype html>
+<html ng-app="BBuzzArtApp" ng-class="{'mobile-view':isMobile}">
+<head>
+    
+    <script>
+        var loc = document.location.href;
+        if (loc.indexOf('http://bbuzzart.com') > -1 || loc.indexOf('bbuzzart.net') > -1) {
+            var detailUrl = loc.split(document.location.origin)[1];
+            document.location.replace('http://www.bbuzzart.com' + detailUrl);
+        }
+    </script>
+    
+    <title>BBuzzArt</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+    <meta http-equiv="Pragma" content="No-Cache">
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <meta http-equiv="Last-Modified" content="Tue,19 Apr 2016 14:20:00" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    
+    <meta name="title" content="BBuzzArt" />
+    <meta name="subject" content="BBuzzArt is an art social platform to present new and emerging art and to share simple and sincere feedback. It is open to every artists and art enthusiasts around the world." />
+    <meta name="description" content="BBuzzArt is an art social platform to present new and emerging art and to share simple and sincere feedback. It is open to every artists and art enthusiasts around the world.">
+    <meta name="keywords" content="artist,writers,critics,creative agencies,art lovers">
+    <meta name="author" content="BBuzzArt">
+    
+    <meta name="copyright" content="BBuzzArt" />
+    <meta name="robots" content="all" />
+    <meta name="googlebot" content="all" />
+    
+    <meta name="format-detection" content="telephone=no">
+    <meta name="google-site-verification" content="fSrMdor3lQwZLGMy9Qdif5bqegF5CTEqCHxUruZBf5k">
+    <meta name="fragment" content="!">
+    <base href="/">
+    
+    
+    <!-- Facebook Meta Tag -->
+    <meta property="og:title" content="BBuzzArt">
+    <meta property="og:url" content="http://www.bbuzzart.com">
+    <meta property="og:image" content="http://www.bbuzzart.com/images/share_default.png">
+    <meta property="og:description" content="BBuzzArt is an art social platform to present new and emerging art and to share simple and sincere feedback. It is open to every artists and art enthusiasts around the world.">
+    
+    <!-- Twitter Meta Tag -->
+<!--    <meta name="twitter:card" content="summary_large_image">-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="http://www.bbuzzart.com">
+    <meta name="twitter:creator" content="BBuzzArt">
+    <meta name="twitter:title" content="BBuzzArt">
+    <meta name="twitter:description" content="BBuzzArt is an art social platform to present new and emerging art and to share simple and sincere feedback. It is open to every artists and art enthusiasts around the world.">
+<!--    <meta name="twitter:image" content="http://www.bbuzzart.com/images/apple-touch-icon.png">-->
+    <meta name="twitter:image" content="http://www.bbuzzart.com/images/share_default.png">
+
+    <!-- Android Icon -->
+    <link rel="icon bookmark" href="images/apple-touch-icon.png">
+    <!-- iPhone Icon -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57 72x72 114x114" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700,800,800italic' rel='stylesheet' type='text/css'>
+    
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+    <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="bower_components/ng-cropper/dist/ngCropper.all.css" />
+    <!-- endbower -->
+    
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/common/reset.css">
+    <link rel="stylesheet" href="styles/common/index.css">
+    <link rel="stylesheet" href="styles/common/navigator.css">
+    <link rel="stylesheet" href="styles/common/blockui.css">
+    <link rel="stylesheet" href="styles/list/keywordList.css">
+    <link rel="stylesheet" href="styles/list/artworkList.css">
+    <link rel="stylesheet" href="styles/list/feedList.css">
+    <link rel="stylesheet" href="styles/list/peopleList.css">
+    <link rel="stylesheet" href="styles/main/main.css">
+    <link rel="stylesheet" href="styles/main/keyword.css">
+    <link rel="stylesheet" href="styles/main/discover.css">
+    <link rel="stylesheet" href="styles/main/show.css">
+    <link rel="stylesheet" href="styles/main/mobileBanner.css">
+    <link rel="stylesheet" href="styles/profile/profile.css">
+    <link rel="stylesheet" href="styles/profile/works.css">
+    <link rel="stylesheet" href="styles/profile/bookmarks.css">
+    <link rel="stylesheet" href="styles/myfeeds/myFeeds.css">
+    <link rel="stylesheet" href="styles/detail/detail.css">
+    <link rel="stylesheet" href="styles/detail/mentionItem.css">
+    <link rel="stylesheet" href="styles/dialog/dialog.css">
+    <link rel="stylesheet" href="styles/dialog/main/banner.css">
+    <link rel="stylesheet" href="styles/dialog/account/common.css">
+    <link rel="stylesheet" href="styles/dialog/account/login.css">
+    <link rel="stylesheet" href="styles/dialog/account/signup.css">
+    <link rel="stylesheet" href="styles/dialog/account/expired.css">
+    <link rel="stylesheet" href="styles/dialog/account/reset.css">
+    <link rel="stylesheet" href="styles/dialog/account/delete.css">
+    <link rel="stylesheet" href="styles/dialog/search/searchedLists.css">
+    <link rel="stylesheet" href="styles/dialog/upload/common.css">
+    <link rel="stylesheet" href="styles/dialog/upload/uploadBtn.css">
+    <link rel="stylesheet" href="styles/dialog/upload/uploadImage.css">
+    <link rel="stylesheet" href="styles/dialog/upload/uploadShow.css">
+    <link rel="stylesheet" href="styles/dialog/upload/uploadVideo.css">
+    <link rel="stylesheet" href="styles/dialog/upload/uploadWriting.css">
+    <link rel="stylesheet" href="styles/dialog/upload/participationWorksLists.css">
+    <link rel="stylesheet" href="styles/dialog/people/peopleLists.css">
+    <link rel="stylesheet" href="styles/dialog/detail/curatorPick.css">
+    <link rel="stylesheet" href="styles/dialog/detail/flagAnIssue.css">
+    <link rel="stylesheet" href="styles/dialog/confirm/confirm.css">
+    <link rel="stylesheet" href="styles/service/service.css">
+    <link rel="stylesheet" href="vendor/imageViewer/imageviewer.css" />
+    <!-- endbuild -->
+    
+</head>
+<body>
+<!--[if lte IE 9]>
+    <script>document.location.href('static/unsupported/upgradebrowser.html')</script>
+<![endif]-->
+<!--<div class="wrap">-->
+<div class="wrap">
+    <div navigator-view></div>
+
+    <div class="container">
+        <div class="page-view-wrap">
+            <div class="page-view" ui-view="pageView"></div>
+        </div>
+    </div>
+    
+    <div ng-if="!isMobile&&isLogin" upload-btn></div>
+</div>
+
+<div ng-if="isCellPhone" mobile-banner></div>
+<!--</div>-->
+    
+    <!-- Google Analytics Setting -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-52266980-1', 'auto');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/get-style-property/get-style-property.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/doc-ready/doc-ready.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+    <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
+    <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+    <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+    <script src="bower_components/ng-cropper/dist/ngCropper.all.js"></script>
+    <script src="bower_components/ment.io/dist/mentio.js"></script>
+    <script src="bower_components/SHA-1/sha1.js"></script>
+    <script src="bower_components/angulartics/src/angulartics.js"></script>
+    <script src="bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/service/setMetatag.js"></script>
+        <script src="scripts/service/restApi.js"></script>
+        <script src="scripts/service/auth.js"></script>
+        <script src="scripts/service/storage.js"></script>
+        <script src="scripts/service/cache.js"></script>
+        <script src="scripts/service/dialog.js"></script>
+        <script src="scripts/service/time.js"></script>
+        <script src="scripts/service/convertFile.js"></script>
+        <script src="scripts/service/tracker.js"></script>
+        <script src="scripts/service/imgLoadSvc.js"></script>
+        <script src="scripts/directive/navigator.js"></script>
+        <script src="scripts/directive/mobileBanner.js"></script>
+        <script src="scripts/directive/imageonload.js"></script>
+        <script src="scripts/directive/uploadBtn.js"></script>
+        <script src="scripts/directive/list/keywordList.js"></script>
+        <script src="scripts/directive/list/artworkList.js"></script>
+        <script src="scripts/directive/list/feedList.js"></script>
+        <script src="scripts/directive/list/peopleList.js"></script>
+        <script src="scripts/controllers/common/navigator.js"></script>
+        <script src="scripts/controllers/main/main.js"></script>
+        <script src="scripts/controllers/main/keyword.js"></script>
+        <script src="scripts/controllers/main/discover.js"></script>
+        <script src="scripts/controllers/main/show.js"></script>
+        <script src="scripts/controllers/profile/profile.js"></script>
+        <script src="scripts/controllers/profile/works.js"></script>
+        <script src="scripts/controllers/profile/bookmarks.js"></script>
+        <script src="scripts/controllers/myfeeds/myFeeds.js"></script>
+        <script src="scripts/controllers/detail/detail.js"></script>
+        <script src="scripts/controllers/dialog/main/banner.js"></script>
+        <script src="scripts/controllers/dialog/account/account.js"></script>
+        <script src="scripts/controllers/dialog/search/searchedLists.js"></script>
+        <script src="scripts/controllers/dialog/upload/uploadBtn.js"></script>
+        <script src="scripts/controllers/dialog/upload/uploadImage.js"></script>
+        <script src="scripts/controllers/dialog/upload/uploadShow.js"></script>
+        <script src="scripts/controllers/dialog/upload/uploadVideo.js"></script>
+        <script src="scripts/controllers/dialog/upload/uploadWriting.js"></script>
+        <script src="scripts/controllers/dialog/people/peopleLists.js"></script>
+        <script src="scripts/controllers/dialog/detail/curatorPick.js"></script>
+        <script src="scripts/controllers/dialog/detail/flagAnIssue.js"></script>
+        <script src="scripts/controllers/service/service.js"></script>
+        <script src="vendor/imageViewer/imageviewer.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

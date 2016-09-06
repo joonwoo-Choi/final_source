@@ -1,0 +1,43 @@
+<ion-view id="tab-home" view-title="전체보기">
+    <ion-nav-buttons>
+        <div id="main-navigation">
+            <button title="filter" class="btn-filter button button-icon icon" ng-click="openFilterDialog()">
+                <img src="img/btn_filter.png" alt="filter">
+<!--                <i class="ion-funnel"></i>-->
+            </button>
+        </div>
+    </ion-nav-buttons>
+    
+    <ion-content delegate-handle="mainScroll">
+        <ion-refresher ng-if="os == 'IOS'" pulling-text="" pulling-icon="ion-refresh" spinner="ios" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-refresher ng-if="os == 'ANDROID'" pulling-text="" pulling-icon="ion-refresh" spinner="android" on-refresh="doRefresh()">
+        </ion-refresher>
+        
+        <div class="top-banner-wrap" top-slide-banner>
+            <ion-slide-box delegate-handle="topSlideBanner" does-continue="true" auto-play="true" slide-interval="5000" on-slide-changed="slideChanged($index)">
+                <ion-slide ng-repeat="banner in slideBanners">
+                    <div class="box">
+                        <button title="{{banner.title}}" class="button-icon" ng-click="goDetail(banner.eventId, banner.bannerPage)">
+                            <img ng-src="{{banner.attachments[0].thumbnailM}}" alt="{{banner.title}}">
+                        </button>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        
+        <div ng-repeat="listItem in eventList track by $index">
+            <div event-list></div>
+        </div>
+        <div class="empty-events" ng-if="isEmptyEvents">
+            <p>
+                진행 중인 이벤트가 없습니다.
+            </p>
+        </div>
+        
+        <ion-infinite-scroll ng-if="!isLast && (os == 'IOS')" on-infinite="listLoad()" distance="0" immediate-check="true" spinner="ios">
+        </ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="!isLast && (os == 'ANDROID')" on-infinite="listLoad()" distance="0" immediate-check="true" spinner="android">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
