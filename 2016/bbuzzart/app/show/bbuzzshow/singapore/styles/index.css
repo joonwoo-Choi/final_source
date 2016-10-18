@@ -586,31 +586,49 @@ body.show{
         height: 65px;
     }
     #header .logo-menu-wrap .logo{
-        padding: 22px 29px 0 29px;
+        padding: 18px 48px 0 16px;
     }
     #header .logo-menu-wrap .logo img{
-        height: 22px;
+        height: 20px;
     }
     #header .logo-menu-wrap .btns-wrap{
-        padding-top: 22px;
+        padding-top: 16px;
     }
     #header .logo-menu-wrap .btns-wrap li a{
-        font-size: 18px;
+        font-size: 16px;
         letter-spacing: 0;
-        line-height: 18px;
+        line-height: 16px;
     }
     #header .util-menu-wrap .btn-show-list{
         height: 65px;
         padding-right: 23px;
+        margin: -7px 5px 0 0
     }
     #header .util-menu-wrap .btn-show-list a{
-        font-size: 18px;
+        font-size: 14px;
     }
     #header .util-menu-wrap .btn-show-list a span{
-        font-size: 22px;
+        font-size: 17px;
     }
     #header .util-menu-wrap .btn-show-list a img{
-        margin-left: 8px;
+        width: 12px;
+        margin-left: 6px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list{
+        top: 33px;
+        right: 12px;
+        width: 193px;
+        height: 126px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul{
+        margin: 10px 7px 0;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul li a{
+        font-size: 17px;
+        line-height: 38px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul li a img{
+        margin: 0 8px 0 0;
     }
     
     #contents .contents-top{
@@ -773,6 +791,22 @@ body.show{
     #header .util-menu-wrap .btn-show-list a img{
         width: 7px;
         margin-left: 4px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list{
+        top: 33px;
+        right: 0;
+        width: 193px;
+        height: 126px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul{
+        margin: 10px 7px 0;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul li a{
+        font-size: 17px;
+        line-height: 38px;
+    }
+    #header .util-menu-wrap .select-list .list-wrap .list ul li a img{
+        margin: 0 8px 0 0;
     }
     
     #contents .contents-top{
