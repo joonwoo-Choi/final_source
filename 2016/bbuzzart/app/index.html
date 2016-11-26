@@ -82,11 +82,14 @@
     <link rel="stylesheet" href="styles/list/artworkList.css">
     <link rel="stylesheet" href="styles/list/feedList.css">
     <link rel="stylesheet" href="styles/list/peopleList.css">
+    <link rel="stylesheet" href="styles/list/tagList.css">
     <link rel="stylesheet" href="styles/main/main.css">
     <link rel="stylesheet" href="styles/main/keyword.css">
     <link rel="stylesheet" href="styles/main/discover.css">
     <link rel="stylesheet" href="styles/main/show.css">
     <link rel="stylesheet" href="styles/main/mobileBanner.css">
+    <link rel="stylesheet" href="styles/search/search.css">
+    <link rel="stylesheet" href="styles/search/searchedList.css">
     <link rel="stylesheet" href="styles/profile/profile.css">
     <link rel="stylesheet" href="styles/profile/works.css">
     <link rel="stylesheet" href="styles/profile/bookmarks.css">
@@ -161,25 +164,11 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <script src="bower_components/get-style-property/get-style-property.js"></script>
-    <script src="bower_components/get-size/get-size.js"></script>
-    <script src="bower_components/eventie/eventie.js"></script>
-    <script src="bower_components/doc-ready/doc-ready.js"></script>
-    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
-    <script src="bower_components/matches-selector/matches-selector.js"></script>
-    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
-    <script src="bower_components/outlayer/outlayer.js"></script>
-    <script src="bower_components/masonry/masonry.js"></script>
-    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
-    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
     <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
     <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
     <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
@@ -189,6 +178,9 @@
     <script src="bower_components/SHA-1/sha1.js"></script>
     <script src="bower_components/angulartics/src/angulartics.js"></script>
     <script src="bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -212,11 +204,13 @@
         <script src="scripts/directive/list/artworkList.js"></script>
         <script src="scripts/directive/list/feedList.js"></script>
         <script src="scripts/directive/list/peopleList.js"></script>
-        <script src="scripts/controllers/common/navigator.js"></script>
+        <script src="scripts/directive/list/tagList.js"></script>
         <script src="scripts/controllers/main/main.js"></script>
         <script src="scripts/controllers/main/keyword.js"></script>
         <script src="scripts/controllers/main/discover.js"></script>
         <script src="scripts/controllers/main/show.js"></script>
+        <script src="scripts/controllers/search/search.js"></script>
+        <script src="scripts/controllers/search/searchedResultList.js"></script>
         <script src="scripts/controllers/profile/profile.js"></script>
         <script src="scripts/controllers/profile/works.js"></script>
         <script src="scripts/controllers/profile/bookmarks.js"></script>
@@ -225,7 +219,6 @@
         <script src="scripts/controllers/dialog/main/banner.js"></script>
         <script src="scripts/controllers/dialog/account/account.js"></script>
         <script src="scripts/controllers/dialog/search/searchedLists.js"></script>
-        <script src="scripts/controllers/dialog/upload/uploadBtn.js"></script>
         <script src="scripts/controllers/dialog/upload/uploadImage.js"></script>
         <script src="scripts/controllers/dialog/upload/uploadShow.js"></script>
         <script src="scripts/controllers/dialog/upload/uploadVideo.js"></script>

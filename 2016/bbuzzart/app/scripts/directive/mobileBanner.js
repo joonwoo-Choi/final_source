@@ -15,11 +15,11 @@
                     scope.isAndroid = true;
                 }else{
                     scope.isAndroid = false;
-                }
+                };
                 
                 scope.popupClose = function(){
                     iElement.css({'display':'none'});
-                }
+                };
                 
                 scope.openApp = function(){
                     var appInfo = {
@@ -37,44 +37,6 @@
                     if(scope.ua.indexOf('android') > -1){
                         var appUrl = appInfo.baseURL;
                         location.href = 'intent:' + appUrl + '#Intent;package=' + appInfo.android.package + ';end;';
-//                        if (scope.ua.indexOf('fb_iab') > -1) {
-//                            //FACEBOOK IN APP BROWSER
-//                            var runAppInFacebook = function (uri) {
-//                                var iframe = document.createElement('iframe');
-//                                iframe.style.display = 'none';
-//                                iframe.src = uri;
-//                                iframe.width = '0px';
-//                                iframe.height = '0px';
-//                                document.body.appendChild(iframe);
-//                            };
-//                            runAppInFacebook(appUrl);
-//                            setTimeout(function () {
-//                                runAppInFacebook(appInfo.android.storeURL);	
-//                            }, 1500);
-//                        } else if (scope.ua.indexOf('chrome') > -1) {
-//                            // https://developers.google.com/chrome/mobile/docs/intents
-//                            window.location = 'intent:' + appUrl + '#Intent;package=' + appInfo.android.package + ';end;';
-//                        } else {
-//                            //DEFAULT ANDROID BROWSER
-//                            var appUrls = [];
-//                            appUrls.push(appInfo.android.storeURL);
-//                            appUrls.push(appUrl);
-//
-//                            (function runApp (uri) {
-//                                if (uri.length > 0) {
-//                                    var appuri = uri.pop();
-//                                    var iframe = document.createElement('iframe');
-//                                    iframe.style.display = 'none';
-//                                    iframe.src = appuri;
-//                                    iframe.width = '0px';
-//                                    iframe.height = '0px';
-//                                    iframe.onload = function (){
-//                                        runApp(uri);
-//                                    };
-//                                    document.body.appendChild(iframe);
-//                                }
-//                            }(appUrls));
-//                        }
                     }else{
                         var timer = setTimeout(function(){
                             clearTimer();
@@ -89,8 +51,8 @@
                         
                         window.addEventListener('pagehide', clearTimer);
                         location.href = appInfo.baseURL;
-                    }
-                }
+                    };
+                };
                 
             }
 		};

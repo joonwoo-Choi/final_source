@@ -18,7 +18,7 @@
                 issue: 'issue',
                 facebook: 'facebook',
                 signup: 'signup'
-            }
+            };
         
         function confirmDialogCtrl($scope, dep){
             $scope.type = dep.confirmType;
@@ -26,8 +26,8 @@
             
             $scope.confirm = function(answer){
                 dep.confirmCallback(answer);
-            }
-        }
+            };
+        };
         
         function openDialog(ctrl, tempUrl, outsideClose, params, callback){
             $mdDialog.show({
@@ -44,11 +44,11 @@
             .then(function(params) {
                 if(callback != null || callback != undefined){
                     callback(params);
-                }
+                };
             }, function() {
                 
             });
-        }
+        };
         
         return {
             confirmDialogType: dialogType,

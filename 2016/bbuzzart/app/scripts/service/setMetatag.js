@@ -18,7 +18,7 @@
             $("meta[name='description']").attr("content", metaDescription);
             $("meta[name='keywords']").attr("content", metaKeywords);
             $("meta[name='author']").attr("content", metaAuthor);
-		}
+		};
         
         return {
 			setMetatag: setMetatagData

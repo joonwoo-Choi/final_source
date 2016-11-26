@@ -13,7 +13,7 @@
                 
                 scope.confirm = function(answer){
                     scope.confirmDialogCallback(answer);
-                }
+                };
             }
 		};
 	}]);

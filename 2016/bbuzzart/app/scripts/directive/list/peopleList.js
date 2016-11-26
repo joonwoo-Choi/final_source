@@ -14,7 +14,7 @@
                 $scope.isMobile = $rootScope.isMobile;
                 $scope.scrollbarsConfig = {
                     axis: 'x'
-                }
+                };
                 $scope.myId = null;
                 $scope.profileThumbnailUrl = '/images/img_profile_default.png';
                 $scope.worksThumbnailUrl = [];
@@ -43,7 +43,7 @@
                                         $scope.sendTrackFollow();
                                         listItem.followed = !listItem.followed;
                                         listItem.tooltipTitle = 'UNFOLLOW';
-                                    }
+                                    };
                                 },function(res, status){
                                     blockUI.stop();
                                 }
@@ -56,13 +56,13 @@
                 
                 $scope.sendTrackProfile = function(){
                     $scope.sendTrack('PROFILE');
-                }
+                };
                 $scope.sendTrackFollow = function(){
                     $scope.sendTrack('FOLLOW');
-                }
+                };
                 $scope.sendTrackDetail = function(){
                     $scope.sendTrack('WORK DETAIL');
-                }
+                };
                 $scope.sendTrack = function(action){
                     if($scope.dialogType != undefined){
                         switch($scope.dialogType){
@@ -75,7 +75,7 @@
                             case 'search' :
                                 trackerSvc.eventTrack(action, {category:'PERSON (MORE)'});
                                 break;
-                        }
+                        };
                     }else if($scope.searchOn){
                         trackerSvc.eventTrack(action, {category:'SEARCH RESULT'});
                     }else{
@@ -83,9 +83,9 @@
                             case 'my-feeds' :
                                 trackerSvc.eventTrack(action, {category:'HOT BUZZLER'});
                                 break;
-                        }
-                    }
-                }
+                        };
+                    };
+                };
                 
                 $scope.workListsResize = function(idx){
                     $timeout(function(){
@@ -114,22 +114,9 @@
                             angular.element(target).css({
                                 'margin-top': (currWidth-currHeight)/2+'px'
                             });
-                        }
+                        };
                     });
-                }
-                
-//                $scope.$watch(function(){
-//                    return iElm.width();
-//                }, function(newVal, oldVal){
-//                    if(oldVal == 0 && newVal > 0){
-//                        var worksLength = iElm.find('.work-thumbnail').length;
-//                        if(worksLength > 0){
-//                            for(var i=0; i < iElm.find('.work-thumbnail').length; i ++){
-//                                $scope.workListsResize(i);
-//                            }
-//                        }
-//                    }
-//                });
+                };
                 
                 /** initialize  */
                 $timeout(function(){
@@ -137,21 +124,21 @@
                         $scope.myId = authSvc.getUserInfo().id;
                         if($scope.myId == $scope.listItem.id){
                             $scope.listItem.isMe = true;
-                        }
+                        };
                     }else{
                         $scope.listItem.isMe = false;
-                    }
+                    };
                     if(!$scope.listItem.isMe){
                         if($scope.listItem.followed){
                             $scope.listItem.tooltipTitle = 'UNFOLLOW';
                         }else{
                             $scope.listItem.tooltipTitle = 'FOLLOW';
-                        }
-                    }
+                        };
+                    };
 
                     if($scope.isMobile){
                         iElm.find('.works-scroll-wrap').mCustomScrollbar("destroy");
-                    }
+                    };
                 });
                 
                 if($scope.listItem.thumbnail != null){
@@ -160,7 +147,7 @@
                             $scope.profileThumbnailUrl = src;
                         });
                     });
-                }
+                };
                 
                 if($scope.listItem.works.length > 0){
                     angular.forEach($scope.listItem.works, function(val, idx){
@@ -172,7 +159,7 @@
                             });
                         });
                     });
-                }
+                };
             }
 		};
 	}]);

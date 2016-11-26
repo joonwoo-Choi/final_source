@@ -102,8 +102,8 @@
         $scope.onScroll = function(scrollTop, scrollPct){
             if(scrollPct != undefined && scrollPct >= 95){
                 $scope.feedbackListLoad();
-            }
-        }
+            };
+        };
         
         $scope.feedbackListLoad = function(){
             if($scope.isFeedbackListLoading) return;
@@ -121,7 +121,7 @@
                         
                         if($scope.feedbackListPage > res.data.datatotalPages){
                             $scope.feedbackListPage = res.data.datatotalPages;
-                        }
+                        };
                         
                         if(res.data.data.content.length > 0){
                             var tempList = $scope.setFeedbackList(res.data.data.content);
@@ -133,15 +133,15 @@
                                         tempList.splice(currentIdx, 1);
                                     }
                                 });
-                            }
+                            };
                             $scope.feedbackLists = $scope.feedbackLists.concat(tempList);
-                        }
+                        };
                     });
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.myDtailContentEdit = function(idx){
             $mdMenu.hide();
@@ -182,8 +182,8 @@
                     $scope.sendTrackDetail('TWITTER');
                     $scope.shareTwitter();
                     break;
-            }
-        }
+            };
+        };
         $scope.detailMenuHandler = function(idx){
             $mdMenu.hide();
             switch(idx){
@@ -203,12 +203,12 @@
                         dialogSvc.openAccount();
                     }
                     break;
-            }
-        }
+            };
+        };
         $scope.shareFacebook = function(){
             var linkUrl = 'http://link.bbuzzart.com/works/'+$scope.detailData.id+'/share';
             window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(linkUrl) + '&t=' + encodeURIComponent($scope.detailData.title));
-        }
+        };
         $scope.shareTwitter = function(){
             var linkUrl = location.href;
             var title = $scope.detailData.title;
@@ -223,12 +223,12 @@
             
             var text = 'Please explore "' + title + '" of "' + username + '" at #BBuzzArt ';
             window.open('http://twitter.com/intent/tweet?url=' + encodeURIComponent(linkUrl) + '&text=' + encodeURIComponent(text));
-        }
+        };
         
         $scope.openImageViewer = function(){
             var viewer = ImageViewer({snapView:false});
             viewer.show($scope.detailData.attachments[0].url);
-        }
+        };
         
         $('.content-detail').bind('scroll', function(e){
             if(!$scope.isMobile) return;
@@ -245,7 +245,7 @@
                !$('.detail-info-wrap .scroll-info-wrap').hasClass('fold')) return;
             $scope.isOpenDetailInfo = !$scope.isOpenDetailInfo;
             $scope.toggleDetailInfo();
-        }
+        };
         $scope.toggleDetailInfo = function(){
             if($('.content-detail .scroll-contents-wrap').css('top') == undefined || 
                $scope.detailData.type != 'WORK_IMAGE' || $scope.isMobileView) return;
@@ -257,7 +257,7 @@
             if($scope.isOpenDetailInfo && $('.detail-info').outerHeight() > $('.detail-info-wrap .scroll-info-wrap').height()){
                 var val = $('.detail-info').outerHeight() - $('.detail-info-wrap .scroll-info-wrap').height();
                 maxScrollY = maxScrollY - val;
-            }
+            };
             
             if($scope.detailScrollTop >= maxScrollY){
                 $scope.isOpenDetailInfo = false;
@@ -271,10 +271,10 @@
                         $('.detail-info-wrap .scroll-info-wrap').removeClass('fold fold-open').css({'max-height': 'none'});
                     }else{
                         $('.detail-info-wrap .scroll-info-wrap').removeClass('fold-open').addClass('fold').css({'max-height': 'none'});
-                    }
-                }
-            }
-        }
+                    };
+                };
+            };
+        };
         
         $scope.bookmarkThis = function(){
             if($scope.isLogin){
@@ -288,7 +288,7 @@
                             if(res.data.success){
                                 $scope.detailData.bookmarked = !$scope.detailData.bookmarked;
                             }
-                        },function(res, status){
+                        },function(err){
                             blockUI.stop();
                         }
                     );
@@ -299,16 +299,16 @@
                             if(res.data.success){
                                 $scope.sendTrackDetail('BOOKMARK');
                                 $scope.detailData.bookmarked = !$scope.detailData.bookmarked;
-                            }
-                        },function(res, status){
+                            };
+                        },function(err){
                             blockUI.stop();
                         }
                     );
                 }
             }else{
                 $scope.openAccount();
-            }
-        }
+            };
+        };
         
         $scope.likeThis = function(){
             if($scope.isLogin){
@@ -324,7 +324,7 @@
                                 $scope.detailData.likeCount--;
                                 $scope.setDetailData();
                             }
-                        },function(res, status){
+                        },function(err){
                             blockUI.stop();
                         }
                     );
@@ -338,15 +338,15 @@
                                 $scope.detailData.likeCount++;
                                 $scope.setDetailData();
                             }
-                        },function(res, status){
+                        },function(err){
                             blockUI.stop();
                         }
                     );
-                }
+                };
             }else{
                 $scope.openAccount();
-            }
-        }
+            };
+        };
         
         $scope.openLikedPeopleLists = function(){
             if($scope.detailData.likeCount <= 0) return;
@@ -355,7 +355,7 @@
             var title = 'PEOPLE LIKE THIS',
                 getType = 'like';
             dialogSvc.openPeopleLists({title: title, type: getType, searchData: $scope.detailData.id});
-        }
+        };
         
         $scope.focusInputFeedback = function(){
             $scope.sendTrackDetail('FEEDBACK');
@@ -363,8 +363,8 @@
                 $('.input-feedback>textarea').focus();
             }else{
                 $scope.openAccount();
-            }
-        }
+            };
+        };
         
         $scope.openSearchTagLists = function(tag){
 //            if(tag.indexOf('#') <= -1) tag = '#' + tag;
@@ -390,7 +390,7 @@
             $scope.mentionPromise.then(
                 function(res){
                     $scope.mentionUsers = res.data.data;
-                }, function(res){
+                },function(err){
                     
                 }
             );
@@ -404,15 +404,16 @@
                     if(!mentionUserCheck){
                         if(getName == val.username){
                             mentionUserCheck = true;
-                        }
-                    }
+                        };
+                    };
                 });
                 if(!mentionUserCheck){
                     $scope.selectedNewFeedbackMentions.push(item);
-                }
+                };
             }else{
                 $scope.selectedNewFeedbackMentions.push(item);
-            }
+            };
+            
             return getName;
         };
         
@@ -425,15 +426,16 @@
                     if(!mentionUserCheck){
                         if(getName == val.username){
                             mentionUserCheck = true;
-                        }
-                    }
+                        };
+                    };
                 });
                 if(!mentionUserCheck){
                     $scope.selectedEditFeedbackMentions.push(item);
-                }
+                };
             }else{
                 $scope.selectedEditFeedbackMentions.push(item);
-            }
+            };
+            
             return getName;
         };
         
@@ -445,28 +447,28 @@
                 $scope.showFeedbackAide();
             }else{
                 $scope.openAccount();
-            }
-        }
+            };
+        };
         $scope.showFeedbackAide = function(){
             $scope.isOpenFeedbackAide = true;
             $scope.resetFeedbackAide();
             $scope.feedbackAideListLoad(0);
-        }
+        };
         $scope.hideFeedbackAide = function(){
             $scope.isOpenFeedbackAide = false;
             $scope.resetFeedbackAide();
-        }
+        };
         $scope.btnOtherWords = function(idx){
             $scope.sendTrackFeedbakaide('OTHER WORDS');
             $scope.feedbackAideListLoad(idx);
-        }
+        };
         $scope.feedbackAideListLoad = function(idx){
             var apiPath = '';
             switch(idx){
                 case 0 : apiPath = restApiSvc.apiPath.feelingWords; break;
                 case 1 : apiPath = restApiSvc.apiPath.styleWords; break;
                 case 2 : apiPath = restApiSvc.apiPath.contentsWords; break;
-            }
+            };
             $scope.isGenerating = true;
             restApiSvc.get(apiPath).then(
                 function(res){
@@ -481,15 +483,15 @@
                         case 2 :
                             $scope.feedbackAideLists[idx] = res.data.data;
                             break;
-                    }
+                    };
                     if(idx > $scope.feedbackAideStep){
                         $scope.feedbackAideStep = idx;
-                    }
-                },function(res, status){
+                    };
+                },function(err){
                     $scope.isGenerating = false;
                 }
             );
-        }
+        };
         $scope.selectWord = function(stepIdx, wordIdx){
             if(stepIdx >= $scope.feedbackAideStep){
                 $scope.selectedFeedbackAideIdxs[stepIdx] = wordIdx;
@@ -497,16 +499,15 @@
                     $scope.feedbackAideListLoad(stepIdx+1);
                 }else{
                     $scope.generateSentence();
-                }
+                };
             }else{
                 $scope.feedbackAideStep = stepIdx;
                 $scope.selectedFeedbackAideIdxs.splice(stepIdx);
                 angular.forEach($scope.feedbackAideLists, function(val, idx){
                     if(idx > stepIdx) val.length = 0;
                 });
-            }
-            
-        }
+            };
+        };
         $scope.generateSentence = function(){
             var params = {
                 feeling: $scope.feedbackAideLists[0][$scope.selectedFeedbackAideIdxs[0]],
@@ -520,15 +521,15 @@
                     $scope.isOpenFeedbackAide = false;
                     $scope.generateComplete = true;
                     $scope.feedback = res.data.data;
-                },function(res, status){
+                },function(err){
                     $scope.isGenerating = false;
                 }
             );
-        }
+        };
         $scope.regenerate = function(){
             $scope.sendTrackFeedbakaide('REGENERATE');
             $scope.generateSentence();
-        }
+        };
         $scope.resetFeedbackAide = function(){
             $scope.feedbackAideStep = 0;
             $scope.generateComplete = false;
@@ -536,7 +537,7 @@
             angular.forEach($scope.feedbackAideLists, function(val, idx){
                 if(idx >= 1) val.length = 0;
             });
-        }
+        };
         
         $scope.addFeedback = function(feedback){
             if($scope.isLogin){
@@ -547,7 +548,7 @@
                     var id = val.id;
                     if(mention != undefined){
                         feedback = feedback.replace(new RegExp('@'+mention, 'g'), '{{'+id+':'+mention+'}}');
-                    }
+                    };
                 });
                 
                 var params = {
@@ -569,14 +570,14 @@
                         $scope.selectedNewFeedbackMentions.length = 0;
                         if($scope.isOpenFeedbackAide){
                             $scope.hideFeedbackAide();
-                        }
-                    },function(res, status){
+                        };
+                    },function(err){
                         blockUI.stop();
                     }
                 );
             }else{
                 $scope.openAccount();
-            }
+            };
         };
         
         $scope.feedbackEditMenuHandler = function(idx, commentIdx, feedbackId){
@@ -612,20 +613,20 @@
                                                 $scope.detailData.feedbackCount--;
                                                 $scope.setDetailData();
                                             });
-                                        },function(res, status){
+                                        },function(err){
 
                                         }
                                     );
-                                },function(res, status){
+                                },function(err){
                                     blockUI.stop();
                                 }
                             );
                         }else{
                             dialogSvc.closeConfirm();
-                        }
+                        };
                     });
                     break;
-            }
+            };
         };
         
         $scope.openEditFeedback = function(commentIdx, feedbackId){
@@ -646,11 +647,11 @@
                 });
             }else{
                 $scope.selectedEditFeedbackMentions.length = 0;
-            }
-        }
+            };
+        };
         $scope.editFeedbackCancel = function(commentIdx){
             $scope.feedbackLists[commentIdx].isEditFeedback = false;
-        }
+        };
         $scope.updateFeedback = function(feedbackId, editFeedback, editFeedbackIdx){
             blockUI.start();
             angular.forEach($scope.selectedEditFeedbackMentions, function(val, idx){
@@ -658,7 +659,7 @@
                 var id = val.id;
                 if(mention != undefined){
                     editFeedback = editFeedback.replace(new RegExp('@'+mention, 'g'), '{{'+id+':'+mention+'}}');
-                }
+                };
             });
             
             var params = {
@@ -674,7 +675,7 @@
                         val.commentIdx = idx;
                     });
                     $scope.setDetailData();
-                },function(res, status){
+                },function(err){
                     blockUI.stop();
                 }
             );
@@ -690,7 +691,7 @@
                     $scope.detailData = res[0].data.data;
                     $scope.feedbackLists = res[1].data.data.content;
                     $scope.setDetailData();
-                },function(res, status){
+                },function(err){
                     
                 }
             );
@@ -700,8 +701,7 @@
                 function(res){
                     blockUI.stop();
                     $window.history.back();
-//                    $state.go($rootScope.actualState, {}, {reload: true});
-                },function(res, status){
+                },function(err){
                     blockUI.stop();
                 }
             );
@@ -712,25 +712,25 @@
                 $scope.myId = authSvc.getUserInfo().id;
             }else{
                 $scope.myId = null;
-            }
+            };
             
             $scope.detailData.convertedDate = timeSvc.getDate($scope.detailData.createdDate);
             $scope.detailData.convertedLikeCount = $scope.detailData.likeCount;
             if($scope.detailData.convertedLikeCount > 999){
                 $scope.detailData.convertedLikeCount = '999+';
-            }
+            };
             
             $scope.detailData.convertedFeedbackCount = $scope.detailData.feedbackCount;
             if($scope.detailData.convertedFeedbackCount > 999){
                 $scope.detailData.convertedFeedbackCount = '999+';
-            }
+            };
             
             if($scope.detailData.type == 'WORK_IMAGE'){
                 /** convert edition */
                 if(parseInt($scope.detailData.edition) > 0){
                     var edition = $scope.detailData.edition;
                     $scope.detailData.convertedEdition = 'EDITION NUMBER ' + edition;
-                }
+                };
                 /** convert size    */
                 var sizeTempArr = [];
                 var width = Number($scope.detailData.width);
@@ -747,18 +747,18 @@
                             convertedSize += (' x ' + val);
                         }else{
                             convertedSize += val;
-                        }
+                        };
                     });
                     convertedSize += (' ' + sizeUnit);
                     $scope.detailData.convertedSize = convertedSize;
                 }else{
                     $scope.detailData.convertedSize = '';
-                }
+                };
             }else if($scope.detailData.type == 'WORK_VIDEO'){
                 var videoUrl = $scope.detailData.video_url + '?loop=1&rel=0&html5=1&wmode=opaque';
                 $scope.detailData.validVideoUrl = $sce.trustAsResourceUrl(videoUrl);
                 $scope.detailData.convertedDuration = timeSvc.getDuration($scope.detailData.duration);
-            }
+            };
             
             if($scope.isLogin){
                 $scope.isCurator = authSvc.getUserInfo().curated;
@@ -781,7 +781,7 @@
                         var tag = '<a title="'+name+'" href="/#/profile/'+id+'/works">'+name+'</a>';
                         val.convertedMessage = val.convertedMessage.replace(mentionVal, tag);
                     });
-                }
+                };
                 
                 val.convertedDate = timeSvc.getDate(val.createdDate);
                 val.isEditFeedback = false;
@@ -791,14 +791,14 @@
                         val.isMe = true;
                     }else{
                         val.isMe = false;
-                    }
+                    };
                 }else{
                     val.isMe = false;
-                }
+                };
             });
             
             return tempList;
-        }
+        };
         
         $scope.openCuratorPick = function(){
             if($scope.detailData.picked){
@@ -806,6 +806,7 @@
                     dialogSvc.closeConfirm();
                 });
             }else{
+                /** s3 이미지 주소로 변경   */
                 var src = $scope.detailData.attachments[0].thumbnail.medium;
                 src = src.replace('http://cdn6.bbuzzart.com/', 'http://bbuzzart-images.s3.amazonaws.com/');
                 dialogSvc.openCuratorPick({
@@ -814,7 +815,7 @@
                     imgHeight: $scope.detailData.attachments[0].height,
                     artworkId: $scope.detailData.id
                 });
-            }
+            };
         };
         
         $scope.openMenu = function($mdOpenMenu, e){
@@ -823,11 +824,11 @@
         
         $scope.openAccount = function(){
             dialogSvc.openAccount();
-        }
+        };
         
         $scope.participationWorksLoaded = function(idx){
             $scope.participationWorksResize();
-        }
+        };
         $scope.participationWorksResize = function(){
             var listWidth = $('.participation-works li').eq(0).width();
             angular.forEach($scope.detailData.participationWorks, function(val, idx){
@@ -847,11 +848,11 @@
                             'width': listWidth,
                             'margin-top': (listWidth - target.height())/2 + 'px'
                         });
-                    }
-                }
+                    };
+                };
                 
             });
-        }
+        };
         
         $scope.sendTrackDetail = function(action){
             var category = '';
@@ -868,12 +869,12 @@
                 case 'WORK_SHOW':
                     category = 'SHOW DETAIL';
                     break;
-            }
+            };
             trackerSvc.eventTrack(action, {category:category});
-        }
+        };
         $scope.sendTrackFeedbakaide = function(action){
             trackerSvc.eventTrack(action, {category:'FEEDBACK AIDE'});
-        }
+        };
         
         $scope.detailResize = function(){
             var wWidth = angular.element($window).width();
@@ -883,17 +884,17 @@
                 $scope.isMobileView = false;
                 if(!$scope.isMobile){
                     $('.detail-wrap .detail-scroll-wrap').mCustomScrollbar("destroy");
-                }
+                };
             }else{
                 $scope.isMobileView = true;
                 if(!$scope.isMobile){
                     $('.detail-wrap .detail-scroll-wrap').mCustomScrollbar($scope.mobileScrollBarOptions);
-                }
-            }
+                };
+            };
             
             if($scope.detailData.type == 'WORK_SHOW'){
                 $scope.participationWorksResize();
-            }
+            };
             
             if(!$scope.isMobileView){
                 if(!$scope.isMobile){
@@ -904,30 +905,25 @@
                         $('.detail-info-wrap .scroll-info-wrap').css({
                             'width': $('.content-detail').width()
                         });
-                    }
-                }
-
+                    };
+                };
                 if(tempViewType){
                     $scope.detailScrollTop = 0;
                     $scope.detailInfoResize();
-                }
-
+                };
                 $scope.toggleDetailInfo();
-                
             }else{
                 if(!$scope.isMobile){
                     $('.detail-wrap .content-detail').mCustomScrollbar('destroy');
                     $('.detail-wrap .feedback-lists-contents').mCustomScrollbar('destroy');
-//                        $('.detail-wrap .scroll-info-wrap').mCustomScrollbar('disable', true);
-                }
-                
+                };
                 if($scope.detailData.type == 'WORK_IMAGE'){
                     $scope.isOpenDetailInfo = false;
                     $('.detail-info-wrap').removeAttr('style');
                     $('.detail-info-wrap .scroll-info-wrap').css({'width':'auto'}).removeClass('fold fold-open');
-                }
-            }
-        }
+                };
+            };
+        };
         
         $scope.detailInfoResize = function(){
             $timeout(function(){
@@ -939,7 +935,7 @@
                     height: infoHeight + 1
                 });
             });
-        }
+        };
         $scope.$watch(function(){
             return $('.detail-info-wrap .scroll-info-wrap .detail-info').outerHeight();
         }, function(newVal, oldVal){
@@ -964,8 +960,8 @@
                 '-webkit-flex': 1,
                 '-ms-flex': 1,
                 'flex': 1
-            })
-        }
+            });
+        };
         var hostname = location.href;
         switch($scope.detailData.type){
             case 'WORK_IMAGE':
@@ -973,28 +969,28 @@
                 if (hostname.indexOf('WORK_IMAGE') > -1) {
                     hostname = hostname.replace('WORK_IMAGE', 'art');
                     location.replace(hostname);
-                }
+                };
                 break;
             case 'WORK_VIDEO':
                 $scope.detailApiPath = restApiSvc.apiPath.getDetailVideo($scope.detailData.id);
                 if (hostname.indexOf('WORK_VIDEO') > -1) {
                     hostname = hostname.replace('WORK_VIDEO', 'video');
                     location.replace(hostname);
-                }
+                };
                 break;
             case 'WORK_WRITING':
                 $scope.detailApiPath = restApiSvc.apiPath.getDetailWriting($scope.detailData.id);
                 if (hostname.indexOf('WORK_WRITING') > -1) {
                     hostname = hostname.replace('WORK_WRITING', 'writing');
                     location.replace(hostname);
-                }
+                };
                 break;
             case 'WORK_SHOW':
                 $scope.detailApiPath = restApiSvc.apiPath.getDetailShow($scope.detailData.id);
                 if (hostname.indexOf('WORK_SHOW') > -1) {
                     hostname = hostname.replace('WORK_SHOW', 'show');
                     location.replace(hostname);
-                }
+                };
                 break;
         };
         if($scope.isMobile){
@@ -1021,18 +1017,7 @@
             $timeout(function(){
                 $scope.thumbnailUrl = src;
                 $timeout(function(){
-//                    var thumbnailHeight = $('.content-thumbnail').height() + $('.creator-info').outerHeight();
-//                    /** init detail fold-open   */
-//                    if(angular.element($window).height() >= $scope.minWindowHeight && 
-//                       thumbnailHeight > $('.content-detail').height() && 
-//                       $scope.detailData.type == 'WORK_IMAGE'){
-//                        $scope.isOpenDetailInfo = true;
-//                        $scope.toggleDetailInfo();
-//                        $('.scroll-info-wrap').removeClass('fold').addClass('fold-open').css({'max-height': $('.content-detail').height()});
-//                    }
-                    
                     $scope.detailResize();
-//                    $scope.toggleDetailInfo();
                 }, 33);
             },350);
         });

@@ -31,11 +31,11 @@
                     $timeout(function(){
                         $scope.isLoading = false;
                     }, $scope.loadDelay);
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.$on('worksListLoad', function(e, params){
             $scope.loadList(params.userId);
@@ -53,7 +53,7 @@
                 $('.profile-wrap .profile-view-wrap').mCustomScrollbar("destroy");
             }else if($scope.worksLists.length > 0 && !$rootScope.isMobile){
                 $scope.$emit('makeProfileViewScroll');
-            }
+            };
         });
         
     }]);

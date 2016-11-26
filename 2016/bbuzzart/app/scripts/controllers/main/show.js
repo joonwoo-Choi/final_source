@@ -24,17 +24,16 @@
                     $scope.isLastPage = res.data.data.last;
                     if(res.data.data.content.length > 0){
                         $scope.mainShowLists = $scope.mainShowLists.concat(res.data.data.content);
-//                        $scope.putCache();
-                    }
+                    };
                     
                     $timeout(function(){
                         $scope.isLoading = false;
                     }, $scope.loadDelay);
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.$watch(function(){
             return angular.element($window).width();
@@ -43,22 +42,12 @@
                 $scope.listColumnLength = 4;
             }else{
                 $scope.listColumnLength = 2;
-            }
+            };
         });
         
         $scope.$on('mainListLoad', function(){
             $scope.loadList();
         });
-        
-//        $scope.putCache = function(){
-//            cacheSvc.remove('mainShowLists');
-//            cacheSvc.put('mainShowLists', $scope.mainShowLists);
-//        }
-        
-//        $scope.putCache();
-        
-        /** initialize  */
-//        $scope.mainShowLists = $scope.convertData($scope.mainShowLists);
         
     }]);
     

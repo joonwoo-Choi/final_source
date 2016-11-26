@@ -1,0 +1,58 @@
+<div class="search-person-wrap" ng-if="searchedLists.length > 0">
+    
+    <div class="searched-lists">
+        <div class="column-list-wrap" ng-if="listColumnLength >= 1">
+            <ul>
+                <li class="search-list" ng-if="$index%listColumnLength == 0" ng-repeat="listItem in searchedLists track by $index">
+                    <div people-list ng-if="tab=='person'"></div>
+                    <div tag-list ng-if="tab=='tag'"></div>
+                    <div artwork-list ng-if="tab=='title'"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="listColumnLength >= 2">
+            <ul>
+                <li class="search-list" ng-if="$index%listColumnLength == 1" ng-repeat="listItem in searchedLists track by $index">
+                    <div people-list ng-if="tab=='person'"></div>
+                    <div tag-list ng-if="tab=='tag'"></div>
+                    <div artwork-list ng-if="tab=='title'"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="listColumnLength >= 3">
+            <ul>
+                <li class="search-list" ng-if="$index%listColumnLength == 2" ng-repeat="listItem in searchedLists track by $index">
+                    <div people-list ng-if="tab=='person'"></div>
+                    <div tag-list ng-if="tab=='tag'"></div>
+                    <div artwork-list ng-if="tab=='title'"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="listColumnLength >= 4">
+            <ul>
+                <li class="search-list" ng-if="$index%listColumnLength == 3" ng-repeat="listItem in searchedLists track by $index">
+                    <div people-list ng-if="tab=='person'"></div>
+                    <div tag-list ng-if="tab=='tag'"></div>
+                    <div artwork-list ng-if="tab=='title'"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="column-list-wrap" ng-if="listColumnLength >= 5">
+            <ul>
+                <li class="search-list" ng-if="$index%listColumnLength == 4" ng-repeat="listItem in searchedLists track by $index">
+                    <div people-list ng-if="tab=='person'"></div>
+                    <div tag-list ng-if="tab=='tag'"></div>
+                    <div artwork-list ng-if="tab=='title'"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+<div class="search-empty-list" ng-if="searchedLists.length <= 0">
+    <div>
+        <img src="/images/img_search_noresult.png" alt="No results found.">
+    </div>
+    <p>No results found.</p>
+</div>

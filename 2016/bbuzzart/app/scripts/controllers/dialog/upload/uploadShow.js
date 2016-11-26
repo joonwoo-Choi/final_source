@@ -64,7 +64,7 @@
         $scope.inputAddress = function(e, address) {
             if(e.keyCode != 13) return;
             $scope.findAddress(address);
-        }
+        };
         
         $scope.findAddress = function(address){
             if($scope.map.formattedAddress == address) return;
@@ -74,14 +74,14 @@
                 $scope.map.center = { 
                     latitude: data.results[0].geometry.location.lat,
                     longitude: data.results[0].geometry.location.lng
-                }
+                };
                 $scope.map.zoom = 15;
                 $scope.map.formattedAddress = data.results[0].formatted_address;
                 $scope.uploadInfo.workShow.place = $scope.map.formattedAddress;
                 $scope.uploadInfo.workShow.latitude = $scope.map.center.latitude;
                 $scope.uploadInfo.workShow.longitude = $scope.map.center.longitude;
             });
-        }
+        };
         
         $scope.tagKeyDown = function(e){
             var keyCode = e.keyCode > 0 ? e.keyCode : e.charCode;
@@ -94,13 +94,13 @@
                    
                 e.preventDefault();
                 return;
-            }
+            };
             
             if(keyCode == 13 || keyCode== 32 || keyCode== 44){
                 e.preventDefault();
                 $scope.tagListCheck();
-            }
-        }
+            };
+        };
         
         $scope.tagListCheck = function(){
             $timeout(function(){
@@ -112,14 +112,14 @@
                 tagText = tagText.replace(/%20/g, ' ');
                 if(tagText.charAt(tagText.length-1) == ' '){
                     tagText = tagText.slice(0, tagText.length-1);
-                }
+                };
                 if(tagText.charAt(0) == ' '){
                     tagText = tagText.slice(1);
-                }
+                };
                 var tagsArr = tagText.split(' ');
                 $scope.tagListUpdate(tagsArr);
             });
-        }
+        };
         
         $scope.tagListUpdate = function(tagsArr){
             var tempArr = [];
@@ -133,12 +133,12 @@
                     }
                     while (cnt < tempArr.length);
                     if(bool) tempArr.push(val);
-                }
+                };
             });
             tagsArr = tempArr;
             if(tagsArr.length > $scope.tagsMaxLength) {
                 tagsArr = $scope.uploadInfo.workShow.tags;
-            }
+            };
             if(tagsArr[0] == '') tagsArr.length = 0;
             $scope.uploadInfo.workShow.tags = tagsArr;
             var tagTxt = '';
@@ -149,9 +149,9 @@
             });
             if ($(".popup-upload-show .input-tag .input").is(":focus")) {
                 tagTxt = tagTxt + '#';
-            }
+            };
             $('.popup-upload-show .input-tag .input').val(tagTxt);
-        }
+        };
         
         $scope.onlyNumber = function(e, value, isDot){
             var contact = $scope.uploadInfo.workShow.contact;
@@ -167,17 +167,17 @@
                 e.preventDefault();
             };
             
-            if( !(keyCode == 8                              // backspace
-                || keyCode == 9                             // tap
-                || keyCode == 189                           // hyphen
-                || keyCode == 110                           // dot
-                || keyCode == 190                           // dot
-                || (keyCode >= 48 && keyCode <= 57)         // numbers on keyboard
-                || (keyCode >= 96 && keyCode <= 105))       // numbers on keyboard
+            if( !(keyCode == 8
+                || keyCode == 9
+                || keyCode == 189
+                || keyCode == 110
+                || keyCode == 190
+                || (keyCode >= 48 && keyCode <= 57)
+                || (keyCode >= 96 && keyCode <= 105))
                ) {
                 e.preventDefault();
             };
-        }
+        };
         
         $scope.openParticipationWorksLists = function(){
             dialogSvc.openParticipationWorksLists(authSvc.getUserInfo().id, $scope.participationWorksLists, function(selectedLists){
@@ -187,19 +187,19 @@
                     $scope.uploadInfo.workShow.participationWorkIds.push(val.id);
                 });
             });
-        }
+        };
         $scope.removeSelectedWork = function(idx){
             $scope.participationWorksLists.splice(idx, 1);
             $scope.uploadInfo.workShow.participationWorkIds.splice(idx, 1);
-        }
+        };
         
         $scope.btnUploadShow = function(){
             if(validateData($scope, true)){
                 $scope.uploadShow();
             }else{
                 console.log('validate-error');
-            }
-        }
+            };
+        };
         $scope.uploadShow = function(){
             if($scope.uploadInfo.workShow.homepage.length > 0 && !validateUrl($scope.uploadInfo.workShow.homepage)){
                 dialogSvc.confirmDialog(dialogSvc.confirmDialogType.validateUrl, function(answer){
@@ -235,26 +235,25 @@
             }else{
                 params = params.workShow;
                 apiPath = restApiSvc.apiPath.editShow($scope.editInfo.id);
-            }
+            };
             restApiSvc.post(apiPath, params, contentType).then(
                 function(res){
                     blockUI.stop();
                     if(!$scope.isEditUpload){
-//                        $state.go('detail', {artworkType:res.data.data.type, id:res.data.data.id}, {reload: true});
                         $state.go('my-feeds', {}, {reload: true});
                     }else{
                         location.reload();
-                    }
-                },function(res, status){
+                    };
+                },function(err){
                     blockUI.stop();
                 }
             );
-        }
+        };
         
         $scope.removeFile = function(){
             $scope.uploadInfo.file = null;
             $scope.uploadInfo.convertedFile = null;
-        }
+        };
         
         $scope.popupClose = function(){
             dialogSvc.confirmDialog(dialogSvc.confirmDialogType.uploadCancel, function(answer){
@@ -263,9 +262,9 @@
                     dialogSvc.closeConfirm();
                 }else{
                     dialogSvc.closeConfirm();
-                }
+                };
             });
-        }
+        };
         
         $scope.convertFile = function(file){
             blockUI.start();
@@ -274,7 +273,7 @@
                 $scope.uploadInfo.convertedFile = convertedFile;
                 if(convertedFile == null) $scope.uploadInfo.file = null;
             });
-        }
+        };
         
         /** googlemap location change   */
         $scope.$watch(function(){
@@ -304,7 +303,7 @@
             if(newVal){
                 var tagTxt = $('.popup-upload-show .input-tag .input').val();
                 $('.popup-upload-show .input-tag .input').val(tagTxt + ' #');
-            }
+            };
         });
         
         /** upload possible check   */
@@ -325,7 +324,7 @@
                 });
             }else{
                 $scope.isShowFileThumb = false;
-            }
+            };
         });
         
         $scope.$watch('uploadInfo.workShow.startDate', function(newVal, oldVal){
@@ -365,8 +364,8 @@
                 angular.element(target).css({
                     'margin-top': (currWidth-currHeight)/2+'px'
                 });
-            }
-        }
+            };
+        };
 
         $scope.participationWorksResize = function(){
             var listWidth = $('.selected-works-wrap li').width();
@@ -386,9 +385,9 @@
                     target.css({
                         'margin-left': (listWidth-imgWidth)/2+'px'
                     });
-                }
+                };
             });
-        }
+        };
 
         angular.element(window).bind('resize', function(){
             $scope.participationWorksResize();
@@ -426,7 +425,7 @@
                         };
                         $scope.marker.coords = angular.copy($scope.map.center);
                     });
-                }
+                };
             }else{
                 /** calendar    */
                 var now = new Date(dialogParams.detailData.startDate),
@@ -459,7 +458,7 @@
                     contact: $scope.editInfo.contact,
                     participationWorkIds: [],
                     tags: $scope.editInfo.tags
-                }
+                };
                 $scope.isShowFileThumb = true;
                 $scope.showThumbnailUrl = $scope.editInfo.attachments[0].thumbnail.small;
                 $scope.tagListUpdate($scope.uploadInfo.workShow.tags);
@@ -468,7 +467,7 @@
                     var tempList = {
                         id: val.id,
                         thumbnail: val.attachments[0].thumbnail.small
-                    }
+                    };
                     $scope.participationWorksLists.push(tempList);
                     $scope.uploadInfo.workShow.participationWorkIds.push(tempList.id);
                 });
@@ -513,6 +512,6 @@
     function validateUrl(url){
         var pattern = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/g;
         return pattern.test(url);
-    }
+    };
 
 })(angular);

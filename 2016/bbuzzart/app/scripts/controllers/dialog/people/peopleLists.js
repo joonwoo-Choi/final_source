@@ -42,7 +42,7 @@
                 case 'like' :
                     apiPath = restApiSvc.apiPath.getLikePeople($scope.searchData);
                     break;
-            }
+            };
             restApiSvc.get(apiPath, params).then(
                 function(res){
                     $scope.peopleLists = $scope.peopleLists.concat(res.data.data.content);
@@ -53,40 +53,38 @@
                     }, $scope.loadDelay);
                     
                     if(!$scope.isFirstSearched) $scope.isFirstSearched = true;
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.scrollHandler = function(e){
-//            if(!$scope.isMobile) return;
-
             var scrollTop = e.target.scrollTop;
             var maxScrollTop = e.target.scrollHeight - e.target.clientHeight;
             var scrollPct = (scrollTop/maxScrollTop)*100;
             $scope.onScroll(scrollTop, scrollPct);
-        }
+        };
         $scope.onScroll = function(scrollTop, scrollPct){
             scrollTop = Math.abs(scrollTop);
             
             /** list load   */
             if(scrollPct != undefined && scrollPct >= 95){
                 $scope.getPeopleList();
-            }
-        }
+            };
+        };
         
         $scope.popupClose = function(){
             dialogSvc.close();
             $rootScope.$broadcast('reloadProfile');
-        }
+        };
         
         $scope.$watch('peopleLists', function(newVal, oldVal){
             if(newVal.length > 0 && oldVal == 0){
                 $timeout(function(){
                     $('.people-lists-container').bind('scroll', $scope.scrollHandler);
                 });
-            }
+            };
         });
         
         $scope.$watch(function(){
@@ -96,7 +94,7 @@
                 $scope.listColumnLength = 2;
             }else{
                 $scope.listColumnLength = 1;
-            }
+            };
         });
         
         /** initialize  */
@@ -113,7 +111,7 @@
             case 'like' :
                 trackerSvc.pageTrack('PEOPLE THIS LIKE');
                 break;
-        }
+        };
         $scope.getPeopleList();
     }]);
     

@@ -20,7 +20,7 @@
             blockUI.start();
             var params = {
                 'contents' : list
-            }
+            };
             dialogSvc.close();
             restApiSvc.post(restApiSvc.apiPath.issues(dialogParams.artWorkId), params, 'application/json').then(
                 function(res){
@@ -34,12 +34,12 @@
                     blockUI.stop();
                 }
             );
-        }
+        };
         
         $scope.popupClose = function(){
             dialogSvc.close();
             dialogSvc.closeConfirm();
-        }
+        };
         
     }]);
     

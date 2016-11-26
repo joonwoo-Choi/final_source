@@ -29,9 +29,9 @@
                     Upload.dataUrl(file, true).then(function(dataUrl){
                         callBack(file, dataUrl);
                     });
-                }
-            }
-        }
+                };
+            };
+        };
         
         function getBase64FromImageUrl(imgUrl, callback) {
             var img = new Image();
@@ -51,7 +51,7 @@
                 callback(dataURL);
             };
             img.src = imgUrl;
-        }
+        };
         
 		return {
 			convertFile: convert,

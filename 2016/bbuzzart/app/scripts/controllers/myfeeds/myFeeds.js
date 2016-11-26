@@ -26,7 +26,7 @@
                     $scope.onScroll(this.mcs.top, this.mcs.topPct);
                 }
             }
-        }
+        };
         
         angular.element($window).bind('scroll', function(e){
             if(!$scope.isMobile) return;
@@ -39,8 +39,8 @@
         $scope.onScroll = function(scrollTop, scrollPct){
             if(scrollPct != undefined && scrollPct >= 95){
                 $scope.loadList();
-            }
-        }
+            };
+        };
         
         $scope.loadList = function(){
             if($scope.isLoading || $scope.isLastPage) return;
@@ -57,11 +57,11 @@
                     $timeout(function(){
                         $scope.isLoading = false;
                     }, $scope.loadDelay);
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.getHotBuzzlerList = function(){
             blockUI.start();
@@ -70,33 +70,33 @@
                     $scope.hotBuzzlerLists = res.data.data;
                     $scope.setHotBuzzlerList();
                     blockUI.stop();
-                },function(res, status){
+                },function(err){
                     blockUI.stop();
                 }
             );
-        }
+        };
         
         $scope.setHotBuzzlerList = function(){
             angular.forEach($scope.hotBuzzlerLists, function(val, key){
                 if($scope.isLogin){
                     if(authSvc.getUserInfo().id == val.id){
                         val.isMe = true;
-                    }
+                    };
                 }else{
                     val.isMe = false;
-                }
+                };
 
                 if(!val.isMe){
                     if(val.following){
                         val.tooltipTitle = 'UNFOLLOW';
                     }else{
                         val.tooltipTitle = 'FOLLOW';
-                    }
-                }
+                    };
+                };
 
                 val.worksLists = val.works;
             });
-        }
+        };
         
         $scope.$watch(function(){
             return angular.element($window).width();
@@ -107,7 +107,7 @@
                 $scope.listColumnLength = 2;
             }else if(newVal <= 699){
                 $scope.listColumnLength = 1;
-            }
+            };
         });
         
         /** initialize  */
@@ -115,10 +115,10 @@
             $timeout(function(){
                 $('.myfeeds-scroll-wrap').mCustomScrollbar("destroy");
             });
-        }
+        };
         if(!$scope.isMyfeeds){
             $scope.getHotBuzzlerList();
-        }
+        };
         
     }]);
 

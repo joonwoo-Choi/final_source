@@ -10,14 +10,15 @@
             <img ng-src="/images/img_list_play.png" alt="movie play">
         </div>
         <div class="cover-wrap btn-thumb">
-            <a class="btn-detail-view" title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-click="sendTrack()"></a>
-            <a class="btn-like-toggle" title="like" ng-click="likeThis(listItem.liked, listItem.id)">
+            <a class="btn-detail-view" title="{{listItem.title}}" href="{{listItem.url}}" target="_blank" ng-if="listItem.type == 'BBUZZ_SHOW'"></a>
+            <a class="btn-detail-view" title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-if="listItem.type != 'BBUZZ_SHOW'" ng-click="sendTrack()"></a>
+            <a class="btn-like-toggle" title="like" ng-if="listItem.type != 'BBUZZ_SHOW'" ng-click="likeThis(listItem.liked, listItem.id)">
                 <img ng-src="/images/img_discover_like_off.png" alt="like off">
                 <img class="like-on" ng-src="/images/img_discover_like_on.png" alt="like on">
             </a>
         </div>
     </div>
-    <a title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-click="sendTrack()">
+    <a title="{{listItem.title}}" ui-sref="detail({artworkType:listItem.type, id:listItem.id})" ng-if="listItem.type != 'BBUZZ_SHOW'" ng-click="sendTrack()">
         <div class="artwork-info">
             <p class="title">
                 {{listItem.title}}

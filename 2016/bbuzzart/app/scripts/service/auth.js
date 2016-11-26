@@ -30,66 +30,66 @@
 
 			/**  set AuthKey */
 			setAuthKey: function(authKey, useAutoLogin){
-				if (authKey) {
+				if(authKey){
 					this.setEnableAutoLogin(useAutoLogin);
-					if (useAutoLogin == true) {
+					if(useAutoLogin){
 						localStorage.set(KEY_AUTH, authKey);
-					} else {
+					}else{
 						sessionStorage.set(KEY_AUTH, authKey);
-					}
-				} else {
+					};
+				}else{
                     
-				}
+				};
 			},
 
 			/**  get AuthKey */
 			getAuthKey: function(){
 				var authKey = null;
-				if (this.isAutoLoginEnabled() == true) {
+				if(this.isAutoLoginEnabled()){
 					authKey = localStorage.get(KEY_AUTH);
-				} else {
+				}else{
 					authKey = sessionStorage.get(KEY_AUTH);
-				}
+				};
 				return authKey;
 			},
 
 			/**  set Login Info  */
 			setUserInfo: function(userInfo){
-                if (this.isAutoLoginEnabled() == true) {
+                if(this.isAutoLoginEnabled()){
                     localStorage.setObject(KEY_USER_INFO, userInfo);
-                } else {
+                }else{
                     sessionStorage.setObject(KEY_USER_INFO, userInfo);
-                }
+                };
                 $rootScope.$broadcast(events.userInfoChanged, userInfo);
 			},
 
 			/**  get Login Info  */
 			getUserInfo: function(){
-				if (this.isAutoLoginEnabled() == true) {
+				if(this.isAutoLoginEnabled()){
 					return localStorage.getObject(KEY_USER_INFO);
-				} else {
+				}else{
 					return sessionStorage.getObject(KEY_USER_INFO);
-				}
+				};
 			},
 
 			/**  remove Storage  */
 			removeData: function(){
-				if (this.isAutoLoginEnabled() == true) {
+				if(this.isAutoLoginEnabled()){
 					$rootScope.$broadcast(events.userInfoChanged, null);
 					return localStorage.removeAll();
-				} else {
+				}else{
 					$rootScope.$broadcast(events.userInfoChanged, null);
 					return sessionStorage.removeAll();
-				}
+				};
 			},
 
 			/**  get Login Status    */
 			isLogin: function(){
-				if (this.getAuthKey() && this.getUserInfo()) {
+				if(this.getAuthKey() && this.getUserInfo()){
 					return true;
-				} else {
+				}else{
 					return false;
-				}
+				};
 			}
 		};
     }]);

@@ -23,7 +23,7 @@
             height: '',
             depth: '',
             sizeUnit: $scope.units[0]
-        }
+        };
         $scope.imageThumbnailUrl = '';
         $scope.isShowFileThumb = false;
         $scope.isEditUpload = false;
@@ -48,13 +48,13 @@
                    
                 e.preventDefault();
                 return;
-            }
+            };
             
             if(keyCode == 13 || keyCode== 32 || keyCode== 44){
                 e.preventDefault();
                 $scope.tagListCheck();
-            }
-        }
+            };
+        };
         
         $scope.tagListCheck = function(){
             $timeout(function(){
@@ -66,14 +66,14 @@
                 tagText = tagText.replace(/%20/g, ' ');
                 if(tagText.charAt(tagText.length-1) == ' '){
                     tagText = tagText.slice(0, tagText.length-1);
-                }
+                };
                 if(tagText.charAt(0) == ' '){
                     tagText = tagText.slice(1);
-                }
+                };
                 var tagsArr = tagText.split(' ');
                 $scope.tagListUpdate(tagsArr);
             });
-        }
+        };
         
         $scope.tagListUpdate = function(tagsArr){
             var tempArr = [];
@@ -87,12 +87,12 @@
                     }
                     while (cnt < tempArr.length);
                     if(bool) tempArr.push(val);
-                }
+                };
             });
             tagsArr = tempArr;
             if(tagsArr.length > $scope.tagsMaxLength) {
                 tagsArr = $scope.uploadInfo.workImage.tags;
-            }
+            };
             if(tagsArr[0] == '') tagsArr.length = 0;
             $scope.uploadInfo.workImage.tags = tagsArr;
             var tagTxt = '';
@@ -101,12 +101,11 @@
                 tagTxt +=  val + ', ';
                 $scope.uploadInfo.workImage.tags[key] = val;
             });
-            console.log('vvvvvvvvvvvv ', $scope.uploadInfo.workImage.tags);
             if($(".popup-upload-image .input-tag .input").is(":focus")) {
                 tagTxt = tagTxt + '#';
-            }
+            };
             $('.popup-upload-image .input-tag .input').val(tagTxt);
-        }
+        };
         
         $scope.categoryChange = function(category){
             if(category == $scope.categories[0].value) return;
@@ -117,23 +116,23 @@
 //            category = category.replace(/(?:^|\s)\S/g,  function(a) { return a.toUpperCase(); });
             tagsArr.push(category);
             $scope.tagListUpdate(tagsArr);
-        }
+        };
         
         $scope.onlyNumber = function(e, value, isDot){
             var keyCode = e.keyCode > 0 ? e.keyCode : e.charCode;
-            if( !(keyCode == 8                              // backspace
-                || keyCode == 9                             // tap
-                || (isDot && keyCode == 46 && String(value).indexOf('.') <= -1) // dot
-                || (keyCode >= 48 && keyCode <= 57))        // numbers on keyboard
+            if( !(keyCode == 8
+                || keyCode == 9
+                || (isDot && keyCode == 46 && String(value).indexOf('.') <= -1)
+                || (keyCode >= 48 && keyCode <= 57))
                 ) {
                     e.preventDefault();
-            }
+            };
             $timeout(function(){
                 $scope.uploadInfo.workImage.width = $scope.setFixed($scope.uploadInfo.workImage.width);
                 $scope.uploadInfo.workImage.height = $scope.setFixed($scope.uploadInfo.workImage.height);
                 $scope.uploadInfo.workImage.depth = $scope.setFixed($scope.uploadInfo.workImage.depth);
             });
-        }
+        };
         $scope.setFixed = function(size){
             if(String(size).indexOf('.') > -1){
                 var numArr = String(size).split('.');
@@ -142,24 +141,25 @@
                         numArr[1] = numArr[1].charAt(0);
                         size = numArr[0] + '.' + numArr[1];
                         return size
-                    }
-                }
-            }
+                    };
+                };
+            };
+            
             return size;
-        }
+        };
         
         $scope.uploadImage = function(){
             if(validateData($scope, true)){
                 uploadArtwork($scope, $state, authSvc, restApiSvc, blockUI, $scope.uploadInfo);
             }else{
                 console.log('validate-error');
-            }
-        }
+            };
+        };
         
         $scope.removeFile = function(){
             $scope.uploadInfo.file = null;
             $scope.uploadInfo.convertedFile = null;
-        }
+        };
         
         $scope.popupClose = function(){
             dialogSvc.confirmDialog(dialogSvc.confirmDialogType.uploadCancel, function(answer){
@@ -168,9 +168,9 @@
                     dialogSvc.closeConfirm();
                 }else{
                     dialogSvc.closeConfirm();
-                }
+                };
             });
-        }
+        };
         
         $scope.convertFile = function(file){
             blockUI.start();
@@ -179,7 +179,7 @@
                 $scope.uploadInfo.convertedFile = convertedFile;
                 if(convertedFile == null) $scope.uploadInfo.file = null;
             });
-        }
+        };
         
         /** input tag focus check   */
         $scope.$watch(function(){
@@ -188,7 +188,7 @@
             if(newVal){
                 var tagTxt = $('.popup-upload-image .input-tag .input').val();
                 $('.popup-upload-image .input-tag .input').val(tagTxt + ' #');
-            }
+            };
         });
         
         /** upload possible check   */
@@ -209,7 +209,7 @@
                 });
             }else{
                 $scope.isShowFileThumb = false;
-            }
+            };
         });
         
         /** initialize  */
@@ -232,24 +232,24 @@
                     height: Number($scope.editInfo.height) || '',
                     depth: Number($scope.editInfo.depth) || '',
                     sizeUnit: $scope.editInfo.sizeUnit || 'Inch'
-                }
+                };
                 if($scope.uploadInfo.workImage.sizeUnit.indexOf('in') > -1){
                     $scope.uploadInfo.workImage.sizeUnit = 'Inch';
-                }
+                };
                 if(typeof($scope.uploadInfo.workImage.width) != 'number'){
                     $scope.uploadInfo.workImage.width = '';
-                }
+                };
                 if(typeof($scope.uploadInfo.workImage.height) != 'number'){
                     $scope.uploadInfo.workImage.height='';
-                }
+                };
                 if(typeof($scope.uploadInfo.workImage.depth) != 'number'){
                     $scope.uploadInfo.workImage.depth = '';
-                }
+                };
                 $scope.isShowFileThumb = true;
                 $scope.imageThumbnailUrl = $scope.editInfo.attachments[0].thumbnail.small;
                 $scope.tagListUpdate($scope.uploadInfo.workImage.tags);
-            }
-        }
+            };
+        };
     }]);
     
     function validateData($scope, isErrorCheck){
@@ -258,20 +258,20 @@
             if (!$scope.uploadInfo.convertedFile) {
                 validate = false;
                 if(isErrorCheck) $scope.error.image = 'error';
-            }
-        }
+            };
+        };
         if ($scope.uploadInfo.workImage.category == $scope.categories[0].name) {
             validate = false;
             if(isErrorCheck) $scope.error.category = 'error';
-        }
+        };
         if (!$scope.uploadInfo.workImage.title) {
             validate = false;
             if(isErrorCheck) $scope.error.title = 'error';
-        }
+        };
         if (!$scope.uploadInfo.workImage.note) {
             validate = false;
             if(isErrorCheck) $scope.error.note = 'error';
-        }
+        };
         
         return validate;
     };
@@ -281,10 +281,10 @@
         var currentYear = new Date().getFullYear();
         for(var i = currentYear; i >= 1900; i--){
             years.push(i);
-        }
+        };
         years.unshift('Year');
         return years;
-    }
+    };
     
     function getCategories($scope, restApiSvc){
         restApiSvc.get(restApiSvc.apiPath.categories).then(
@@ -294,11 +294,11 @@
                     $scope.categories.push(val);
                 });
                 $scope.editInit();
-            },function(res, status){
+            },function(err){
                 
             }
         );
-    }
+    };
     
     function uploadArtwork($scope, $state, authSvc, restApiSvc, blockUI, uploadInfo){
         var params = {
@@ -319,18 +319,18 @@
         if(String(params.workImage.width).indexOf('.') > -1){
             if(String(params.workImage.width).split('.')[1].length <= 0){
                 params.workImage.width = String(params.workImage.width).split('.')[0];
-            }
-        }
+            };
+        };
         if(String(params.workImage.height).indexOf('.') > -1){
             if(String(params.workImage.height).split('.')[1].length <= 0){
                 params.workImage.height = String(params.workImage.height).split('.')[0];
-            }
-        }
+            };
+        };
         if(String(params.workImage.depth).indexOf('.') > -1){
             if(String(params.workImage.depth).split('.')[1].length <= 0){
                 params.workImage.depth = String(params.workImage.depth).split('.')[0];
-            }
-        }
+            };
+        };
         
         blockUI.start();
         var apiPath = restApiSvc.apiPath.uploadImage;
@@ -345,21 +345,20 @@
             params = params.workImage;
             if(params.year == $scope.years[0]) params.year = '';
             apiPath = restApiSvc.apiPath.editImage($scope.editInfo.id);
-        }
+        };
         
         restApiSvc.post(apiPath, params, contentType).then(
             function(res){
                 blockUI.stop();
                 if(!$scope.isEditUpload){
-//                    $state.go('detail', {artworkType:res.data.data.type, id:res.data.data.id}, {reload: true});
                     $state.go('my-feeds', {}, {reload: true});
                 }else{
                     location.reload();
                 }
-            },function(res, status){
+            },function(err){
                 blockUI.stop();
             }
         );
-    }
+    };
 
 })(angular);

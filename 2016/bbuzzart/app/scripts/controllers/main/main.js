@@ -25,7 +25,7 @@
                     $scope.onScroll(this.mcs.top, this.mcs.topPct);
                 }
             }
-        }
+        };
         $scope.mainMenu = [
             {class:'on', name:'keyword'},
             {class:'', name:'discover'},
@@ -52,17 +52,17 @@
                 $scope.isFixedMenu = false;
                 if($scope.listInterval == undefined){
                     $scope.rollingStart();
-                }
+                };
                 if($('.md-dialog-container').length <= 0){
                     $('.nav-main').removeClass('fixed');
-                }
+                };
             };
             
             /** list load   */
             if(scrollPct != undefined && scrollPct >= 95){
                 $scope.$broadcast('mainListLoad');
-            }
-        }
+            };
+        };
         
         $scope.curationImgLoadComplete = function(){
             $scope.imgLoadedCnt++;
@@ -74,7 +74,7 @@
                         '-webkit-transition-delay': (idx*0.065) + 's',
                         'transition-delay': (idx*0.065) + 's'
                     });
-                })
+                });
                 $('.main-wrap .curation-wrap').addClass('loaded');
             }, 150);
             $timeout(function(){
@@ -83,7 +83,7 @@
                 $scope.curationIdx = 0;
                 $scope.rollingStart();
             }, 500);
-        }
+        };
         
         $scope.rollingStart = function(){
             if($scope.isOpenDialog || $scope.isFixedMenu) return;
@@ -94,16 +94,16 @@
                     $scope.curationIdx = 0;
                 }
             }, 6000);
-        }
+        };
         $scope.rollingStop = function(){
             $interval.cancel($scope.listInterval);
             $scope.listInterval = undefined;
-        }
+        };
         $scope.curationListChange = function(idx){
             $scope.curationIdx = idx;
             $scope.rollingStop();
             $scope.rollingStart();
-        }
+        };
         
         $scope.goDetail = function(){
             trackerSvc.eventTrack('WORK DETAIL', {category:"Curator's PICK"});
@@ -126,8 +126,8 @@
                 case 'show' :
                     trackerSvc.eventTrack('SHOW', {category:'SHOW'});
                     break;
-            }
-        }
+            };
+        };
         
         $scope.mainResize = function(){
             if($scope.isMobile){
@@ -139,17 +139,11 @@
                     });
                 }else{
                     var wScrollTop = angular.element($window).scrollTop();
-                }
+                };
             }else{
                 var wScrollTop = angular.element($window).scrollTop();
-//                $scope.onScroll(wScrollTop, undefined);
-            }
+            };
         };
-        
-        $scope.putCache = function(){
-//            cacheSvc.remove('mainCurationLists');
-//            cacheSvc.put('mainCurationLists', initData.mainCurationLists);
-        }
         
         $scope.$watch(function(){
             return $('.md-dialog-container').length;
@@ -162,16 +156,16 @@
                 if($scope.listInterval == undefined){
                     if($scope.imgLoadedCnt >= $scope.curationListLength){
                         $scope.rollingStart();
-                    }
-                }
-            }
+                    };
+                };
+            };
         });
         
         $scope.$on('$stateChangeStart', function(e, toState){
             var stateName = toState.name;
             if(stateName.indexOf('main.') < 0){
                 $scope.rollingStop();
-            }
+            };
         });
         $scope.$on('$stateChangeSuccess', function(e, toState){
             var stateName = toState.name;
@@ -191,9 +185,9 @@
                         $('body')[0].scrollTop = setMenuFixedY;
                     }else{
                         $('.main-wrap').mCustomScrollbar("scrollTo", setMenuFixedY, {scrollInertia:0});
-                    }
-                }
-            }
+                    };
+                };
+            };
         });
         
         angular.element($window).bind('resize', function(){
@@ -217,7 +211,7 @@
                 $('.main-wrap').mCustomScrollbar("destroy");
             });
             $scope.mainResize();
-        }
+        };
         
         /** main banner open    */
         if($rootScope.initSite){
@@ -235,14 +229,14 @@
                             $timeout(function(){
                                 dialogSvc.openBanner({bannersData:res.data.data});
                             });
-                        }
-                    },function(res, status){
+                        };
+                    },function(err){
 
                     }
                 );
-            }
-        }
-//        $scope.putCache();
+            };
+        };
+        
     }]);
     
 })(angular);

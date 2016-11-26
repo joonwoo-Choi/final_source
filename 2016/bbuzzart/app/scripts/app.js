@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
     
-    angular.module('BBuzzArtApp', ['ngAnimate', 'ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngTouch', 'ngMaterial', 'facebook', 'angulartics', 'angulartics.google.analytics', 'ngDialog', 'blockUI', 'wu.masonry', 'ngScrollbars', 'ngFileUpload', 'ngCropper', 'uiGmapgoogle-maps', 'mentio']);
+    angular.module('BBuzzArtApp', ['ngAnimate', 'ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngTouch', 'ngMaterial', 'facebook', 'angulartics', 'angulartics.google.analytics', 'ngDialog', 'blockUI', 'ngScrollbars', 'ngFileUpload', 'ngCropper', 'uiGmapgoogle-maps', 'mentio']);
     
     var BBuzzArtApp = angular.module('BBuzzArtApp');
     
@@ -10,21 +10,11 @@
         var loc = location.href.toLowerCase();
         if(loc.indexOf('localhost') < 0){
             $locationProvider.html5Mode(true);
-//            $locationProvider.hashPrefix('!');
         }
         FacebookProvider.init('837272499631458');
         
         /** set angulartics */
-//        $analyticsProvider.developerMode(true);
 		$analyticsProvider.firstPageview(true);
-//	    $analyticsProvider.virtualPageviews(true);
-	    //for debug code
-//	    $analyticsProvider.registerPageTrack(function (path) {
-//		    console.log('Page tracking: ', path);
-//		});
-//		$analyticsProvider.registerEventTrack(function (action, properties) {
-//		    console.log("Event tracking: ", action, ' / ', properties);
-//		});
         
         /** set ngDialog    */
         ngDialogProvider.setForceBodyReload(true);
@@ -61,7 +51,6 @@
     });
     
     /** set router  */
-    var isBack = false;
     BBuzzArtApp.config(function ($stateProvider, $urlRouterProvider) {
         
         $stateProvider
@@ -73,29 +62,16 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, setMetatagSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, setMetatagSvc, restApiSvc){
                         var defer = $q.defer();
                         
-//                        if(isBack){
-//                            var mainCurationLists = cacheSvc.get('mainCurationLists');
-//                            if(mainCurationLists == undefined){
-//                                loadInitData();
-//                            }else{
-//                                defer.resolve({
-//                                    mainCurationLists: mainCurationLists,
-//                                    isBack: isBack
-//                                });
-//                            }
-//                        }else{
-                            loadInitData();
-//                        }
+                        loadInitData();
                         
                         function loadInitData(){
                             restApiSvc.get(restApiSvc.apiPath.curationLists, {page:1,size:5}).then(
                                 function(res){
                                     defer.resolve({
-                                        mainCurationLists: res.data.data,
-                                        isBack: isBack
+                                        mainCurationLists: res.data.data
                                     });
                                     
                                     setMetatagSvc.setMetatag({});
@@ -103,7 +79,7 @@
                                     defer.resolve(null);
                                 }
                             );
-                        }
+                        };
                         
                         return defer.promise;
                     }
@@ -119,23 +95,12 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, trackerSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, trackerSvc, restApiSvc){
                         trackerSvc.pageTrack('HOME_KEYWORD');
                         
                         var defer = $q.defer();
                         
-//                        if(isBack){
-//                            var mainKeywordLists = cacheSvc.get('mainKeywordLists');
-//                            if(mainKeywordLists == undefined){
-//                                loadInitData();
-//                            }else{
-//                                defer.resolve({
-//                                    mainKeywordLists: mainKeywordLists
-//                                });
-//                            }
-//                        }else{
-                            loadInitData();
-//                        }
+                        loadInitData();
                         
                         function loadInitData(){
                             restApiSvc.get(restApiSvc.apiPath.keywordLists, {page:1,size:20}).then(
@@ -147,7 +112,7 @@
                                     defer.resolve(null);
                                 }
                             );
-                        }
+                        };
                         
                         return defer.promise;
                     }
@@ -162,7 +127,7 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, $stateParams, trackerSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, $stateParams, trackerSvc, restApiSvc){
                         trackerSvc.pageTrack('HOME_DISCOVER');
                         
                         if($stateParams.listType.length <= 0) $stateParams.listType = 'trending';
@@ -170,18 +135,7 @@
                         var defer = $q.defer();
                         var isRecent = true;
                         
-//                        if(isBack){
-//                            var mainDiscoverLists = cacheSvc.get('mainDiscoverLists');
-//                            if(mainDiscoverLists == undefined){
-//                                loadInitData();
-//                            }else{
-//                                defer.resolve({
-//                                    mainDiscoverLists: mainDiscoverLists
-//                                });
-//                            }
-//                        }else{
-                            loadInitData()
-//                        }
+                        loadInitData()
                         
                         function loadInitData(){
                             var params = {
@@ -203,7 +157,7 @@
                                     defer.resolve(null);
                                 }
                             );
-                        }
+                        };
                         
                         return defer.promise;
                     }
@@ -218,35 +172,139 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, trackerSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, trackerSvc, restApiSvc){
                         trackerSvc.pageTrack('HOME_SHOW');
-                        
                         var defer = $q.defer();
                         
-//                        if(isBack){
-//                            var mainShowLists = cacheSvc.get('mainShowLists');
-//                            if(mainShowLists == undefined){
-//                                loadInitData();
-//                            }else{
-//                                defer.resolve({
-//                                    mainShowLists: mainShowLists
-//                                });
-//                            }
-//                        }else{
-                            loadInitData();
-//                        }
+                        loadInitData();
                         
                         function loadInitData(){
-                            restApiSvc.get(restApiSvc.apiPath.showLists, {page:1,size:20}).then(
+                            restApiSvc.get(restApiSvc.apiPath.showLists, {page:1,size:19}).then(
                                 function(res){
+                                    var showList = res.data.data.content;
+                                    var bbuzzshowBanner = {
+                                        title: 'BBuzzShow',
+                                        url: '/bbuzzshow/gangnam/',
+                                        type: 'BBUZZ_SHOW',
+                                        attachments: [
+                                            {
+                                                thumbnail: {
+                                                    small: '/images/img-bbuzzshow-banner.png'
+                                                }
+                                            }
+                                        ]
+                                    };
+                                    showList.unshift(bbuzzshowBanner);
                                     defer.resolve({
-                                        mainShowLists: res.data.data.content
+                                        mainShowLists: showList
                                     });
                                 },function(res, status){
                                     defer.resolve(null);
                                 }
                             );
-                        }
+                        };
+                        
+                        return defer.promise;
+                    }
+                }
+            })
+            .state('search', {
+                url: '/search',
+                params: {
+                    word: ''
+                },
+                views: {
+                    pageView: {
+                        templateUrl: '/views/search/search.html',
+                        controller: 'searchCtrl'
+                    }
+                },
+                resolve:{
+                    initData : function ($q, $stateParams, restApiSvc){
+                        var defer = $q.defer(),
+                            params = {
+                                word: $stateParams.word,
+                                tagSize: 1,
+                                personSize: 1,
+                                titleSize: 1
+                            };
+                        
+                        if($stateParams.word == ''){
+                            defer.resolve({
+                                    word: '',
+                                    isPerson: false,
+                                    isTag: false,
+                                    isTitle: false
+                                });
+                        }else{
+                            restApiSvc.get(restApiSvc.apiPath.search, params).then(
+                                function(res){
+                                    defer.resolve({
+                                        word: $stateParams.word,
+                                        isPerson: Boolean(res.data.data.users.length),
+                                        isTag: Boolean(res.data.data.tags.length),
+                                        isTitle: Boolean(res.data.data.works.length)
+                                    });
+                                },function(err){
+                                    defer.resolve(null);
+                                }
+                            );
+                        };
+                        
+                        return defer.promise;
+                    }
+                }
+            })
+            .state('search.searched', {
+                url: '/:tab/:word',
+                views: {
+                    searchView: {
+                        templateUrl: '/views/search/searchedList.html',
+                        controller: 'searchedResultList'
+                    }
+                },
+                resolve:{
+                    initData : function ($q, $stateParams, restApiSvc){
+                        
+                        var defer = $q.defer(),
+                            params = {
+                                word: $stateParams.word, 
+                                page: 1, 
+                                size: 20
+                            },
+                            apiPath = '';
+                        
+                        if($stateParams.tab == 'no-result'){
+                            defer.resolve({
+                                tab: $stateParams.tab,
+                                keyword: $stateParams.word,
+                                lastPage: true,
+                                searchedLength: 0,
+                                searchLists: []
+                            });
+                        }else{
+                            if($stateParams.tab == 'person'){
+                                apiPath = restApiSvc.apiPath.searchPerson;
+                            }else if($stateParams.tab == 'tag'){
+                                apiPath = restApiSvc.apiPath.searchTag;
+                            }else if($stateParams.tab == 'title'){
+                                apiPath = restApiSvc.apiPath.searchTitle;
+                            };
+                            
+                            restApiSvc.get(apiPath, params).then(
+                                function(res){
+                                    defer.resolve({
+                                        tab: $stateParams.tab,
+                                        keyword: $stateParams.word,
+                                        lastPage: res.data.data.last,
+                                        searchedLength: res.data.data.totalElements,
+                                        searchLists: res.data.data.content
+                                    });
+                                },function(res, status){
+                                    defer.resolve(null);
+                                }
+                            );
+                        };
                         
                         return defer.promise;
                     }
@@ -263,22 +321,11 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, $stateParams, setMetatagSvc, restApiSvc, cacheSvc, blockUI, dialogSvc){
+                    initData : function ($q, $stateParams, setMetatagSvc, restApiSvc, blockUI, dialogSvc){
                         var defer = $q.defer(),
                             userId = parseInt($stateParams.userId);
                         
-//                        if(isBack){
-//                            var profile = cacheSvc.get('profile');
-//                            if(profile == undefined){
-//                                loadInitData();
-//                            }else{
-//                                defer.resolve({
-//                                    profile: profile
-//                                });
-//                            }
-//                        }else{
-                            loadInitData();
-//                        }
+                        loadInitData();
                         
                         function loadInitData(){
                             restApiSvc.get(restApiSvc.apiPath.getProfile(userId)).then(
@@ -286,8 +333,7 @@
                                     if(res.data.success){
                                         var profile = res.data.data
                                         defer.resolve({
-                                            profile: profile,
-                                            isBack: isBack
+                                            profile: profile
                                         });
                                         
                                         var params = {
@@ -307,7 +353,7 @@
                                     });
                                 }
                             );
-                        }
+                        };
                         
                         return defer.promise;
                     }
@@ -323,7 +369,7 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, $stateParams, trackerSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, $stateParams, trackerSvc, restApiSvc){
                         trackerSvc.pageTrack('PROFILE_WORK');
                         
                         var defer = $q.defer(),
@@ -337,8 +383,7 @@
                             function(res){
                                 var contents = res.data.data? res.data.data.content : null;
                                 defer.resolve({
-                                    works: contents,
-                                    isBack: isBack
+                                    works: contents
                                 });
                             },function(res, status){
                                 defer.resolve(null);
@@ -358,7 +403,7 @@
                     }
                 },
                 resolve:{
-                    initData : function ($q, $stateParams, trackerSvc, restApiSvc, cacheSvc){
+                    initData : function ($q, $stateParams, trackerSvc, restApiSvc){
                         trackerSvc.pageTrack('PROFILE_BOOKMARK');
                         
                         var defer = $q.defer(),
@@ -372,8 +417,7 @@
                             function(res){
                                 var contents = res.data.data? res.data.data.content : null;
                                 defer.resolve({
-                                    bookmarks: contents,
-                                    isBack: isBack
+                                    bookmarks: contents
                                 });
                             },function(res, status){
                                 defer.resolve(null);
@@ -474,7 +518,7 @@
                             trackerSvc.pageTrack('SHOW DETAIL');
                             detailApiPath = restApiSvc.apiPath.getDetailShow(id);
                             loadInitData();
-                        }
+                        };
                         
                         function loadInitData(){
                             $q.all([
@@ -508,7 +552,8 @@
                                     });
                                 }
                             );
-                        }
+                        };
+                        
                         return defer.promise;
                     }
                 }
@@ -625,7 +670,7 @@
                             }else{
                                 alert(res.data.message);
                                 $state.go('main', {}, {reload: true});
-                            }
+                            };
                         }
                     );
                 }
@@ -667,9 +712,8 @@
            loc.indexOf('https://pp3.bbuzzart.com') > -1){
             restApiSvc.setBaseUrl('http://api3.bbuzzart.com');
         }else{
-//            restApiSvc.setBaseUrl('http://alpha3.bbuzzart.com');
             restApiSvc.setBaseUrl('http://alpha4.api.bbuzzart.com');
-        }
+        };
         
         /** context menu    */
         if(loc.indexOf('http://bbuzzart.com') > -1 ||
@@ -679,7 +723,7 @@
             angular.element('body').attr({'oncontextmenu': 'return false'});
         }else{
             angular.element('body').attr({'oncontextmenu': 'return true'});
-        }
+        };
         
         /** mobile check    */
         var ua = window.navigator.userAgent.toLowerCase();
@@ -688,65 +732,27 @@
             $('body, .wrap').css({'height': 'auto'});
         }else{
             $rootScope.isMobile = false;
-        }
+        };
         
         /** cell phone check    */
         if( /android|iphone|ipod/.test(ua) && ua.indexOf('mobile') > -1 ){
             $rootScope.isCellPhone = true;
         }else{
             $rootScope.isCellPhone = false;
-        }
+        };
         
         /** ie check    */
         if(ua.indexOf('trident') > -1){
             $rootScope.isIE = true;
         }else{
             $rootScope.isIE = false;
-        }
-        
+        };
         $rootScope.initSite = true;
-//        /** main banner */
-//        var tempLoc = loc.replace(/#\//g, '');
-//        var originLoc = location.origin + '/';
-//        if(tempLoc == originLoc){
-//            restApiSvc.get(restApiSvc.apiPath.getBanners).then(
-//                function(res){
-//                    var getCookie = $cookies.get(loc + 'hideBanner'+res.data.data[0].id);
-//                    if(getCookie == undefined){
-//                        $timeout(function(){
-//                            dialogSvc.openBanner({bannersData:res.data.data});
-//                        }, 1000);
-//                    }
-//                },function(res, status){
-//
-//                }
-//            );
-//        }
         
-        setCommonEvent($rootScope, $window, $location, $mdMenu, $state, restApiSvc, dialogSvc, blockUI);
-    });
-    
-    function setCommonEvent($rootScope, $window, $location, $mdMenu, $state, restApiSvc, dialogSvc, blockUI){
-        
-		$rootScope.$on('$routeChangeStart', function() {
-            
-		});
-
-		$rootScope.$on('$routeChangeSuccess', function() {
-            
-		});
-        
-		$rootScope.$on('$locationChangeStart', function() {
-            
-		});
-
-		$rootScope.$on('$locationChangeSuccess', function() {
+        /** state event */
+        $rootScope.$on('$locationChangeSuccess', function() {
             $rootScope.actualLocation = $location.path();
 	    });
-        
-        $rootScope.$on("$stateChangeError", function(e, toState, toParams, fromState, fromParams, error) {
-            
-        });
 
         $rootScope.$on('$stateChangeStart', function(e, to, params){
             $mdMenu.hide();
@@ -759,27 +765,17 @@
             }else{
                 blockUI.stop();
                 blockUI.start();
-            }
+            };
         });
+        
         $rootScope.$on('$stateChangeSuccess', function(){
-//            console.log('state_> ', $state.current.name);
             if($rootScope.actualState != undefined && $rootScope.actualState != $state.current.name){
                 $rootScope.initSite = false;
-            }
+            };
             
             blockUI.stop();
             $rootScope.actualState = $state.current.name;
         });
-
-	    $rootScope.$watch(function () {
-            return $location.path();
-        }, function (newLocation) {
-	        if($rootScope.actualLocation === newLocation) {
-                isBack = true;
-	        } else {
-                isBack = false;
-	        }
-	    });
-    }
+    });
     
 })(angular);

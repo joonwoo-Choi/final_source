@@ -33,7 +33,7 @@
                 restApiSvc.get(restApiSvc.apiPath.searchTagWorks, params).then(
                     function(res){
                         $scope.addLists(res);
-                    },function(res, status){
+                    },function(err){
                         
                     }
                 );
@@ -42,7 +42,7 @@
                 restApiSvc.get(restApiSvc.apiPath.searchKeywordWorks, params).then(
                     function(res){
                         $scope.addLists(res);
-                    },function(res, status){
+                    },function(err){
                         
                     }
                 );
@@ -51,12 +51,12 @@
                 restApiSvc.get(restApiSvc.apiPath.searchTitle, params).then(
                     function(res){
                         $scope.addLists(res);
-                    },function(res, status){
+                    },function(err){
                         
                     }
                 );
-            }
-        }
+            };
+        };
         $scope.addLists = function(loadedLists){
             $scope.searchedLists = $scope.searchedLists.concat(loadedLists.data.data.content);
             $scope.totalPages = loadedLists.data.data.totalPages;
@@ -66,11 +66,9 @@
             }, $scope.loadDelay);
             
             if(!$scope.isFirstSearched) $scope.isFirstSearched = true;
-        }
+        };
         
         $scope.scrollHandler = function(e){
-//            if(!$scope.isMobile) return;
-
             var scrollTop = e.target.scrollTop;
             var maxScrollTop = e.target.scrollHeight - e.target.clientHeight;
             var scrollPct = (scrollTop/maxScrollTop)*100;
@@ -82,13 +80,13 @@
             /** list load   */
             if(scrollPct != undefined && scrollPct >= 95){
                 $scope.getSearchList();
-            }
-        }
+            };
+        };
         
         $scope.popupClose = function(){
             dialogSvc.close();
             $rootScope.$broadcast('reloadProfile');
-        }
+        };
         
         $scope.$watch(function(){
             return angular.element($window).width();
@@ -99,7 +97,7 @@
                 $scope.listColumnLength = 3;
             }else{
                 $scope.listColumnLength = 2;
-            }
+            };
         });
         
         $scope.$watch('searchedLists', function(newVal, oldVal){
@@ -107,7 +105,7 @@
                 $timeout(function(){
                     $('.searched-lists-container').bind('scroll', $scope.scrollHandler);
                 });
-            }
+            };
         });
         
         /** initialize  */

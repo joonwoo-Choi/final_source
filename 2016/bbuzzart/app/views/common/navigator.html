@@ -7,12 +7,10 @@
             </a>
         </h1>
         <ul class="nav-navbar">
-            <li class="search-wrap" ng-class="{on: searchOn}">
-<!--                <div class="search-dimmed" ng-if="searchOn" ng-click="searchOff()"></div>-->
+            <li class="search-wrap" ng-class="{on: searchOn, hide: isSearchHide}">
                 <div class="input-search-wrap">
                     <input class="search" type="text" placeholder="Users, Tags and Works" ng-model="keyword" ng-keydown="searchKeydown($event, keyword)" ng-focus="searchOn=true;" />
                 </div>
-<!--                <div class="search-contents-wrap" ng-show="searchOn && searchHistories.length>0" ng-scrollbars>-->
                 <div class="search-contents-wrap" ng-show="searchOn && (searchHistories.length>0 || searched)">
                     <div class="serch-scroll-wrap">
                         <div class="serch-scroll-contents">
@@ -26,60 +24,16 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="search-result" ng-show="searched">
-                                <div class="search-person" ng-if="searchedLists.users.length>0">
-                                    <div class="title">
-                                        <p>Person</p>
-                                        <a title="More" ng-click="btnMoreHandler('person')">More</a>
-                                    </div>
-                                    <ul class="searched-list">
-                                        <li ng-repeat="listItem in searchedLists.users">
-                                            <div people-list></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="search-tag" ng-if="searchedLists.tags.length>0">
-                                    <div class="title">
-                                        <p>Tag</p>
-                                        <a title="More" ng-if="searchedLists.tags.length>3" ng-click="btnMoreHandler('tag')">More</a>
-                                    </div>
-                                    <ul class="searched-list">
-                                        <li ng-repeat="listItem in showTags track by $index">
-                                            <a title="{{listItem}}" ng-click="searchTag(listItem)">
-                                                {{listItem}}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="search-title" ng-if="searchedLists.works.length>0">
-                                    <div class="title">
-                                        <p>Title</p>
-                                        <a title="More" ng-click="btnMoreHandler('title')">More</a>
-                                    </div>
-                                    <div class="title-list-wrap">
-                                        <div class="column-list-wrap" ng-if="searchedLists.works.length > 0">
-                                            <ul>
-                                                <li class="title-list" ng-if="$index%2 == 0" ng-repeat="listItem in searchedLists.works">
-                                                    <div artwork-list></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="column-list-wrap" ng-if="searchedLists.works.length > 0">
-                                            <ul>
-                                                <li class="title-list" ng-if="$index%2 == 1" ng-repeat="listItem in searchedLists.works">
-                                                    <div artwork-list></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="search-no-result" ng-if="searchedLists.tags.length==0 && searchedLists.users.length==0 && searchedLists.works.length==0">
-                                    <p>No results found</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
+            </li>
+            <li class="btn-mobile-search" ng-class="{hide: isSearchHide}">
+                <md-button aria-label="Search" title="Search" class="md-icon-button" ui-sref="search">
+                    <span>
+                        <img src="/images/img_people_dialog_search.png" alt="Search" />
+                    </span>
+                </md-button>
             </li>
             <li class="btn-login" ng-show="!isLogin && !mobileView">
                 <md-button aria-label="LOGIN/SIGNUP" title="LOGIN/SIGNUP" class="login md-raised" ng-click="popupLogin()">
@@ -107,7 +61,6 @@
                     <md-menu-content class="noti-list">
                         <img class="balloon-tail" ng-if="!mobileView" ng-src="/images/img_balloon_tail.png" alt="decoration" />
                         <div class="noti-scroll-wrap">
-<!--                            <div class="noti-scroll-contents" ng-scrollbars>-->
                             <div class="noti-scroll-contents">
                                 <ul ng-if="notiLists.length>0">
                                     <li ng-repeat="noti in notiLists track by $index">

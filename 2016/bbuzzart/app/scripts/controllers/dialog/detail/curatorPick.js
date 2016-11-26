@@ -41,10 +41,10 @@
                         
                         if(cavasWidth > data.width){
                             x = (data.width - cavasWidth)/2;
-                        }
+                        };
                         if(cavasHeight > data.height){
                             x = (data.height - cavasHeight)/2;
-                        }
+                        };
                         
                         $scope.cropper.pick('move', x, y);
                         $('.popup-curator-pick .img-crop-wrap .img-container').addClass('loaded');
@@ -77,16 +77,15 @@
                         dialogSvc.close();
                         dialogSvc.closeConfirm();
                         location.reload();
-//                        $state.go('profile.works', {userId: authSvc.getUserInfo().id}, {reload: true});
-                    },function(res, status){
+                    },function(err){
                         dialogSvc.confirmDialog(dialogSvc.confirmDialogType.curatorPicked, function(answer){
                             dialogSvc.closeConfirm();
                         });
                         blockUI.stop();
                     }
                 );
-            })
-        }
+            });
+        };
         
         $scope.popupClose = function(){
             dialogSvc.confirmDialog(dialogSvc.confirmDialogType.curatorPickCancel, function(answer){
@@ -95,9 +94,9 @@
                     dialogSvc.closeConfirm();
                 }else{
                     dialogSvc.closeConfirm();
-                }
+                };
             });
-        }
+        };
         
         $scope.$watch('picksFeedback', function(newVal, oldVal){
             if(newVal.length > 0){
@@ -126,7 +125,7 @@
             $scope.cropperOptions.minCanvasWidth = 360;
             $scope.cropperOptions.minCropBoxHeight = 450;
             $scope.cropperOptions.minCropBoxWidth = 360;
-        }
+        };
         convertFileSvc.getImgDataUrl($scope.imgUrl, function(dataUrl){
 			$scope.originFile = Cropper.decode(dataUrl);
             $scope.initCropper($scope.originFile);

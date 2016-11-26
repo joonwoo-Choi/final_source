@@ -26,8 +26,8 @@
 			                key = $window.localStorage.key(i);
 			                if ( key.substr(0, prefix_.length) === prefix_ ) {
 			                    $window.localStorage.removeItem(key);
-			                }
-			            }
+			                };
+			            };
 					}
 				};
 			},
@@ -52,8 +52,8 @@
 			                key = $window.sessionStorage.key(i);
 			                if ( key.substr(0, prefix_.length) === prefix_ ) {
 			                    $window.sessionStorage.removeItem(key);
-			                }
-			            }
+			                };
+			            };
 					}
 				};
 			}

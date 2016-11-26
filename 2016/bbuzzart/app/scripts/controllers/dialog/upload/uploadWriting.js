@@ -41,13 +41,13 @@
                    
                 e.preventDefault();
                 return;
-            }
+            };
             
             if(keyCode == 13 || keyCode== 32 || keyCode== 44){
                 e.preventDefault();
                 $scope.tagListCheck();
-            }
-        }
+            };
+        };
         
         $scope.tagListCheck = function(){
             $timeout(function(){
@@ -59,14 +59,14 @@
                 tagText = tagText.replace(/%20/g, ' ');
                 if(tagText.charAt(tagText.length-1) == ' '){
                     tagText = tagText.slice(0, tagText.length-1);
-                }
+                };
                 if(tagText.charAt(0) == ' '){
                     tagText = tagText.slice(1);
-                }
+                };
                 var tagsArr = tagText.split(' ');
                 $scope.tagListUpdate(tagsArr);
             });
-        }
+        };
         
         $scope.tagListUpdate = function(tagsArr){
             var tempArr = [];
@@ -80,12 +80,12 @@
                     }
                     while (cnt < tempArr.length);
                     if(bool) tempArr.push(val);
-                }
+                };
             });
             tagsArr = tempArr;
             if(tagsArr.length > $scope.tagsMaxLength) {
                 tagsArr = $scope.uploadInfo.tags;
-            }
+            };
             if(tagsArr[0] == '') tagsArr.length = 0;
             $scope.uploadInfo.workWriting.tags = tagsArr;
             var tagTxt = '';
@@ -96,30 +96,30 @@
             });
             if ($(".popup-upload-writing .input-tag .input").is(":focus")) {
                 tagTxt = tagTxt + '#';
-            }
+            };
             $('.popup-upload-writing .input-tag .input').val(tagTxt);
-        }
+        };
         
         $scope.openDefaultImageLists = function($mdOpenMenu, e){
             $mdOpenMenu(e);
-        }
+        };
         $scope.defaultBackgroundImageSelect = function(image){
             $scope.uploadInfo.workWriting.backgroundImage = image;
             $scope.removeFile();
-        }
+        };
         
         $scope.uploadWriting = function(){
             if(validateData($scope, true)){
                 uploadArtwork($scope, $state, authSvc, restApiSvc, blockUI, $scope.uploadInfo);
             }else{
                 console.log('validate-error');
-            }
-        }
+            };
+        };
         
         $scope.removeFile = function(){
             $scope.uploadInfo.file = null;
             $scope.uploadInfo.convertedFile = null;
-        }
+        };
         
         $scope.popupClose = function(){
             dialogSvc.confirmDialog(dialogSvc.confirmDialogType.uploadCancel, function(answer){
@@ -128,9 +128,9 @@
                     dialogSvc.closeConfirm();
                 }else{
                     dialogSvc.closeConfirm();
-                }
+                };
             });
-        }
+        };
         
         $scope.convertFile = function(file){
             convertFileSvc.convertFile(file, function(convertedFile, dataUrl){
@@ -154,7 +154,7 @@
                             cropData.width = originW;
                             cropData.height = originW*1.25;
                             cropData.y = (originH - cropData.height)/2
-                        }
+                        };
                         
                         Cropper.crop(convertedFile, cropData).then(function(cropedFile){
                             $scope.uploadInfo.convertedFile = cropedFile;
@@ -164,10 +164,9 @@
                             });
                         });
                     });
-                }
-                
+                };
             });
-        }
+        };
         
         /** input tag focus check   */
         $scope.$watch(function(){
@@ -176,7 +175,7 @@
             if(newVal){
                 var tagTxt = $('.popup-upload-writing .input-tag .input').val();
                 $('.popup-upload-writing .input-tag .input').val(tagTxt + ' #');
-            }
+            };
         });
         
         /** upload possible check   */
@@ -197,7 +196,7 @@
             if(newVal.length > 0){
                 $scope.convertedFileThumbnailDataurl = '';
                 $scope.writingThumbnailUrl = newVal;
-            }
+            };
         });
         $scope.$watch(function(){
             return $scope.convertedFileThumbnailDataurl;
@@ -207,7 +206,7 @@
             if(newVal.length > 0){
                 $scope.uploadInfo.workWriting.backgroundImage = '';
                 $scope.writingThumbnailUrl = newVal;
-            }
+            };
         });
         
         $timeout(function(){
@@ -216,7 +215,7 @@
                     function(res){
                         $scope.defaultBackgroundImageLists = res.data.data;
                         $scope.defaultBackgroundImageSelect($scope.defaultBackgroundImageLists[0].image);
-                    },function(res, status){
+                    },function(err){
                         
                     }
                 );
@@ -235,7 +234,7 @@
                 };
                 $scope.writingThumbnailUrl = $scope.editInfo.attachments[0].thumbnail.small;
                 $scope.tagListUpdate($scope.uploadInfo.workWriting.tags);
-            }
+            };
         }, 10);
         
     }]);
@@ -246,16 +245,16 @@
             if(!$scope.uploadInfo.convertedFile && $scope.uploadInfo.workWriting.backgroundImage.length <= 0){
                 validate = false;
                 if(isErrorCheck) $scope.error.image = 'error';
-            }
-        }
+            };
+        };
         if (!$scope.uploadInfo.workWriting.title) {
             validate = false;
             if(isErrorCheck) $scope.error.title = 'error';
-        }
+        };
         if (!$scope.uploadInfo.workWriting.abstractText) {
             validate = false;
             if(isErrorCheck) $scope.error.abstractText = 'error';
-        }
+        };
         
         return validate;
     };
@@ -265,10 +264,10 @@
         var currentYear = new Date().getFullYear();
         for(var i = currentYear; i >= 1900; i--){
             years.push(i);
-        }
+        };
         years.unshift('Year');
         return years;
-    }
+    };
     
     function uploadArtwork($scope, $state, authSvc, restApiSvc, blockUI, uploadInfo){
         var params = {
@@ -300,12 +299,11 @@
             function(res){
                 blockUI.stop();
                 if(!$scope.isEditUpload){
-//                    $state.go('detail', {artworkType:res.data.data.type, id:res.data.data.id}, {reload: true});
                     $state.go('my-feeds', {}, {reload: true});
                 }else{
                     location.reload();
                 }
-            },function(res, status){
+            },function(err){
                 blockUI.stop();
             }
         );

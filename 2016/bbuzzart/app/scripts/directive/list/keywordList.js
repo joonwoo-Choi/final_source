@@ -15,11 +15,10 @@
                 
                 $scope.openSearchKeywordDialog = function(keyword){
                     trackerSvc.eventTrack('KEYWORD LIST', {category:'KEYWORD'});
-//                    var title = 'Search > Keyword ' + '"' + keyword + '"';
                     var title = keyword;
                     var getType = 'keyword';
                     dialogSvc.openSearchedList({title: title, type: getType, searchData: keyword});
-                }
+                };
                 
                 $scope.loadTimeout = $timeout(function(){
                     $scope.thumbnailUrl = $scope.listItem.work.attachments[0].thumbnail.small;

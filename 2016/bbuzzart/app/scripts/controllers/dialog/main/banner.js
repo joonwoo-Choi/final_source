@@ -12,15 +12,15 @@
         
         $scope.goDetail = function(){
             location.href = $scope.bannersData[0].detail;
-        }
+        };
         
         $scope.closeBanner = function(){
             if($scope.isDontShow){
                 var loc = location.href.toLowerCase();
                 $cookies.put(loc + 'hideBanner' + $scope.bannersData[0].id, 'hide');
-            }
+            };
             dialogSvc.close();
-        }
+        };
         
         /** initialize  */
         imgLoadSvc.load($scope.bannersData[0].image, function(src){

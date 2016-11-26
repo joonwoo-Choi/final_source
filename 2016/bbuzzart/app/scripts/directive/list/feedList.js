@@ -15,7 +15,7 @@
                 
                 if($scope.listItem.work == null || $scope.listItem.work == undefined){
                     $scope.listItem.work = $scope.listItem;
-                }
+                };
                 
                 $scope.likeThis = function(liked, workId){
                     if(authSvc.isLogin()){
@@ -42,16 +42,16 @@
                                         $scope.listItem.work.liked = !$scope.listItem.work.liked;
                                         $scope.listItem.work.likeCount++;
                                         $scope.setListItem();
-                                    }
+                                    };
                                 },function(res, status){
                                     blockUI.stop();
                                 }
                             );
-                        }
+                        };
                     }else{
                         dialogSvc.openAccount();
-                    }
-                }
+                    };
+                };
                 
                 $scope.openLikedPeopleLists = function(workId){
                     if($scope.listItem.work.likeCount <= 0) return;
@@ -59,12 +59,12 @@
                     var title = 'PEOPLE LIKE THIS',
                         getType = 'like';
                     dialogSvc.openPeopleLists({title: title, type: getType, searchData: workId});
-                }
+                };
                 
                 $scope.sendTrackFeedback = function(action){
                     var category = 'FEED_FEEDBACK';
                     trackerSvc.eventTrack(action, {category:category});
-                }
+                };
                 $scope.sendTrackWork = function(action){
                     var category = '';
                     switch($state.current.name){
@@ -74,9 +74,9 @@
                         case 'profile.works' :
                             category = 'WORK';
                             break;
-                    }
+                    };
                     trackerSvc.eventTrack(action, {category:category});
-                }
+                };
                 
                 $scope.setListItem = function(){
                     if($scope.listItem.type == 'FEEDBACK'){
@@ -92,21 +92,21 @@
                                 var name = '@' + mentionVal.replace(reg, '$2');
                                 $scope.listItem.feedback.convertedMessage = $scope.listItem.feedback.convertedMessage.replace(mentionVal, name);
                             });
-                        }
+                        };
                     }else{
                         $scope.listItem.createdBy = $scope.listItem.work.createdBy;
                         $scope.listItem.convertedDate = timeSvc.getDate($scope.listItem.work.createdDate);
-                    }
+                    };
                     /** work like & feed count setting  */
                     $scope.listItem.work.convertedLikeCount = parseInt($scope.listItem.work.likeCount);
                     $scope.listItem.work.convertedFeedbackCount = parseInt($scope.listItem.work.feedbackCount);
                     if($scope.listItem.work.convertedLikeCount > 999) {
                         $scope.listItem.work.convertedLikeCount = '999+';
-                    }
+                    };
                     if($scope.listItem.work.convertedFeedbackCount > 999) {
                         $scope.listItem.work.convertedFeedbackCount = '999+';
-                    }
-                }
+                    };
+                };
                 
                 $scope.loadTimeout = $timeout(function(){
                     $scope.thumbnailUrl = $scope.listItem.work.attachments[0].thumbnail.medium;
@@ -141,7 +141,7 @@
                             'max-height': maxHeight
                         });
                     });
-                }
+                };
                 $scope.setListItem();
                 
             }

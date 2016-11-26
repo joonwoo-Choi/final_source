@@ -23,7 +23,7 @@
             var params = {
                 page:$scope.page,
                 size:$scope.pageSize
-            }
+            };
             if(!$scope.isRecent) params.type = 'hot';
             restApiSvc.get(restApiSvc.apiPath.discoverLists, params).then(
                 function(res){
@@ -31,20 +31,19 @@
                     if(res.data.data.content.length > 0){
                         var tempList = $scope.convertList(res.data.data.content);
                         $scope.mainDiscoverLists = $scope.mainDiscoverLists.concat(tempList);
-//                        $scope.putCache();
-                    }
+                    };
                     
                     $timeout(function(){
                         if($scope.page == 1){
                             blockUI.stop();
-                        }
+                        };
                         $scope.isLoading = false;
                     }, $scope.loadDelay);
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.convertList = function(list){
             var tempList = [];
@@ -52,18 +51,11 @@
                 tempList.push(val.work);
             });
             return tempList;
-        }
+        };
         
         $scope.listFiltering = function(listType){
             $state.go('main.discover', {listType:listType});
-//            blockUI.start();
-//            $scope.isRecent = isRecent;
-//            $scope.page = 0;
-//            $scope.isLastPage = false;
-//            $scope.isLoading = false;
-//            $scope.mainDiscoverLists.length = 0;
-//            $scope.loadList();
-        }
+        };
         
         $scope.$watch(function(){
             return angular.element($window).width();
@@ -72,20 +64,13 @@
                 $scope.listColumnLength = 4;
             }else{
                 $scope.listColumnLength = 2;
-            }
+            };
         });
         
         $scope.$on('mainListLoad', function(){
             $scope.loadList();
         });
-
         
-//        $scope.putCache = function(){
-//            cacheSvc.remove('mainDiscoverLists');
-//            cacheSvc.put('mainDiscoverLists', $scope.mainDiscoverLists);
-//        }
-        
-//        $scope.putCache();
         
         /** initialize  */
         $scope.mainDiscoverLists = $scope.convertList($scope.mainDiscoverLists);

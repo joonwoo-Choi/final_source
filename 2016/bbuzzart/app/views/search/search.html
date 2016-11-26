@@ -1,0 +1,31 @@
+<div class="search-view-wrap" ng-class="{'mobile-search':isMobile}">
+    <div class="search-flex-view">
+        <div class="search-scroll-wrap" ng-class="{'mobile-view':isMobile}" ng-scrollbars ng-scrollbars-config="scrollbarsConfig">
+            <div class="search-keyword-wrap">
+                <div class="input-search-wrap">
+                    <input class="search" type="text" placeholder="Users, Tags and Works" ng-model="keyword" ng-keydown="searchKeydown($event, keyword)" ng-focus="searchOn=true;" />
+                </div>
+            </div>
+            <div class="search-tabs">
+                <div class="btn-tabs">
+                    <md-button aria-label="PERSON" title="PERSON" ng-class="{on:selectedTabIdx==0,disabled:!isPerson}" ui-sref="search.searched({tab:'person'})">
+                        <span>PERSON</span>
+                    </md-button>
+                    <md-button aria-label="TAG" title="TAG" ng-class="{on:selectedTabIdx==1,disabled:!isTag}" ui-sref="search.searched({tab:'tag'})">
+                        <span>TAG</span>
+                    </md-button>
+                    <md-button aria-label="TITLE" title="TITLE" ng-class="{on:selectedTabIdx==2,disabled:!isTitle}" ui-sref="search.searched({tab:'title'})">
+                        <span>TITLE</span>
+                    </md-button>
+                </div>
+                <p class="result-count">
+                    {{totalSearchedLength}} results found
+                </p>
+                <div class="tab-contents-wrap">
+                    <div ui-view="searchView" class="search-view"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

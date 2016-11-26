@@ -33,17 +33,16 @@
                                     blockUI.stop();
                                     if(res.data.success){
                                         $scope.listItem.liked = !$scope.listItem.liked;
-                                    }
+                                    };
                                 },function(res, status){
                                     blockUI.stop();
                                 }
                             );
-                        }
-//                        $scope.putCache();
+                        };
                     }else{
                         dialogSvc.openAccount();
-                    }
-                }
+                    };
+                };
                 
                 $scope.sendTrack = function(){
                     if($scope.dialogType != undefined){
@@ -57,7 +56,7 @@
                             case 'title' :
                                 trackerSvc.eventTrack('WORK DETAIL', {category:'TITLE (MORE)'});
                                 break;
-                        }
+                        };
                     }else if($scope.searchOn){
                         trackerSvc.eventTrack('WORK DETAIL', {category:'SEARCH RESULT'});
                     }else{
@@ -71,9 +70,9 @@
                             case 'profile.bookmarks' :
                                 trackerSvc.eventTrack('WORK DETAIL', {category:'BOOKMARK'});
                                 break;
-                        }
-                    }
-                }
+                        };
+                    };
+                };
                 
                 $scope.selectWork = function(listItem){
                     var tempList = {
@@ -93,7 +92,7 @@
                             };
                         });
                     };
-                }
+                };
                 
                 $scope.loadTimeout = $timeout(function(){
                     $scope.thumbnailUrl = $scope.listItem.attachments[0].thumbnail.small;
@@ -118,9 +117,9 @@
                             var maxHeight = Math.floor((newVal/2)/lineHeight) * lineHeight;
                             iElm.find('.pre-mask').css({
                                 'max-height': maxHeight
-                            })
+                            });
                     });
-                }
+                };
                 
             }
 		};

@@ -32,11 +32,11 @@
                     $timeout(function(){
                         $scope.isLoading = false;
                     }, $scope.loadDelay);
-                },function(res, status){
+                },function(err){
                     
                 }
             );
-        }
+        };
         
         $scope.$watch(function(){
             return angular.element($window).width();
@@ -45,7 +45,7 @@
                 $scope.listColumnLength = 3;
             }else{
                 $scope.listColumnLength = 2;
-            }
+            };
         });
         
         $scope.$on('bookmarksListLoad', function(e, params){
@@ -59,7 +59,7 @@
             }else{
                 $('.profile-wrap .profile-view-wrap').mCustomScrollbar("scrollTo", 0, {scrollInertia:0});
                 $('.profile-wrap .profile-contents-wrap')[0].scrollTop = 0;
-            }
+            };
             if($scope.bookmarksLists.length <= 0){
                 $('.profile-wrap .profile-view-wrap').mCustomScrollbar("destroy");
             }else if($scope.bookmarksLists.length > 0 && !$rootScope.isMobile){

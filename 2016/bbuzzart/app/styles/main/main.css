@@ -230,10 +230,6 @@
     justify-content: center;
     padding-top: 24px;
     background-color: #fff;
-/*
-    -webkit-transition: padding-top 0.35s;
-    transition: padding-top 0.35s;
-*/
 }
 .main-wrap .contents-wrap .nav-main.fixed .nav-main-wrap{
     padding-top: 0;

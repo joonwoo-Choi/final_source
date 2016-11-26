@@ -23,7 +23,7 @@
         
         $scope.noticeMenuHandler = function(idx){
             $scope.pageIdx = idx;
-        }
+        };
         
         $scope.setNotice = function(){
             var url = location.href;
@@ -39,7 +39,7 @@
                 $scope.pageIdx = 3;
             }else if(url.indexOf('privacypolicy') > -1){
                 $scope.pageIdx = 4;
-            }
+            };
         };
         
         $scope.noticeResize = function(){
@@ -88,14 +88,14 @@
                 });
             }else{
                 window.scrollTo(0, 0);
-            }
+            };
         });
         
         if($rootScope.isMobile){
             $timeout(function(){
                 $('.notice-wrap .notice-scroll-wrap').mCustomScrollbar("destroy").removeAttr('style');
             });
-        }
+        };
         
         $scope.setNotice();
         $scope.noticeResize();

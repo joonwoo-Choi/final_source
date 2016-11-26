@@ -31,7 +31,7 @@
             restApiSvc.get(restApiSvc.apiPath.participationWorksLists($scope.userId), params).then(
                 function(res){
                     $scope.addLists(res);
-                },function(res, status){
+                },function(err){
 
                 }
             );
@@ -108,7 +108,7 @@
                 $scope.listColumnLength = 3;
             }else{
                 $scope.listColumnLength = 2;
-            }
+            };
         });
 
         $scope.$watch('searchedLists', function(newVal, oldVal){

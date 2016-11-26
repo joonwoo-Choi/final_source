@@ -9,6 +9,7 @@
 			timeoutMessage = 'Oops! Something wrong. Please try again later.',
             apiPath = {
                 /** account */
+                authLogin: '/account/login',
                 login: '/account/login/email',
                 fbLogin: '/account/login/facebook',
                 signUpEmail: '/account/sign-up/email',

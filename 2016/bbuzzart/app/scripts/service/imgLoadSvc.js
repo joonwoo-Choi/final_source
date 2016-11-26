@@ -10,7 +10,7 @@
                 var img = new Image();
                 img.onload = function() {
                     callback(src);
-                }
+                };
                 img.src = src;
 			}
 		};
